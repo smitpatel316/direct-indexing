@@ -387,14 +387,14 @@ class BacktestEngine:
         else:
             final_spy_value = self.config.initial_portfolio
 
-        total_return = (
+        total_return_raw = (
             (final_value - self.config.initial_portfolio)
             / self.config.initial_portfolio
-        ) * 100
-        total_return_bench = (
+        )
+        total_return_bench_raw = (
             (final_spy_value - self.config.initial_portfolio)
             / self.config.initial_portfolio
-        ) * 100
+        )
 
         # Tax alpha: losses harvested × LTCG rate = estimated tax saved
         total_harvested_loss = sum(h.loss_amount for h in self._harvest_events)
@@ -410,8 +410,8 @@ class BacktestEngine:
             initial_portfolio=self.config.initial_portfolio,
             final_portfolio=final_value,
             final_benchmark=final_spy_value,
-            strategy_return_percent=total_return,
-            benchmark_return_percent=total_return_bench,
+            strategy_return_percent=total_return_raw * 100,
+            benchmark_return_percent=total_return_bench_raw * 100,
             total_tax_saved=estimated_tax_saved,
             num_harvests=len(self._harvest_events),
             total_harvested_loss=total_harvested_loss,
