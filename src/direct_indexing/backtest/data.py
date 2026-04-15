@@ -120,8 +120,10 @@ class BacktestDataManager:
 
         print(f"Loaded {len(self._composition)} composition records")
 
-    def get_tickers_for_date(self, as_of: date) -> list[str]:
+    def get_tickers_for_date(self, as_of: date | str) -> list[str]:
         """Return the S&P 500 tickers that were in the index on as_of date."""
+        if isinstance(as_of, str):
+            as_of = date.fromisoformat(as_of)
         date_str = as_of.isoformat()
 
         # Exact match
