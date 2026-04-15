@@ -87,6 +87,33 @@ def create_parser() -> argparse.ArgumentParser:
         help="Report format"
     )
 
+    # backtest command
+    backtest_parser = subparsers.add_parser("backtest", help="Run backtest")
+    backtest_parser.add_argument(
+        "--start", "-s",
+        type=str,
+        default="2018-01-01",
+        help="Start date (YYYY-MM-DD). Default: 2018-01-01"
+    )
+    backtest_parser.add_argument(
+        "--end", "-e",
+        type=str,
+        default="2024-12-31",
+        help="End date (YYYY-MM-DD). Default: 2024-12-31"
+    )
+    backtest_parser.add_argument(
+        "--portfolio", "-p",
+        type=str,
+        default="equal_weight_sp500",
+        help="Portfolio type: equal_weight_sp500. Default: equal_weight_sp500"
+    )
+    backtest_parser.add_argument(
+        "--initial-value", "-i",
+        type=float,
+        default=100000.0,
+        help="Initial portfolio value. Default: $100,000"
+    )
+
     return parser
 
 
@@ -278,6 +305,81 @@ def cmd_report(args, config: AppConfig) -> int:
     return 0
 
 
+def cmd_backtest(args, config: AppConfig) -> int:
+    """Run backtest on historical data."""
+    from .backtest.data import BacktestDataManager
+    from .backtest.engine import BacktestConfig, BacktestEngine
+
+    print(f"Backtest: {args.portfolio}")
+    print(f"Period: {args.start} → {args.end}")
+    print(f"Initial value: ${args.initial_value:,.2f}")
+    print()
+
+    # Build backtest config from CLI args + tlh config
+    tlh_cfg = config.tlh
+    backtest_config = BacktestConfig(
+        start_date=args.start,
+        end_date=args.end,
+        initial_value=args.initial_value,
+        loss_threshold_percent=tlh_cfg.loss_threshold_percent,
+        min_loss_amount=tlh_cfg.min_loss_amount,
+        max_gain_to_sell=tlh_cfg.max_gain_to_sell,
+        min_gain_amount=tlh_cfg.min_gain_amount,
+        ltcg_rate=tlh_cfg.ltcg_rate,
+        replacement_etf=tlh_cfg.replacement_etf,
+    )
+
+    # Initialize data manager (caches to disk)
+    cache_dir = Path.home() / ".cache" / "direct-indexing"
+    data_mgr = BacktestDataManager(cache_dir=cache_dir)
+
+    # Run backtest
+    print("Loading S&P 500 composition data...")
+    engine = BacktestEngine(backtest_config, data_mgr)
+
+    print("Running backtest... (this may take a few minutes)")
+    result = engine.run()
+
+    # Print summary
+    print()
+    print("=" * 60)
+    print("BACKTEST RESULTS")
+    print("=" * 60)
+    print(f"Period:           {result.start_date} → {result.end_date}")
+    print(f"Trading days:     {result.trading_days}")
+    print(f"Harvest events:   {len(result.harvest_events)}")
+    print()
+    print("Benchmark (SPY buy-and-hold):")
+    print(f"  Start value:    ${result.benchmark_start_value:,.2f}")
+    print(f"  End value:      ${result.benchmark_end_value:,.2f}")
+    print(f"  Total return:   {result.benchmark_return_percent:.2f}%")
+    print()
+    print("Strategy (equal-weight S&P 500 + TLH):")
+    print(f"  Start value:    ${result.strategy_start_value:,.2f}")
+    print(f"  End value:      ${result.strategy_end_value:,.2f}")
+    print(f"  Total return:   {result.strategy_return_percent:.2f}%")
+    print()
+    alpha = result.strategy_return_percent - result.benchmark_return_percent
+    alpha_sign = "+" if alpha >= 0 else ""
+    print(f"After-tax alpha vs benchmark: {alpha_sign}{alpha:.2f}%")
+    print(f"Total tax saved (harvested):   ${result.total_tax_saved:.2f}")
+    print()
+
+    if result.harvest_events:
+        print("Top 5 harvest events:")
+        sorted_events = sorted(
+            result.harvest_events,
+            key=lambda e: e.loss_amount,
+            reverse=True
+        )[:5]
+        for ev in sorted_events:
+            dt = str(ev.harvest_date)[:10]
+            saved = f"~${ev.tax_saved:.2f}" if ev.tax_saved else "$0.00"
+            print(f"  {dt}: {ev.symbol} -${ev.loss_amount:.2f} (saved {saved})")
+
+    return 0
+
+
 def main() -> int:
     """Main entry point."""
     parser = create_parser()
@@ -305,6 +407,8 @@ def main() -> int:
             return cmd_dashboard(args, config)
         elif args.command == "report":
             return cmd_report(args, config)
+        elif args.command == "backtest":
+            return cmd_backtest(args, config)
         else:
             parser.print_help()
             return 0
