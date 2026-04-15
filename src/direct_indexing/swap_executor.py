@@ -11,9 +11,13 @@ trigger the wash sale rule (30-day repurchase restriction).
 
 import json
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import date, datetime, timedelta
 from enum import Enum
 from pathlib import Path
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from .lot_tracker import LotTracker
 
 
 class SwapStatus(Enum):
@@ -36,6 +40,8 @@ class SwapRecord:
     executed_at: str | None = None
     order_id: str | None = None
     error: str | None = None
+    # Date when the harvest was executed (start of wash sale window)
+    harvest_date: str | None = None
 
     @classmethod
     def from_dict(cls, d: dict) -> "SwapRecord":
@@ -49,6 +55,7 @@ class SwapRecord:
             executed_at=d.get("executed_at"),
             order_id=d.get("order_id"),
             error=d.get("error"),
+            harvest_date=d.get("harvest_date"),
         )
 
     def to_dict(self) -> dict:
@@ -62,6 +69,7 @@ class SwapRecord:
             "executed_at": self.executed_at,
             "order_id": self.order_id,
             "error": self.error,
+            "harvest_date": self.harvest_date,
         }
 
 
@@ -82,10 +90,12 @@ class SwapExecutor:
         self,
         alpaca_client,  # AlpacaClient
         data_dir: Path = Path("data"),
+        lot_tracker: "LotTracker | None" = None,
     ):
         self.client = alpaca_client
         self.data_dir = data_dir
         self.swap_file = data_dir / "pending_swaps.json"
+        self.lot_tracker = lot_tracker
 
     # -------------------------------------------------------------------------
     # Persistence
@@ -174,12 +184,71 @@ class SwapExecutor:
             swap.status = SwapStatus.EXECUTED
             swap.executed_at = self._now_str()
             swap.order_id = order.id if order else None
+
+            # Update LotTracker: record the replacement buy and apply wash sale
+            # adjustment if within the wash sale window (30 days after harvest)
+            if self.lot_tracker is not None:
+                self._record_swap_in_lot_tracker(swap)
+
             return swap
 
         except Exception as e:
             swap.status = SwapStatus.FAILED
             swap.error = str(e)
             return swap
+
+    def _record_swap_in_lot_tracker(self, swap: SwapRecord) -> None:
+        """Record swap buy in LotTracker and apply wash sale adjustment.
+
+        Called after a swap buy is successfully executed. Records the
+        replacement ETF purchase in recent_trades for wash sale tracking
+        and applies any wash sale disallowed loss to the replacement lot's
+        cost basis (per IRS Sec. 1091).
+
+        Args:
+            swap: The executed swap record.
+        """
+
+        executed_date_str = swap.executed_at[:10] if swap.executed_at else date.today().isoformat()  # noqa: E501
+        executed_date = date.fromisoformat(executed_date_str)
+        # Convert date → datetime for record_recent_trade (expects datetime)
+        executed_datetime = datetime.combine(executed_date, datetime.min.time())
+
+        # Record the buy in recent_trades for wash sale tracking.
+        # record_recent_trade only tracks symbol/side/date for wash sale
+        # detection — no price or qty needed here. The actual cost basis
+        # will come from Alpaca position sync.
+        self.lot_tracker.record_recent_trade(
+            symbol=swap.target_etf,
+            side="buy",
+            date=executed_datetime,
+        )
+
+        # Apply wash sale disallowed loss if within the 30-day window
+        if swap.harvest_date:
+            try:
+                harvest_date = date.fromisoformat(swap.harvest_date)
+            except ValueError:
+                harvest_date = executed_date
+
+            wash_sale_end = harvest_date + timedelta(days=30)
+            if executed_date <= wash_sale_end:
+                # Within wash sale window — add disallowed loss to newest
+                # replacement ETF lot. The lot may already exist (from prior
+                # buys) or be created by the next position sync; we apply to
+                # the newest open lot.
+                self.lot_tracker.add_wash_sale_disallowed_loss(
+                    symbol=swap.target_etf,
+                    amount=swap.amount,
+                )
+
+        # Also try to sync the position immediately so the replacement lot
+        # is created in LotTracker right away (before next scheduled sync)
+        try:
+            self.lot_tracker._sync_positions_to_lots()
+        except Exception:
+            # Non-fatal: lot will be synced on next regular sync cycle
+            pass
 
     # -------------------------------------------------------------------------
     # Query

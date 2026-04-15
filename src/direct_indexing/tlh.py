@@ -827,6 +827,7 @@ class TLHEngine:
                     "target_etf": target_etf,
                     "amount": amount,
                     "qty": qty,
+                    "harvest_date": datetime.now().strftime("%Y-%m-%d"),
                     "scheduled_date": (
                         datetime.now() + timedelta(days=1)
                     ).strftime("%Y-%m-%d"),

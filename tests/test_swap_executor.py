@@ -286,6 +286,119 @@ class TestSwapExecutorExecution:
         assert results[0].status == SwapStatus.FAILED
         assert "API rate limit" in results[0].error
 
+    def test_execute_pending_with_lot_tracker_records_recent_trade(self, executor, swap_file):
+        """When lot_tracker is set, execute_pending records the replacement buy."""
+        from datetime import date as date_cls, datetime as dt_cls
+
+        # Use a real LotTracker with isolated directory
+        from direct_indexing.lot_tracker import LotTracker
+        lt = LotTracker(data_dir=swap_file.parent / "lt_real")
+
+        executor = SwapExecutor(
+            alpaca_client=executor.client,
+            data_dir=swap_file.parent,
+            lot_tracker=lt,
+        )
+
+        today = datetime.now().strftime("%Y-%m-%d")
+        harvest_date = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d")
+        swap_file.write_text(json.dumps([{
+            "original_symbol": "SPY",
+            "target_etf": "VOO",
+            "amount": 500.0,
+            "qty": 2,
+            "scheduled_date": today,
+            "status": "PENDING",
+            "harvest_date": harvest_date,
+        }]))
+        executor.client.is_market_open.return_value = True
+        mock_acct = MagicMock()
+        mock_acct.buying_power = 10000.0
+        executor.client.get_account.return_value = mock_acct
+        executor.client.submit_order.return_value = MagicMock(id="order-voo-123")
+
+        results = executor.execute_pending()
+        assert results[0].status == SwapStatus.EXECUTED
+
+        # Verify recent_trades has VOO buy (record_recent_trade takes date parameter)
+        recent = lt.get_recent_trades()
+        assert any(t.symbol == "VOO" and t.side == "buy" for t in recent)
+
+    def test_record_swap_in_lot_tracker_within_wash_window(self, executor, swap_file):
+        """Within 30-day window: add_wash_sale_disallowed_loss is called."""
+        from datetime import date as date_cls
+
+        mock_lt = MagicMock()
+        mock_lt.record_recent_trade = MagicMock()
+        mock_lt.add_wash_sale_disallowed_loss = MagicMock()
+        mock_lt._sync_positions_to_lots = MagicMock()
+
+        executor = SwapExecutor(
+            alpaca_client=executor.client,
+            data_dir=swap_file.parent,
+            lot_tracker=mock_lt,
+        )
+
+        today = datetime.now().strftime("%Y-%m-%d")
+        today_date = date_cls.today()
+        harvest_date_iso = today_date.isoformat()
+
+        swap = SwapRecord(
+            original_symbol="SPY",
+            target_etf="VOO",
+            amount=300.0,
+            qty=1,
+            scheduled_date=today,
+            status=SwapStatus.EXECUTED,
+            executed_at=datetime.now().isoformat(),
+            harvest_date=harvest_date_iso,
+        )
+
+        executor._record_swap_in_lot_tracker(swap)
+
+        mock_lt.record_recent_trade.assert_called_once()
+        call_args = mock_lt.record_recent_trade.call_args
+        assert call_args[1]["symbol"] == "VOO"
+        assert call_args[1]["side"] == "buy"
+
+        # Within wash sale window → add_wash_sale_disallowed_loss called
+        mock_lt.add_wash_sale_disallowed_loss.assert_called_once_with(
+            symbol="VOO", amount=300.0
+        )
+
+    def test_record_swap_in_lot_tracker_outside_wash_window(self, executor, swap_file):
+        """Outside 30-day window: no wash sale adjustment applied."""
+        mock_lt = MagicMock()
+        mock_lt.record_recent_trade = MagicMock()
+        mock_lt.add_wash_sale_disallowed_loss = MagicMock()
+        mock_lt._sync_positions_to_lots = MagicMock()
+
+        executor = SwapExecutor(
+            alpaca_client=executor.client,
+            data_dir=swap_file.parent,
+            lot_tracker=mock_lt,
+        )
+
+        today = datetime.now().strftime("%Y-%m-%d")
+        harvest_date = (datetime.now() - timedelta(days=60)).date().isoformat()
+
+        swap = SwapRecord(
+            original_symbol="SPY",
+            target_etf="VOO",
+            amount=300.0,
+            qty=1,
+            scheduled_date=today,
+            status=SwapStatus.EXECUTED,
+            executed_at=datetime.now().isoformat(),
+            harvest_date=harvest_date,
+        )
+
+        executor._record_swap_in_lot_tracker(swap)
+
+        mock_lt.record_recent_trade.assert_called_once()
+        # Outside wash sale window → add_wash_sale_disallowed_loss NOT called
+        mock_lt.add_wash_sale_disallowed_loss.assert_not_called()
+
 
 # =============================================================================
 # SwapExecutor — query methods
