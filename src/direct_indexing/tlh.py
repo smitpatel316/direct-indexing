@@ -376,10 +376,16 @@ class TLHEngine:
                 continue
 
             # Scan lots for this symbol using lot tracker
+            # Pass the replacement ETF so wash sale check also blocks if
+            # we've already bought the replacement (holding VOO from prior harvest)
+            swap_target = (
+                self.config.swap_etfs[0] if self.config.swap_etfs else "VOO"
+            )
             harvestable_lots = self._lot_tracker.scan_harvestable_lots(
                 symbol=pos.symbol,
                 current_price=current_price,
                 min_loss_amount=self.config.min_loss_amount,
+                replacement_etf=swap_target,
             )
 
             if not harvestable_lots:

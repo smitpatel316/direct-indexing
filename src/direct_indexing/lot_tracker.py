@@ -330,6 +330,7 @@ class LotTracker:
         symbol: str,
         current_price: float,
         min_loss_amount: float = 0.0,
+        replacement_etf: str | None = None,
         as_of: datetime | None = None,
     ) -> list[Lot]:
         """Find lots at a loss that can be harvested (not in wash sale).
@@ -338,6 +339,7 @@ class LotTracker:
             symbol: Ticker to scan
             current_price: Current market price per share
             min_loss_amount: Minimum dollar loss to qualify
+            replacement_etf: ETF we'll buy as replacement (also checked for wash sale)
             as_of: Date for wash sale check (default: now)
 
         Returns:
@@ -363,9 +365,11 @@ class LotTracker:
                 continue
 
             # Check wash sale: can we actually harvest this lot?
+            # Also block if replacement ETF was already bought (wash sale)
             if not self.can_harvest_lot(
                 symbol=symbol,
                 lot_id=lot.lot_id,
+                replacement_etf=replacement_etf,
                 as_of=as_of,
             ):
                 continue
