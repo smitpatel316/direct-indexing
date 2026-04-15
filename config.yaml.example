@@ -1,0 +1,37 @@
+# Direct Indexing Configuration
+# Copy this file to config.yaml and fill in your values
+
+alpaca:
+  api_key: "YOUR_API_KEY_HERE"
+  api_secret: "YOUR_API_SECRET_HERE"
+  base_url: "https://paper-api.alpaca.markets"
+  data_url: "https://data.alpaca.markets"
+  paper_trading: true  # Set false for live trading
+
+tlh:
+  enabled: true
+  loss_threshold_percent: 5.0  # Harvest losses > 5%
+  min_loss_amount: 100.0        # Minimum $100 loss to harvest
+  max_harvests_per_year: 10     # Limit annual harvests
+  frequency: "daily"           # daily, weekly, monthly
+  swap_etfs:
+    - VOO
+    - SPY
+    - IVV
+  wash_sale_enabled: true
+  carryforward_enabled: true
+
+rebalance:
+  enabled: true
+  threshold_percent: 2.0  # 2% drift triggers rebalance
+  frequency: "daily"
+
+portfolio:
+  target_etf: "SPY"
+  etf_constituents_url: ""  # URL to CSV of ETF holdings
+  min_position_value: 1.0
+
+dashboard:
+  host: "0.0.0.0"
+  port: 8000
+  enable: true
