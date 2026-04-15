@@ -115,8 +115,8 @@ class BacktestResult:
 
     def summary(self) -> str:
         """Human-readable summary."""
-        bench_pct = self.benchmark_return_percent * 100
-        strat_pct = self.strategy_return_percent * 100
+        bench_pct = self.benchmark_return_percent
+        strat_pct = self.strategy_return_percent
         alpha = strat_pct - bench_pct
         alpha_sign = "+" if alpha >= 0 else ""
         lines = [
