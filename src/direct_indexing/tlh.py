@@ -34,6 +34,7 @@ class HarvestResult:
     lots_harvested: int = 0  # Number of lots sold
     success: bool = False
     error: str | None = None
+    harvest_date: datetime = field(default_factory=datetime.now)
     timestamp: datetime = field(default_factory=datetime.now)
 
 
@@ -582,6 +583,7 @@ class TLHEngine:
                 swap_target=swap_target,
                 lots_harvested=len(losing_lots),
                 success=True,
+                harvest_date=datetime.now(),
             )
 
         except Exception as e:
@@ -804,8 +806,32 @@ class TLHEngine:
                     result.swap_target,
                     result.loss_amount,
                 )
+                # Log harvest to history
+                self._append_history(result)
 
         return results
+
+    def _append_history(self, result: HarvestResult) -> None:
+        """Append a successful harvest to the history log."""
+        history = []
+        if self.history_file.exists():
+            try:
+                history = json.load(open(self.history_file))
+            except Exception:
+                history = []
+
+        history.append({
+            "date": result.harvest_date.isoformat(),
+            "symbol": result.symbol,
+            "loss_amount": result.loss_amount,
+            "loss_percent": result.loss_percent,
+            "swap_target": result.swap_target,
+            "lots_harvested": result.lots_harvested,
+            "success": result.success,
+        })
+
+        with open(self.history_file, "w") as f:
+            json.dump(history, f, indent=2)
 
     def _schedule_swap(
         self, original_symbol: str, target_etf: str, amount: float
