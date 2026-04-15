@@ -87,6 +87,7 @@ class HarvestEvent:
     loss_amount: float
     swap_target: str  # ETF bought instead
     qty_sold: float
+    tax_saved: float = 0.0  # estimated tax saved at LTCG rate
 
 
 @dataclass
@@ -95,47 +96,38 @@ class BacktestResult:
     start_date: date
     end_date: date
     initial_portfolio: float
+    trading_days: int = 0
 
     # Portfolio values
     final_portfolio: float = 0.0
     final_benchmark: float = 0.0
 
     # Returns
-    total_return: float = 0.0
-    total_return_benchmark: float = 0.0
-    tax_alpha: float = 0.0
+    strategy_return_percent: float = 0.0
+    benchmark_return_percent: float = 0.0
+    total_tax_saved: float = 0.0
 
     # Harvest stats
     num_harvests: int = 0
     total_harvested_loss: float = 0.0
-    total_realized_gains: float = 0.0
-    total_realized_losses: float = 0.0
-
-    # Tax impact
-    net_taxable_gain: float = 0.0
-    estimated_tax_saved: float = 0.0
 
     harvest_events: list[HarvestEvent] = field(default_factory=list)
 
     def summary(self) -> str:
         """Human-readable summary."""
-        bench_pct = self.total_return_benchmark * 100
-        strat_pct = self.total_return * 100
-        alpha_pct = (self.tax_alpha / self.initial_portfolio) * 100
-        harvested_dollar = f"${self.total_harvested_loss:,.0f}"
-        harvest_line = (
-            f"Harvests: {self.num_harvests} events, "
-            f"{harvested_dollar} total loss harvested"
-        )
+        bench_pct = self.benchmark_return_percent * 100
+        strat_pct = self.strategy_return_percent * 100
+        alpha = strat_pct - bench_pct
+        alpha_sign = "+" if alpha >= 0 else ""
         lines = [
             f"Backtest: {self.start_date} → {self.end_date}",
             f"Initial:  ${self.initial_portfolio:,.0f}",
-            f"Final: ${self.final_portfolio:,.0f} vs ${self.final_benchmark:,.0f}",
+            f"Final: ${self.final_portfolio:,.2f} vs ${self.final_benchmark:,.2f}",
             "          (buy-hold SPY benchmark)",
             f"Return: {strat_pct:.2f}% (strategy) vs {bench_pct:.2f}% (benchmark)",
-            f"Tax alpha: {self.tax_alpha*100:.2f}% ({alpha_pct:.2f}% of portfolio)",
-            harvest_line,
-            f"Tax saved: ${self.estimated_tax_saved:,.0f}",
+            f"Alpha: {alpha_sign}{alpha:.2f}%",
+            f"Harvests: {self.num_harvests} events, ${self.total_harvested_loss:,.0f}",
+            f"Tax saved: ${self.total_tax_saved:,.2f}",
         ]
         return "\n".join(lines)
 
@@ -154,8 +146,8 @@ class BacktestConfig:
     num_positions: int = 100  # number of S&P 500 stocks to hold
     loss_threshold_percent: float = 5.0
     min_loss_amount: float = 100.0
-    swap_etf: str = "VOO"
-    ltcp_rate: float = DEFAULT_LTCG_RATE  # long-term capital gains rate
+    swap_etf: str = "VOO"  # replacement ETF after harvest (alias: replacement_etf)
+    ltcg_rate: float = DEFAULT_LTCG_RATE  # long-term capital gains rate
     stcg_rate: float = DEFAULT_STCG_RATE  # short-term capital gains rate
     rebalance_frequency_days: int = 30
 
@@ -396,27 +388,32 @@ class BacktestEngine:
             final_spy_value = self.config.initial_portfolio
 
         total_return = (
-            final_value - self.config.initial_portfolio
-        ) / self.config.initial_portfolio
+            (final_value - self.config.initial_portfolio)
+            / self.config.initial_portfolio
+        ) * 100
         total_return_bench = (
-            final_spy_value - self.config.initial_portfolio
-        ) / self.config.initial_portfolio
+            (final_spy_value - self.config.initial_portfolio)
+            / self.config.initial_portfolio
+        ) * 100
 
         # Tax alpha: losses harvested × LTCG rate = estimated tax saved
         total_harvested_loss = sum(h.loss_amount for h in self._harvest_events)
-        estimated_tax_saved = total_harvested_loss * self.config.ltcp_rate
+        estimated_tax_saved = total_harvested_loss * self.config.ltcg_rate
+
+        # Compute trading days
+        trading_days = (end - start).days
 
         return BacktestResult(
             start_date=start,
             end_date=end,
+            trading_days=trading_days,
             initial_portfolio=self.config.initial_portfolio,
             final_portfolio=final_value,
             final_benchmark=final_spy_value,
-            total_return=total_return,
-            total_return_benchmark=total_return_bench,
-            tax_alpha=estimated_tax_saved,
+            strategy_return_percent=total_return,
+            benchmark_return_percent=total_return_bench,
+            total_tax_saved=estimated_tax_saved,
             num_harvests=len(self._harvest_events),
             total_harvested_loss=total_harvested_loss,
-            estimated_tax_saved=estimated_tax_saved,
             harvest_events=self._harvest_events,
         )

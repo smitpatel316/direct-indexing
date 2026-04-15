@@ -237,11 +237,11 @@ class BacktestDataManager:
 
         # Fetch new data from yfinance
         try:
-            yf_ticker = yf.Ticker(ticker)
-            # download returns a DataFrame with columns:
-            # Open, High, Low, Close, Volume, etc.
             import pandas as pd
-            df: pd.DataFrame = yf_ticker.download(
+
+            # Use module-level download (correct for yfinance >= 0.2)
+            df: pd.DataFrame = yf.download(
+                ticker,
                 start=start.isoformat(),
                 end=end.isoformat(),
                 progress=False,

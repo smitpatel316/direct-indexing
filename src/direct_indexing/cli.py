@@ -344,6 +344,8 @@ def cmd_report(args, config: AppConfig) -> int:
 
 def cmd_backtest(args, config: AppConfig) -> int:
     """Run backtest on historical data."""
+    import asyncio
+
     from .backtest.data import BacktestDataManager
     from .backtest.engine import BacktestConfig, BacktestEngine
 
@@ -357,13 +359,11 @@ def cmd_backtest(args, config: AppConfig) -> int:
     backtest_config = BacktestConfig(
         start_date=args.start,
         end_date=args.end,
-        initial_value=args.initial_value,
+        initial_portfolio=args.initial_value,
         loss_threshold_percent=tlh_cfg.loss_threshold_percent,
         min_loss_amount=tlh_cfg.min_loss_amount,
-        max_gain_to_sell=tlh_cfg.max_gain_to_sell,
-        min_gain_amount=tlh_cfg.min_gain_amount,
         ltcg_rate=tlh_cfg.ltcg_rate,
-        replacement_etf=tlh_cfg.replacement_etf,
+        swap_etf=tlh_cfg.swap_etfs[0] if tlh_cfg.swap_etfs else "VOO",
     )
 
     # Initialize data manager (caches to disk)
@@ -375,7 +375,7 @@ def cmd_backtest(args, config: AppConfig) -> int:
     engine = BacktestEngine(backtest_config, data_mgr)
 
     print("Running backtest... (this may take a few minutes)")
-    result = engine.run()
+    result = asyncio.run(engine.run())
 
     # Print summary
     print()
