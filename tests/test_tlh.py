@@ -38,6 +38,8 @@ def mock_client():
             market_value=1400.0,  # $10 loss
             unrealized_pl=-100.0,
             unrealized_plpc=-6.67,
+            current_price=140.0,
+            cost_basis=1500.0,
         ),
         Position(
             symbol="MSFT",
@@ -46,6 +48,8 @@ def mock_client():
             market_value=1600.0,  # $100 gain
             unrealized_pl=100.0,
             unrealized_plpc=6.67,
+            current_price=320.0,
+            cost_basis=1500.0,
         ),
     ]
     return client
@@ -200,12 +204,15 @@ class TestHarvestExecution:
             market_value=1400.0,
             unrealized_pl=-100.0,
             unrealized_plpc=-6.67,
+            current_price=140.0,
+            cost_basis=1500.0,
         )
-        
+
         mock_client.submit_order.return_value = {"id": "order123"}
-        
+
         result = engine.execute_harvest(position)
-        
+
+
         assert result.success is True
         assert result.symbol == "AAPL"
         assert result.loss_amount == 100.0
@@ -218,12 +225,15 @@ class TestHarvestExecution:
             market_value=1400.0,
             unrealized_pl=-100.0,
             unrealized_plpc=-6.67,
+            current_price=140.0,
+            cost_basis=1500.0,
         )
-        
+
         mock_client.submit_order.return_value = {"id": "order123"}
-        
+
+
         result = engine.execute_harvest(position)
-        
+
         assert engine.is_in_wash_sale_period("AAPL") is True
     
     def test_execute_harvest_adds_to_carryforward(self, engine, mock_client):
@@ -234,12 +244,14 @@ class TestHarvestExecution:
             market_value=1400.0,
             unrealized_pl=-100.0,
             unrealized_plpc=-6.67,
+            current_price=140.0,
+            cost_basis=1500.0,
         )
-        
+
         mock_client.submit_order.return_value = {"id": "order123"}
-        
+
         result = engine.execute_harvest(position)
-        
+
         balance = engine.get_carryforward_balance()
         assert balance == 100.0
     
@@ -251,12 +263,15 @@ class TestHarvestExecution:
             market_value=1400.0,
             unrealized_pl=-100.0,
             unrealized_plpc=-6.67,
+            current_price=140.0,
+            cost_basis=1500.0,
         )
-        
+
         mock_client.submit_order.side_effect = Exception("API Error")
-        
+
+
         result = engine.execute_harvest(position)
-        
+
         assert result.success is False
         assert "API Error" in result.error
 

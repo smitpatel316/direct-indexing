@@ -259,16 +259,13 @@ class TLHEngine:
             swap_target = self.config.swap_etfs[0] if self.config.swap_etfs else "VOO"
 
             # Submit sell order
-            from .alpaca_client import Order, OrderSide, OrderType, TimeInForce
-            order = Order(
+            from .alpaca_client import OrderSide, OrderType
+            self.client.submit_order(
                 symbol=position.symbol,
-                qty=position.qty,
                 side=OrderSide.SELL,
                 order_type=OrderType.MARKET,
-                time_in_force=TimeInForce.DAY,
+                qty=position.qty,
             )
-
-            self.client.submit_order(order)
 
             # Record wash sale
             if self.config.wash_sale_enabled:
