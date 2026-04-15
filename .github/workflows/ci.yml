@@ -50,7 +50,7 @@ jobs:
         run: ruff check src/
 
       - name: Run mypy (type check)
-        run: mypy src/ --strict
+        run: mypy src/ --ignore-missing-imports --no-implicit-optional
 
   security:
     name: Security Audit

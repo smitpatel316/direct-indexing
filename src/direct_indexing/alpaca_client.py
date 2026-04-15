@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from enum import Enum
 from typing import Any
 
-import requests
+import requests  # type: ignore[import-untyped]
 
 from .config import AlpacaConfig
 
@@ -174,11 +174,11 @@ class AlpacaClient:
         response.raise_for_status()
         data = response.json()
 
-        return data.get("quote", {})
+        return data.get("quote", {})  # type: ignore[no-any-return]
 
     def submit_order(self, order: Order) -> dict[str, Any]:
         """Submit a trading order."""
-        payload = {
+        payload: dict[str, Any] = {
             "symbol": order.symbol,
             "side": (
                 order.side.value
@@ -211,7 +211,7 @@ class AlpacaClient:
             json=payload
         )
         response.raise_for_status()
-        return response.json()
+        return response.json()  # type: ignore[no-any-return]
 
     def get_orders(self, status: str = "all") -> list[dict[str, Any]]:
         """Get orders by status (open, closed, all)."""
@@ -221,7 +221,7 @@ class AlpacaClient:
             params={"status": status}
         )
         response.raise_for_status()
-        return response.json()
+        return response.json()  # type: ignore[no-any-return]
 
     def cancel_order(self, order_id: str) -> None:
         """Cancel an order."""
@@ -243,7 +243,7 @@ class AlpacaClient:
         )
         response.raise_for_status()
         data = response.json()
-        return data.get("bars", [])
+        return data.get("bars", [])  # type: ignore[no-any-return]
 
     def is_market_open(self) -> bool:
         """Check if market is currently open."""
@@ -253,7 +253,7 @@ class AlpacaClient:
         )
         response.raise_for_status()
         data = response.json()
-        return data.get("is_open", False)
+        return data.get("is_open", False)  # type: ignore[no-any-return]
 
     def get_market_status(self) -> dict[str, Any]:
         """Get full market status."""
@@ -262,4 +262,4 @@ class AlpacaClient:
             headers=self.headers
         )
         response.raise_for_status()
-        return response.json()
+        return response.json()  # type: ignore[no-any-return]

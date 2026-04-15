@@ -7,7 +7,7 @@ import os
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
-import yaml
+import yaml  # type: ignore[import-untyped]
 
 
 @dataclass
@@ -148,10 +148,12 @@ class ConfigManager:
             self._config = AppConfig.from_env()
             if self._config.alpaca.api_key or self._config.alpaca.api_secret:
                 self._validate()  # Only validate if env vars set
+        assert self._config is not None
         return self._config
 
     def _validate(self) -> None:
         """Validate configuration."""
+        assert self._config is not None
         if not self._config.alpaca.api_key:
             raise ValueError("ALPACA_API_KEY is required")
         if not self._config.alpaca.api_secret:
@@ -162,6 +164,7 @@ class ConfigManager:
         """Get current configuration."""
         if self._config is None:
             self.load()
+        assert self._config is not None
         return self._config
 
 

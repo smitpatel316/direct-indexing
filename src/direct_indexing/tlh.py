@@ -304,7 +304,7 @@ class TLHEngine:
 
     def run_daily_scan(self) -> list[HarvestResult]:
         """Run the daily TLH scan and execute harvests."""
-        results = []
+        results: list[HarvestResult] = []
 
         # Update expired wash sales
         self.update_expired_wash_sales()
