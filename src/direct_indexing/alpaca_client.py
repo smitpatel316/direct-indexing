@@ -3,11 +3,11 @@ Alpaca API Client
 Modern async/sync client for Alpaca trading API.
 """
 
-import os
-from typing import List, Optional, Dict, Any
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
+from typing import Any, Dict, List, Optional
+
 import requests
 
 from .config import AlpacaConfig

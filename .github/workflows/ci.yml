@@ -80,22 +80,8 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Install dependencies
+        run: pip install pyyaml
+
       - name: Validate config schema
-        run: |
-          python -c "
-            from src.direct_indexing.config import AppConfig, AlpacaConfig, TLHConfig
-            from dataclasses import asdict
-            import json
-            # Test that config can be serialized
-            cfg = AppConfig()
-            json.dumps(asdict(cfg))
-            print('Config serialization: OK')
-            
-            # Test env override
-            import os
-            os.environ['ALPACA_API_KEY'] = 'test_key'
-            from src.direct_indexing.config import AppConfig
-            cfg = AppConfig.from_env()
-            assert cfg.alpaca.api_key == 'test_key'
-            print('Env config loading: OK')
-          "
+        run: python scripts/validate_config.py
