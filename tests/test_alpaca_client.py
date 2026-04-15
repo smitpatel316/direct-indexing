@@ -52,16 +52,20 @@ class TestPosition:
         )
         assert pos.loss_percent == pytest.approx(-6.67, 0.01)
     
-    def test_loss_amount(self):
+    def test_loss_amount_is_magnitude(self):
+        # loss_amount is the HARMFUL loss MAGNITUDE (always positive)
+        # It represents how much was lost, not the signed P&L
         pos = Position(
             symbol="AAPL",
             qty=10.0,
             avg_entry_price=150.0,
-            market_value=1400.0,
+            market_value=1400.0,  # current = 140
             unrealized_pl=-100.0,
             unrealized_plpc=-6.67,
         )
-        assert pos.loss_amount == -100.0
+        # (150 - 140) * 10 = 100 (positive magnitude)
+        assert pos.loss_amount == 100.0
+        assert pos.loss_amount == abs(pos.unrealized_pl)
 
 
 class TestAlpacaClient:

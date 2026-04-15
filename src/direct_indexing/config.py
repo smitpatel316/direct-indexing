@@ -128,10 +128,12 @@ class ConfigManager:
         """Load configuration from file or environment."""
         if self.config_path.exists():
             self._config = AppConfig.from_yaml(self.config_path)
+            self._validate()  # File provided = explicit config, validate it
         else:
+            # No file: try env vars, else use safe defaults (no validation)
             self._config = AppConfig.from_env()
-        
-        self._validate()
+            if self._config.alpaca.api_key or self._config.alpaca.api_secret:
+                self._validate()  # Only validate if env vars set
         return self._config
 
     def _validate(self) -> None:
