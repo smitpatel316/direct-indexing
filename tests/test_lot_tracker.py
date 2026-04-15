@@ -548,3 +548,79 @@ class TestGetAllLots:
         assert len(all_lots) == 3  # all lots still in DB
         open_lots = tracker_with_lots.get_lots("AAPL")
         assert len(open_lots) == 1  # only lot3 has qty > 0
+
+
+class TestWashSaleBasisAdjustment:
+    """IRS requires disallowed loss be added to replacement lot's cost basis."""
+
+    def test_disallowed_loss_adds_to_cost_basis(self, tracker):
+        """When a harvest triggers wash sale, the disallowed loss must be
+        added to the cost basis of the replacement security's lot.
+
+        Scenario: We buy VOO (replacement), then sell SPY at a loss within 30 days.
+        The $1000 disallowed loss gets added to VOO's cost basis.
+        Before: VOO cost_basis = 100 * $400 = $40,000
+        After wash sale: VOO cost_basis = $40,000 + $1,000 = $41,000
+        """
+        # Step 1: We BOUGHT VOO first (replacement ETF)
+        tracker.record_buy(
+            symbol="VOO",
+            qty=100.0,
+            cost_per_share=400.0,  # $40,000 total cost basis
+            order_id="voo-buy",
+        )
+
+        # Step 2: We try to harvest SPY at a loss ($1,000) — but VOO was bought
+        # recently, so this is a wash sale!
+        tracker.record_recent_trade("VOO", side="buy")  # VOO was just bought
+
+        tracker.record_buy("SPY", 100, 450.0, "spy-buy")
+        can_harvest = tracker.can_harvest_lot(
+            symbol="SPY",
+            lot_id=tracker.get_lots("SPY")[0].lot_id,
+            replacement_etf="VOO",
+        )
+        assert can_harvest is False, "SPY harvest should be blocked (wash sale)"
+
+        # Step 3: Record the wash sale's disallowed loss against the VOO lot
+        disallowed_loss = 1000.0
+        tracker.add_wash_sale_disallowed_loss(
+            symbol="VOO",
+            amount=disallowed_loss,
+        )
+
+        # Step 4: VOO's cost basis should be adjusted
+        voo_lot = tracker.get_lots("VOO")[0]
+        expected_cost_basis = (100.0 * 400.0) + disallowed_loss  # $41,000
+        assert voo_lot.adjusted_cost_basis == expected_cost_basis
+
+    def test_disallowed_loss_multiple_harvests(self, tracker):
+        """Multiple wash sales accumulate: each disallowed loss adds to basis."""
+        tracker.record_buy("VOO", 50.0, 400.0, "voo-buy-1")
+
+        # First wash sale: $500 disallowed loss
+        tracker.add_wash_sale_disallowed_loss("VOO", 500.0)
+        # Second wash sale: $300 disallowed loss
+        tracker.add_wash_sale_disallowed_loss("VOO", 300.0)
+
+        voo_lot = tracker.get_lots("VOO")[0]
+        # $400 * 50 = $20,000 + $500 + $300 = $20,800
+        assert voo_lot.cost_per_share == 400.0
+        assert voo_lot.adjusted_cost_basis == 50.0 * 400.0 + 500.0 + 300.0
+
+    def test_wash_sale_lot_not_harvestable(self, tracker):
+        """A lot that has disallowed losses added to its basis still exists
+        and is still a valid lot — we just track the basis adjustment."""
+        tracker.record_buy("SPY", 100, 450.0, "spy-buy")
+        # Add a wash sale disallowed loss from a prior harvest
+        tracker.add_wash_sale_disallowed_loss("SPY", 200.0)
+
+        lots = tracker.get_lots("SPY")
+        assert len(lots) == 1
+        # SPY is still harvestable (it's just at a basis-adjusted cost)
+        # If SPY is now at $440 (only $10 loss), it may or may not be harvestable
+        # depending on min_loss_amount
+        harvestable = tracker.scan_harvestable_lots(
+            "SPY", current_price=440.0, min_loss_amount=0.0
+        )
+        assert len(harvestable) == 1

@@ -525,6 +525,17 @@ class TLHEngine:
                     side="buy",
                 )
 
+                # Check if replacement ETF was already held (washed into an existing lot)
+                # If so, the disallowed loss must be added to that lot's cost basis (IRS Sec. 1091)
+                existing_lots = self._lot_tracker.get_lots(replacement_etf.upper())
+                if existing_lots:
+                    # Replacement was already owned — add disallowed loss to the
+                    # most recently acquired open lot (specific identification rule)
+                    self._lot_tracker.add_wash_sale_disallowed_loss(
+                        symbol=replacement_etf.upper(),
+                        amount=total_loss,
+                    )
+
             return HarvestResult(
                 symbol=position.symbol,
                 loss_amount=total_loss,

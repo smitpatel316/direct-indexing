@@ -54,11 +54,22 @@ class Lot:
     order_id: str
     status: LotStatus = LotStatus.OPEN
     notes: str = ""
+    _adjusted_cost_basis: float = field(default=0.0, repr=False)
 
     @property
     def cost_basis(self) -> float:
-        """Total cost basis of this lot (original qty × cost_per_share)."""
+        """Total cost basis of this lot (original qty x cost_per_share)."""
         return self.qty * self.cost_per_share
+
+    @property
+    def adjusted_cost_basis(self) -> float:
+        """Total cost basis including wash sale disallowed loss adjustments.
+
+        When a harvest triggers a wash sale, the disallowed loss is added
+        to the cost basis of the replacement security's lot (per IRS Sec. 1091).
+        This adjusted basis is used when computing gain/loss at sale time.
+        """
+        return (self.qty * self.cost_per_share) + self._adjusted_cost_basis
 
     @property
     def current_price(self) -> float:
@@ -501,3 +512,39 @@ class LotTracker:
             trades = [t for t in trades if t.side == side.lower()]
 
         return sorted(trades, key=lambda t: t.date, reverse=True)
+
+    def add_wash_sale_disallowed_loss(
+        self,
+        symbol: str,
+        amount: float,
+    ) -> None:
+        """Add wash sale disallowed loss to the replacement security's cost basis.
+
+        Per IRS Sec. 1091, when a harvest triggers a wash sale, the disallowed
+        loss is added to the cost basis of the replacement security's lot.
+        This deferred loss is recoverable when the replacement lot is eventually sold.
+
+        Args:
+            symbol: Replacement security ticker (e.g., 'VOO')
+            amount: Dollar amount of the disallowed loss to add
+
+        Note: Only the OPEN lot receives the adjustment. If there are multiple
+        open lots, the most recently acquired one gets the full amount (per
+        IRS specific identification rules — we apply to the newest lot).
+        """
+        if amount <= 0:
+            return
+
+        # Find open lots for this symbol, newest first
+        lots = [
+            l for l in self.get_all_lots()
+            if l.symbol == symbol.upper() and l.status == LotStatus.OPEN
+        ]
+        if not lots:
+            return
+
+        # Apply to the newest open lot (most recently acquired)
+        # This matches how specific identification works tax-wise
+        lots.sort(key=lambda l: l.acquired_date, reverse=True)
+        lots[0]._adjusted_cost_basis += amount
+        self._save()
