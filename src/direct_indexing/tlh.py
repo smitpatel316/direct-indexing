@@ -342,9 +342,9 @@ class TLHEngine:
 
         # Calculate quantity based on target ETF price
         try:
-            quote = self.client.get_quote(target_etf)
-            if quote and "ap" in quote:
-                qty = int(amount / quote["ap"])
+            price = self.client.get_latest_price(target_etf)
+            if price and price > 0:
+                qty = int(amount / price)
                 swaps.append({
                     "original_symbol": original_symbol,
                     "target_etf": target_etf,

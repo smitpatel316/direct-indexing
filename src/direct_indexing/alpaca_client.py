@@ -17,7 +17,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Any
+from typing import Any, cast
 
 from alpaca.data.historical import StockHistoricalDataClient
 from alpaca.trading.client import TradingClient
@@ -327,7 +327,15 @@ class AlpacaClient:
             limit=limit,
         )
         bars = self._data.get_stock_bars(request_params)
-        return bars.df.reset_index().to_dict("records")
+        records = bars.df.reset_index().to_dict("records")
+        return cast(list[dict[str, Any]], records)
+
+    def get_latest_price(self, symbol: str) -> float | None:
+        """Get the latest trade price for a symbol."""
+        bars = self.get_bars(symbol, timeframe="1Min", limit=1)
+        if not bars:
+            return None
+        return float(bars[0]["close"])
 
     def is_market_open(self) -> bool:
         """Check if market is currently open."""

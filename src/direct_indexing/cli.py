@@ -92,7 +92,11 @@ def create_parser() -> argparse.ArgumentParser:
 
 def cmd_run(args, config: AppConfig) -> int:
     """Run the full system."""
-    client = AlpacaClient(config.alpaca)
+    client = AlpacaClient(
+        config.alpaca.api_key,
+        config.alpaca.api_secret,
+        paper=config.alpaca.paper_trading,
+    )
 
     # Check market status
     market = client.get_market_status()
@@ -119,7 +123,11 @@ def cmd_run(args, config: AppConfig) -> int:
 
 def cmd_scan(args, config: AppConfig) -> int:
     """Run TLH scan."""
-    client = AlpacaClient(config.alpaca)
+    client = AlpacaClient(
+        config.alpaca.api_key,
+        config.alpaca.api_secret,
+        paper=config.alpaca.paper_trading,
+    )
     tlh_engine = TLHEngine(client, config.tlh)
 
     if args.threshold:
@@ -167,7 +175,11 @@ def cmd_scan(args, config: AppConfig) -> int:
 
 def cmd_status(args, config: AppConfig) -> int:
     """Show portfolio status."""
-    client = AlpacaClient(config.alpaca)
+    client = AlpacaClient(
+        config.alpaca.api_key,
+        config.alpaca.api_secret,
+        paper=config.alpaca.paper_trading,
+    )
 
     # Get account info
     account = client.get_account()
@@ -232,7 +244,11 @@ def cmd_dashboard(args, config: AppConfig) -> int:
 
 def cmd_report(args, config: AppConfig) -> int:
     """Generate TLH report."""
-    client = AlpacaClient(config.alpaca)
+    client = AlpacaClient(
+        config.alpaca.api_key,
+        config.alpaca.api_secret,
+        paper=config.alpaca.paper_trading,
+    )
     tlh_engine = TLHEngine(client, config.tlh)
 
     summary = tlh_engine.get_summary()
