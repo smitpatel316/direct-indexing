@@ -279,28 +279,65 @@ def cmd_report(args, config: AppConfig) -> int:
     tlh_engine = TLHEngine(client, config.tlh)
 
     summary = tlh_engine.get_summary()
+    history = tlh_engine.get_history()
 
     if args.format == "json":
         import json
-        print(json.dumps(summary, indent=2, default=str))
-    else:
-        print("=" * 50)
-        print("TAX-LOSS HARVESTING REPORT")
-        print(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M')}")
-        print("=" * 50)
-        print()
-        print(f"Carryforward Balance: ${summary['carryforward_balance']:.2f}")
-        print(f"Active Wash Sales: {summary['active_wash_sales']}")
-        print(f"Harvestable Positions: {summary['harvestable_positions']}")
+        print(json.dumps({
+            **summary,
+            "harvest_history": history,
+        }, indent=2, default=str))
+        return 0
+
+    print("=" * 60)
+    print("TAX-LOSS HARVESTING REPORT")
+    print(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+    print("=" * 60)
+    print()
+    print(f"Carryforward Balance: ${summary['carryforward_balance']:.2f}")
+    print(f"Active Wash Sales: {summary['active_wash_sales']}")
+    print(f"Expired Wash Sales: {summary.get('expired_wash_sales', 0)}")
+    print(f"Harvestable Positions: {summary['harvestable_positions']}")
+    print()
+
+    if summary["top_losses"]:
+        print("Top Harvestable Losses:")
+        for loss in summary["top_losses"]:
+            sym = loss["symbol"]
+            amt = loss["loss_amount"]
+            pct = loss["loss_percent"]
+            print(f"  {sym}: -${amt:.2f} ({pct:.1f}%)")
         print()
 
-        if summary["top_losses"]:
-            print("Top Harvestable Losses:")
-            for loss in summary["top_losses"]:
-                sym = loss["symbol"]
-                amt = loss["loss_amount"]
-                pct = loss["loss_percent"]
-                print(f"  {sym}: -${amt:.2f} ({pct:.1f}%)")
+    if history:
+        print(f"Harvest History ({len(history)} events):")
+        print("-" * 60)
+        total_saved = 0.0
+        for ev in reversed(history[-20:]):
+            dt = ev.get("date", "?")[:10]
+            sym = ev.get("symbol", "?")
+            loss = ev.get("loss_amount", 0)
+            swap_sym = ev.get("swap_target", "N/A")
+            saved = loss * config.tlh.ltcg_rate
+            total_saved += saved
+            print(f"  {dt} | {sym:6} | -${loss:8.2f} | → {swap_sym:4}")
+            print(f"         saved ~${saved:.2f}")
+        print()
+        print(f"Estimated total tax saved (all time): ${total_saved:.2f}")
+        print(f"(Based on LTCG rate: {config.tlh.ltcg_rate*100:.1f}%)")
+    else:
+        print("No harvest history yet.")
+        print()
+        print("Swap History (pending swaps):")
+        swaps = tlh_engine.get_pending_swaps()
+        if swaps:
+            for s in swaps[:5]:
+                orig = s.get("original_symbol", "?")
+                tgt = s.get("target_etf", "?")
+                amt = s.get("amount", 0)
+                print(f"  {s.get('scheduled_date','?')} | {orig} → {tgt} | ${amt:.2f}")
+        else:
+            print("  No pending swaps.")
 
     return 0
 

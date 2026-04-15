@@ -891,3 +891,22 @@ class TLHEngine:
     def get_ytd_harvested(self) -> float:
         """Get total harvested losses YTD."""
         return sum(e.amount for e in self._carryforward)
+
+    def get_history(self) -> list[dict]:
+        """Get harvest history from the history log."""
+        if not self.history_file.exists():
+            return []
+        try:
+            return json.load(open(self.history_file))
+        except Exception:
+            return []
+
+    def get_pending_swaps(self) -> list[dict]:
+        """Get pending swap records."""
+        swap_log = self.data_dir / "pending_swaps.json"
+        if not swap_log.exists():
+            return []
+        try:
+            return json.load(open(swap_log))
+        except Exception:
+            return []
