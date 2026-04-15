@@ -21,7 +21,6 @@ from pathlib import Path
 from typing import Any
 from uuid import uuid4
 
-
 # =============================================================================
 # Enums & Dataclasses
 # =============================================================================
@@ -393,6 +392,56 @@ class LotTracker:
             reverse=True,
         )
         return harvestable
+
+    def scan_gain_lots(
+        self,
+        symbol: str,
+        current_price: float,
+        min_gain_amount: float = 0.0,
+        max_gain_percent: float = 0.0,
+    ) -> list[Lot]:
+        """Find lots at a gain above the configured threshold.
+
+        Args:
+            symbol: Ticker to scan
+            current_price: Current market price per share
+            min_gain_amount: Minimum dollar gain to qualify
+            max_gain_percent: Minimum gain percent required to qualify
+                             (0 = no minimum; lots must still meet min_gain_amount)
+
+        Returns:
+            List of Lots that are at a gain above the threshold.
+        """
+        lots = self.get_lots(symbol)
+        gain_lots: list[Lot] = []
+
+        for lot in lots:
+            gain = self.lot_gain(lot, current_price)
+
+            # Skip losing lots
+            if gain <= 0:
+                continue
+
+            # Skip if below minimum gain threshold
+            if gain < min_gain_amount:
+                continue
+
+            # If max_gain_percent is set, skip lots with gains BELOW that threshold
+            # (we only want to harvest gains that have reached at least that magnitude)
+            if max_gain_percent > 0:
+                cost_basis_total = lot.qty * lot.cost_per_share
+                gain_pct = (gain / cost_basis_total) * 100
+                if gain_pct < max_gain_percent:
+                    continue
+
+            gain_lots.append(lot)
+
+        # Sort by gain magnitude descending (harvest biggest gains first)
+        gain_lots.sort(
+            key=lambda l: self.lot_gain(l, current_price),
+            reverse=True,
+        )
+        return gain_lots
 
     def can_harvest_lot(
         self,

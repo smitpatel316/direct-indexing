@@ -58,6 +58,20 @@ class CarryforwardEntry:
     remaining: float = 0.0
 
 
+@dataclass
+class GainHarvestResult:
+    """Result of a gain harvest operation."""
+    symbol: str
+    gain_amount: float
+    gain_percent: float
+    swap_target: str
+    qty_sold: float = 0.0
+    new_cost_basis: float = 0.0  # Reset to current price
+    success: bool = False
+    error: str | None = None
+    timestamp: datetime = field(default_factory=datetime.now)
+
+
 class TLHEngine:
     """Tax-Loss Harvesting Engine with lot-level tracking."""
 
@@ -164,24 +178,42 @@ class TLHEngine:
 
         Called on startup. If a symbol is in Alpaca but has no lots in our
         tracker, we create a synthetic lot from the position data (avg_entry_price).
+        If existing lots are FOUND but their total remaining qty is LESS than
+        the Alpaca position qty (e.g., partial sells executed outside this
+        system), we add a supplemental lot for the delta.
 
-        This handles the case where positions were opened before lot tracking began.
+        This handles the case where positions were opened before lot tracking began
+        and cases where sells happened outside this system's knowledge.
         """
         positions = self.client.get_positions()
 
         for pos in positions:
             existing_lots = self._lot_tracker.get_lots(pos.symbol)
+            total_lot_qty = sum(lot.qty for lot in existing_lots)
+
             if not existing_lots:
-                # Bootstrap: create a single lot from position data
-                # We use avg_entry_price as cost basis, qty as lot quantity
+                # No lots tracked yet — bootstrap from position data
                 if pos.qty > 0 and pos.avg_entry_price > 0:
                     self._lot_tracker.record_buy(
                         symbol=pos.symbol,
                         qty=pos.qty,
                         cost_per_share=pos.avg_entry_price,
                         order_id=f"bootstrap-{pos.symbol}",
-                        acquired_date=datetime.now(),  # We don't know actual date
+                        acquired_date=datetime.now(),
                     )
+            elif total_lot_qty < pos.qty:
+                # Partial lots tracked but position has more qty than we have on record.
+                # This happens when sells executed outside this system reduced lots
+                # OR when Alpaca shows a position we didn't record. Add the delta as a
+                # new lot so the remaining position can be tracked accurately.
+                delta_qty = pos.qty - total_lot_qty
+                self._lot_tracker.record_buy(
+                    symbol=pos.symbol,
+                    qty=delta_qty,
+                    cost_per_share=pos.avg_entry_price,
+                    order_id=f"bootstrap-supplemental-{pos.symbol}",
+                    acquired_date=datetime.now(),
+                )
 
     def _sync_recent_trades_from_alpaca(self, days: int = 31) -> None:
         """Pull recent trades from Alpaca and record in lot tracker.
@@ -399,7 +431,10 @@ class TLHEngine:
 
             # Check loss threshold on the aggregate position
             threshold = self.config.loss_threshold_percent
-            if abs(pos.loss_percent) >= threshold and total_loss >= self.config.min_loss_amount:
+            if (
+                abs(pos.loss_percent) >= threshold
+                and total_loss >= self.config.min_loss_amount
+            ):
                 harvestable.append(pos)
 
         # Sort by loss amount (largest first)
@@ -488,19 +523,20 @@ class TLHEngine:
 
             # Record sell in lot tracker BEFORE submitting (for FIFO tracking)
             # We record with current price as estimate; actual fill price may differ
-            lot_matches = self._lot_tracker.record_sell(
+            self._lot_tracker.record_sell(
                 symbol=position.symbol,
                 qty=total_qty,
                 current_price=current_price,
             )
 
-            # Submit sell order to Alpaca (entire position)
+            # Submit sell order to Alpaca — only the harvestable losing qty
+            # NOT the entire position. Lot tracker handles FIFO.
             from .alpaca_client import OrderSide, OrderType
-            order = self.client.submit_order(
+            self.client.submit_order(
                 symbol=position.symbol,
                 side=OrderSide.SELL,
                 order_type=OrderType.MARKET,
-                qty=position.qty,
+                qty=total_qty,
             )
 
             # Record wash sale (we sold at a loss)
@@ -525,12 +561,15 @@ class TLHEngine:
                     side="buy",
                 )
 
-                # Check if replacement ETF was already held (washed into an existing lot)
-                # If so, the disallowed loss must be added to that lot's cost basis (IRS Sec. 1091)
-                existing_lots = self._lot_tracker.get_lots(replacement_etf.upper())
+                # Check if replacement ETF was already held (washed into an
+                # existing lot). If so, the disallowed loss must be added to
+                # that lot's cost basis per IRS Sec. 1091.
+                existing_lots = self._lot_tracker.get_lots(
+                    replacement_etf.upper()
+                )
                 if existing_lots:
                     # Replacement was already owned — add disallowed loss to the
-                    # most recently acquired open lot (specific identification rule)
+                    # most recently acquired open lot (specific ID rule)
                     self._lot_tracker.add_wash_sale_disallowed_loss(
                         symbol=replacement_etf.upper(),
                         amount=total_loss,
@@ -554,6 +593,189 @@ class TLHEngine:
                 success=False,
                 error=str(e),
             )
+
+    # --------------------------------------------------------------------------
+    # Gain Harvesting
+    # --------------------------------------------------------------------------
+
+    def get_gain_lots_for_position(
+        self,
+        symbol: str,
+        current_price: float,
+    ) -> list:
+        """Return lots at a gain above the configured threshold.
+
+        Unlike loss harvesting (which selectively sells only losing lots),
+        gain harvesting sells the ENTIRE position's worth of shares to
+        realize the full gain. We track which lots had gains for reporting.
+        """
+        if self.config.max_gain_to_sell <= 0:
+            return []
+
+        return self._lot_tracker.scan_gain_lots(
+            symbol=symbol,
+            current_price=current_price,
+            min_gain_amount=self.config.min_gain_amount,
+            max_gain_percent=self.config.max_gain_to_sell,
+        )
+
+    def scan_gain_positions(self) -> list[Position]:
+        """Scan portfolio for positions with large unrealized gains.
+
+        Gain harvesting is optional (disabled when max_gain_to_sell=0).
+        When enabled, positions with gains above max_gain_to_sell% AND
+        min_gain_amount are flagged for gain harvesting.
+
+        Returns:
+            List of positions with harvestable gains.
+        """
+        if self.config.max_gain_to_sell <= 0:
+            return []
+
+        positions = self.client.get_positions()
+        gain_positions: list[Position] = []
+
+        for pos in positions:
+            if pos.qty <= 0:
+                continue
+
+            current_price = pos.current_price
+            if current_price <= 0:
+                try:
+                    latest = self.client.get_latest_price(pos.symbol)
+                    if latest:
+                        current_price = latest
+                except Exception:
+                    continue
+
+            if current_price <= 0:
+                continue
+
+            gain_lots = self.get_gain_lots_for_position(pos.symbol, current_price)
+            if not gain_lots:
+                continue
+
+            # Calculate total gain across all lots
+            total_gain = sum(
+                self._lot_tracker.lot_gain(lot, current_price)
+                for lot in gain_lots
+            )
+
+            if total_gain < self.config.min_gain_amount:
+                continue
+
+            # Attach gain info to position for execute_gain_harvest to use
+            pos._gain_lots = gain_lots  # type: ignore[attr-defined]
+            pos._total_gain = total_gain  # type: ignore[attr-defined]
+            gain_positions.append(pos)
+
+        return gain_positions
+
+    def execute_gain_harvest(
+        self,
+        position: Position,
+        replacement_etf: str | None = None,
+    ) -> GainHarvestResult:
+        """Execute a gain harvest: sell position at gain and buy replacement ETF.
+
+        Gain harvesting differs from loss harvesting:
+        - We sell the ENTIRE position (all lots at a gain)
+        - The gain is REALIZED immediately (not disallowed)
+        - We immediately buy the replacement ETF to stay invested
+        - Cost basis is reset to current market price (lower tax exposure)
+
+        Args:
+            position: The Alpaca position to harvest gains from
+            replacement_etf: The ETF to buy as replacement
+
+        Returns:
+            GainHarvestResult with details of the realized gain.
+        """
+        swap_target = replacement_etf or (
+            self.config.swap_etfs[0] if self.config.swap_etfs else "VOO"
+        )
+
+        try:
+            current_price = position.current_price
+            if current_price <= 0:
+                current_price = self.client.get_latest_price(position.symbol) or 0
+
+            if current_price <= 0:
+                return GainHarvestResult(
+                    symbol=position.symbol,
+                    gain_amount=0.0,
+                    gain_percent=0.0,
+                    swap_target=swap_target,
+                    success=False,
+                    error="Could not determine current price",
+                )
+
+            gain_lots = self.get_gain_lots_for_position(position.symbol, current_price)
+            if not gain_lots:
+                return GainHarvestResult(
+                    symbol=position.symbol,
+                    gain_amount=0.0,
+                    gain_percent=0.0,
+                    swap_target=swap_target,
+                    success=False,
+                    error="No gain lots found",
+                )
+
+            # Calculate total gain
+            total_gain = sum(
+                self._lot_tracker.lot_gain(lot, current_price)
+                for lot in gain_lots
+            )
+            gain_percent = abs(position.unrealized_plpc)
+
+            # Record sells in lot tracker BEFORE submitting (for FIFO)
+            total_qty = sum(lot.qty for lot in gain_lots)
+            self._lot_tracker.record_sell(
+                symbol=position.symbol,
+                qty=total_qty,
+                current_price=current_price,
+            )
+
+            # Submit sell order for entire position qty
+            from .alpaca_client import OrderSide, OrderType
+            self.client.submit_order(
+                symbol=position.symbol,
+                side=OrderSide.SELL,
+                order_type=OrderType.MARKET,
+                qty=total_qty,
+            )
+
+            # Record replacement ETF buy in recent trades
+            # (not a wash sale since gains aren't disallowed, but keeps audit trail)
+            if replacement_etf:
+                self._lot_tracker.record_recent_trade(
+                    replacement_etf.upper(),
+                    side="buy",
+                )
+
+            return GainHarvestResult(
+                symbol=position.symbol,
+                gain_amount=total_gain,
+                gain_percent=gain_percent,
+                swap_target=swap_target,
+                qty_sold=total_qty,
+                new_cost_basis=current_price,
+                success=True,
+            )
+
+        except Exception as e:
+            return GainHarvestResult(
+                symbol=position.symbol,
+                gain_amount=getattr(position, "_total_gain", 0.0),
+                gain_percent=abs(position.unrealized_plpc),
+                swap_target=swap_target,
+                success=False,
+                error=str(e),
+            )
+
+    # --------------------------------------------------------------------------
+    # Daily scan
+    # --------------------------------------------------------------------------
 
     def run_daily_scan(self) -> list[HarvestResult]:
         """Run the daily TLH scan and execute harvests."""

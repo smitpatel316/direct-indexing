@@ -26,6 +26,10 @@ class TLHConfig:
     enabled: bool = True
     loss_threshold_percent: float = 5.0
     min_loss_amount: float = 100.0
+    # Gain harvesting (optional): sell positions with large unrealized gains
+    # to realize gains at favorable LTCG rates and reset cost basis
+    max_gain_to_sell: float = 0.0  # 0 = disabled; percent gain threshold
+    min_gain_amount: float = 1000.0  # Minimum $ gain to trigger gain harvest
     max_harvests_per_year: int = 10
     frequency: str = "daily"  # daily, weekly, monthly
     swap_etfs: list[str] = field(default_factory=lambda: ["VOO", "SPY", "IVV"])
