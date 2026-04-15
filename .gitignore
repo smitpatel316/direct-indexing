@@ -35,6 +35,6 @@ Thumbs.db
 *.log
 logs/
 
-# Data files ( TLH state - can be rebuilt)
-data/*.json
+# Data files (backtest cache — can be rebuilt)
+data/
 !data/.gitkeep
