@@ -15,7 +15,7 @@ alpaca-py handles:
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import datetime, timedelta
 from enum import Enum
 from typing import Any, cast
 
@@ -254,6 +254,8 @@ class AlpacaClient:
         status: str = "all",
         symbols: list[str] | None = None,
         limit: int = 100,
+        after: datetime | None = None,
+        until: datetime | None = None,
     ) -> list[Order]:
         """Get orders, optionally filtered by status and symbols."""
         # Map our status strings to alpaca-py enum values
@@ -270,6 +272,8 @@ class AlpacaClient:
             status=api_status,
             symbols=symbols,
             limit=limit,
+            after=after,
+            until=until,
         )
         raw_orders: list[AlpacaOrder] = self._trading.get_orders(filter=filter_params)
         return [self._map_order(o) for o in raw_orders]
@@ -350,3 +354,31 @@ class AlpacaClient:
             "next_open": clock.next_open.isoformat(),
             "next_close": clock.next_close.isoformat(),
         }
+
+    def get_recent_trades(self, days: int = 31) -> dict[str, list[str]]:
+        """Get tickers bought and sold in the last N days.
+
+        Used for wash sale detection: if we BOUGHT a security in the last
+        30 days (before or after a loss sale), we can't harvest it.
+
+        Returns:
+            dict with keys 'bought' and 'sold', each a list of tickers.
+        """
+        cutoff = datetime.now() - timedelta(days=days)
+
+        orders = self.get_orders(
+            status="closed",
+            limit=500,
+            after=cutoff,
+        )
+
+        bought: set[str] = set()
+        sold: set[str] = set()
+
+        for order in orders:
+            if order.side == OrderSide.BUY:
+                bought.add(order.symbol.upper())
+            elif order.side == OrderSide.SELL:
+                sold.add(order.symbol.upper())
+
+        return {"bought": sorted(bought), "sold": sorted(sold)}
