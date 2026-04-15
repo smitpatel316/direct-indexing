@@ -3,11 +3,11 @@ Configuration management for Direct Indexing.
 Uses modern Python patterns: dataclasses, type hints, YAML config.
 """
 
-from dataclasses import dataclass, field, asdict
-from typing import List, Optional
-from pathlib import Path
-import yaml
 import os
+from dataclasses import asdict, dataclass, field
+from pathlib import Path
+
+import yaml
 
 
 @dataclass
@@ -28,7 +28,7 @@ class TLHConfig:
     min_loss_amount: float = 100.0
     max_harvests_per_year: int = 10
     frequency: str = "daily"  # daily, weekly, monthly
-    swap_etfs: List[str] = field(default_factory=lambda: ["VOO", "SPY", "IVV"])
+    swap_etfs: list[str] = field(default_factory=lambda: ["VOO", "SPY", "IVV"])
     wash_sale_enabled: bool = True
     carryforward_enabled: bool = True
 
@@ -69,7 +69,7 @@ class AppConfig:
     @classmethod
     def from_yaml(cls, path: Path) -> "AppConfig":
         """Load configuration from YAML file."""
-        with open(path, "r") as f:
+        with open(path) as f:
             data = yaml.safe_load(f)
         return cls._from_dict(data)
 
@@ -78,19 +78,33 @@ class AppConfig:
         """Recursively build config from dict."""
         if data is None:
             return cls()
-        
+
         alpaca_data = data.get("alpaca", {})
         tlh_data = data.get("tlh", {})
         rebalance_data = data.get("rebalance", {})
         portfolio_data = data.get("portfolio", {})
         dashboard_data = data.get("dashboard", {})
-        
+
         return cls(
-            alpaca=AlpacaConfig(**alpaca_data) if alpaca_data else AlpacaConfig(),
+            alpaca=(
+                AlpacaConfig(**alpaca_data) if alpaca_data else AlpacaConfig()
+            ),
             tlh=TLHConfig(**tlh_data) if tlh_data else TLHConfig(),
-            rebalance=RebalanceConfig(**rebalance_data) if rebalance_data else RebalanceConfig(),
-            portfolio=PortfolioConfig(**portfolio_data) if portfolio_data else PortfolioConfig(),
-            dashboard=DashboardConfig(**dashboard_data) if dashboard_data else DashboardConfig(),
+            rebalance=(
+                RebalanceConfig(**rebalance_data)
+                if rebalance_data
+                else RebalanceConfig()
+            ),
+            portfolio=(
+                PortfolioConfig(**portfolio_data)
+                if portfolio_data
+                else PortfolioConfig()
+            ),
+            dashboard=(
+                DashboardConfig(**dashboard_data)
+                if dashboard_data
+                else DashboardConfig()
+            ),
         )
 
     def to_yaml(self, path: Path) -> None:
@@ -119,10 +133,10 @@ class AppConfig:
 
 class ConfigManager:
     """Manages configuration loading and validation."""
-    
-    def __init__(self, config_path: Optional[Path] = None):
+
+    def __init__(self, config_path: Path | None = None):
         self.config_path = config_path or Path("config.yaml")
-        self._config: Optional[AppConfig] = None
+        self._config: AppConfig | None = None
 
     def load(self) -> AppConfig:
         """Load configuration from file or environment."""
@@ -160,7 +174,7 @@ def get_config() -> AppConfig:
     return _config_manager.load()
 
 
-def reload_config(config_path: Optional[Path] = None) -> AppConfig:
+def reload_config(config_path: Path | None = None) -> AppConfig:
     """Reload configuration from file."""
     if config_path:
         _config_manager.config_path = config_path
