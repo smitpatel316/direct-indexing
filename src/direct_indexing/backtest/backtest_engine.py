@@ -112,7 +112,11 @@ class MetricsEngine:
     def _compute_returns(values: list[float]) -> np.ndarray:
         """Compute daily returns from portfolio values."""
         arr = np.array(values, dtype=float)
-        return np.diff(arr) / arr[:-1]
+        # Guard against zero or negative values
+        safe = arr[:-1] != 0
+        returns = np.zeros(len(arr) - 1)
+        returns[safe] = np.diff(arr)[safe] / arr[:-1][safe]
+        return returns
 
     @staticmethod
     def _annualize(value: float, periods: int, period_type: str = "days") -> float:
@@ -125,7 +129,7 @@ class MetricsEngine:
 
     def compute_all(self) -> dict:
         """Compute all metrics. Returns a dict."""
-        if len(self.strategy_returns) == 0:
+        if len(self.strategy_returns) == 0 or self.strategy_values[0] == 0 or self.benchmark_values[0] == 0:
             return {}
 
         sr = self.strategy_returns
@@ -444,18 +448,23 @@ class BacktestEngine:
         end = self.config.end_date
         initial = self.config.initial_value
 
-        # Portfolio state
-        # {ticker: {"shares": float, "cost": float}}
+        # Portfolio state: {ticker: {"shares": float, "cost": float}}
         portfolio: dict = {}
-        cash = 0.0
+        cash = initial  # Deploy initial capital on day 1
 
         # TLH state
         tlh_records: list[dict] = []
         wash_sales: dict[str, date] = {}  # ticker → eligible_rebuy_date
 
-        # Benchmark (VOO)
-        voo_shares = initial / (self._get_price("VOO", start) or 1.0)
-        voo_cost = self._get_price("VOO", start) or 1.0
+        # Benchmark (VOO) — use first available VOO price
+        first_voo_price = None
+        current_check = start
+        while first_voo_price is None and current_check <= end:
+            first_voo_price = self._get_price("VOO", current_check)
+            current_check += timedelta(days=1)
+        if first_voo_price is None:
+            first_voo_price = 1.0  # fallback
+        voo_shares = initial / first_voo_price
 
         # Output
         dates: list[date] = []
@@ -464,7 +473,7 @@ class BacktestEngine:
         num_trades = 0
         num_tlh = 0
         total_tlh = 0.0
-        last_rebalance = start
+        last_rebalance = start - timedelta(days=self.config.rebalance_days)  # Force first rebalance
         total_turnover = 0.0
 
         # Walk through dates
@@ -479,7 +488,8 @@ class BacktestEngine:
                         pv += pos["shares"] * price
 
                 dates.append(current)
-                benchmark_values.append(voo_shares * (self._get_price("VOO", current) or 0))
+                voo_price = self._get_price("VOO", current)
+                benchmark_values.append(voo_shares * (voo_price or first_voo_price))
                 strategy_values.append(pv)
 
                 # Check for rebalance
