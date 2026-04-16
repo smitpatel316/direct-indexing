@@ -113,6 +113,22 @@ def create_parser() -> argparse.ArgumentParser:
         default=100000.0,
         help="Initial portfolio value. Default: $100,000"
     )
+    backtest_parser.add_argument(
+        "--full", "-F",
+        action="store_true",
+        help="Run full backtest with all metrics (Sharpe, Sortino, Alpha, Beta, etc.)"
+    )
+    backtest_parser.add_argument(
+        "--sensitivity", "-S",
+        action="store_true",
+        help="Run sensitivity analysis across parameter variations"
+    )
+    backtest_parser.add_argument(
+        "--output", "-o",
+        type=str,
+        default=None,
+        help="Output CSV file for results"
+    )
 
     # pure-direct run command
     pure_run_parser = subparsers.add_parser(
@@ -462,6 +478,83 @@ def cmd_backtest(args, config: AppConfig) -> int:
     return 0
 
 
+def cmd_backtest_full(args, config: AppConfig) -> int:
+    """Run comprehensive backtest with full metrics (Sharpe, Sortino, Alpha, etc.)."""
+    import asyncio
+    from .backtest.backtest_engine import BacktestEngine, BacktestConfig as FullConfig
+
+    print(f"Comprehensive Backtest: Pure Direct Indexing")
+    print(f"Period: {args.start} → {args.end}")
+    print(f"Initial value: ${args.initial_value:,.2f}")
+    print()
+
+    cfg = FullConfig(
+        start_date=args.start,
+        end_date=args.end,
+        initial_value=args.initial_value,
+        rebalance_days=31,
+        drift_threshold=0.0005,
+        tlh_loss_min=10.0,
+        tlh_loss_pct=0.01,
+        slippage_bps=0.5,
+        risk_free_rate=0.05,
+    )
+
+    engine = BacktestEngine(cfg)
+    print("Running... (fetching price data, may take a few minutes)")
+    results = asyncio.run(engine.run())
+
+    print(engine.summary())
+
+    if args.output:
+        import pandas as pd
+        df = pd.DataFrame([results])
+        df.to_csv(args.output, index=False)
+        print(f"\nResults saved to {args.output}")
+
+    return 0
+
+
+def cmd_sensitivity(args, config: AppConfig) -> int:
+    """Run sensitivity analysis across parameter variations."""
+    from .backtest.backtest_engine import BacktestEngine, BacktestConfig as FullConfig, SensitivityAnalyzer
+
+    print(f"Sensitivity Analysis: Pure Direct Indexing")
+    print(f"Period: {args.start} → {args.end}")
+    print(f"Initial value: ${args.initial_value:,.2f}")
+    print()
+
+    base = FullConfig(
+        start_date=args.start,
+        end_date=args.end,
+        initial_value=args.initial_value,
+        slippage_bps=0.5,
+        risk_free_rate=0.05,
+    )
+
+    variations = {
+        "rebalance_days": [21, 31, 45, 63, 91],
+        "drift_threshold": [0.0001, 0.0005, 0.0025],
+        "tlh_loss_min": [5.0, 10.0, 25.0, 50.0],
+    }
+
+    print(f"Running {21} backtest variations...")
+    df = SensitivityAnalyzer.run(base, variations)
+
+    # Show key columns
+    cols = ["variant", "cagr_strategy", "sharpe_strategy", "max_drawdown_strategy",
+            "tracking_error", "information_ratio", "tax_alpha_annual",
+            "num_tlh_events", "total_tlh_harvested"]
+    print()
+    print(df[cols].to_string(index=False))
+
+    if args.output:
+        df.to_csv(args.output, index=False)
+        print(f"\nFull results saved to {args.output}")
+
+    return 0
+
+
 def cmd_run_pure(args, config: AppConfig) -> int:
     """Run Pure Direct Indexer."""
     from .direct_indexer import PureDirectIndexer, RebalanceReason
@@ -602,6 +695,10 @@ def main() -> int:
         elif args.command == "report":
             return cmd_report(args, config)
         elif args.command == "backtest":
+            if args.full:
+                return cmd_backtest_full(args, config)
+            elif args.sensitivity:
+                return cmd_sensitivity(args, config)
             return cmd_backtest(args, config)
         elif args.command == "run-pure":
             return cmd_run_pure(args, config)
