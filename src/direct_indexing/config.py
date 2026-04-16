@@ -8,6 +8,7 @@ from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
 import yaml  # type: ignore[import-untyped]
+import pandas as pd
 
 
 @dataclass
@@ -22,19 +23,30 @@ class AlpacaConfig:
 
 @dataclass
 class TLHConfig:
-    """Tax-Loss Harvesting configuration."""
+    """Tax-Loss Harvesting configuration for direct indexing.
+
+    Note: No ETF wrapper pattern. Harvested losses rotate to cash,
+    then repurchase original ticker after 31-day wash sale window.
+    """
     enabled: bool = True
-    loss_threshold_percent: float = 5.0
-    min_loss_amount: float = 100.0
-    # Gain harvesting (optional): sell positions with large unrealized gains
-    # to realize gains at favorable LTCG rates and reset cost basis
+    # Loss thresholds for optimization
+    loss_threshold_percent: float = 1.5  # 1.5% loss minimum to consider harvesting
+    min_loss_amount: float = 100.0  # $100 minimum loss to trigger TLH
+    # Gain harvesting: sell positions with large unrealized gains
+    # to realize at favorable LTCG rates and reset cost basis
     max_gain_to_sell: float = 0.0  # 0 = disabled; percent gain threshold
     min_gain_amount: float = 1000.0  # Minimum $ gain to trigger gain harvest
     max_harvests_per_year: int = 10
     frequency: str = "daily"  # daily, weekly, monthly
-    swap_etfs: list[str] = field(default_factory=lambda: ["VOO", "SPY", "IVV"])
+    # Wash sale window (31 days = safe beyond IRS 30-day rule)
+    wash_sale_window_days: int = 31
     wash_sale_enabled: bool = True
     carryforward_enabled: bool = True
+    # Optimizer-specific settings
+    min_weight_multiplier: float = 0.5  # Min position weight as % of target
+    max_weight_multiplier: float = 2.0  # Max position weight as % of target
+    min_notional: float = 100.0  # Minimum trade size in dollars
+    solve_time_limit: int = 60  # Max seconds for MILP solver
 
 
 @dataclass
@@ -54,6 +66,24 @@ class PortfolioConfig:
 
 
 @dataclass
+class TaxRatesConfig:
+    """Tax rates configuration for direct indexing.
+    
+    Default 2024 rates for individuals.
+    """
+    short_term_rate: float = 0.37  # Ordinary income (held < 1 year)
+    long_term_rate: float = 0.20   # Capital gains (held >= 1 year)
+    interest_rate: float = 0.37    # Interest income
+
+    def to_dataframe(self) -> pd.DataFrame:
+        """Convert to DataFrame for optimizer."""
+        return pd.DataFrame({
+            "gain_type": ["short_term", "long_term", "interest"],
+            "total_rate": [self.short_term_rate, self.long_term_rate, self.interest_rate],
+        })
+
+
+@dataclass
 class DashboardConfig:
     """Dashboard configuration."""
     host: str = "0.0.0.0"
@@ -69,6 +99,7 @@ class AppConfig:
     rebalance: RebalanceConfig = field(default_factory=RebalanceConfig)
     portfolio: PortfolioConfig = field(default_factory=PortfolioConfig)
     dashboard: DashboardConfig = field(default_factory=DashboardConfig)
+    tax_rates: TaxRatesConfig = field(default_factory=TaxRatesConfig)
 
     @classmethod
     def from_yaml(cls, path: Path) -> "AppConfig":
@@ -88,6 +119,7 @@ class AppConfig:
         rebalance_data = data.get("rebalance", {})
         portfolio_data = data.get("portfolio", {})
         dashboard_data = data.get("dashboard", {})
+        tax_rates_data = data.get("tax_rates", {})
 
         return cls(
             alpaca=(
@@ -108,6 +140,11 @@ class AppConfig:
                 DashboardConfig(**dashboard_data)
                 if dashboard_data
                 else DashboardConfig()
+            ),
+            tax_rates=(
+                TaxRatesConfig(**tax_rates_data)
+                if tax_rates_data
+                else TaxRatesConfig()
             ),
         )
 

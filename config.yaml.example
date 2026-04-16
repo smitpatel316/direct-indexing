@@ -10,16 +10,22 @@ alpaca:
 
 tlh:
   enabled: true
-  loss_threshold_percent: 5.0  # Harvest losses > 5%
-  min_loss_amount: 100.0        # Minimum $100 loss to harvest
-  max_harvests_per_year: 10     # Limit annual harvests
+  # Optimization-based TLH (Oracle-style)
+  loss_threshold_percent: 1.5  # Harvest losses > 1.5%
+  min_loss_amount: 100.0       # Minimum $100 loss to harvest
+  max_gain_to_sell: 0.0        # 0 = disabled; percent gain threshold for gain harvesting
+  min_gain_amount: 1000.0      # Minimum $1000 gain to harvest
+  max_harvests_per_year: 10    # Limit annual harvests
   frequency: "daily"           # daily, weekly, monthly
-  swap_etfs:
-    - VOO
-    - SPY
-    - IVV
+  # Wash sale window (31 days = safe beyond IRS 30-day rule)
+  wash_sale_window_days: 31
   wash_sale_enabled: true
   carryforward_enabled: true
+  # Optimizer-specific settings
+  min_weight_multiplier: 0.5   # Min position weight as % of target
+  max_weight_multiplier: 2.0   # Max position weight as % of target
+  min_notional: 100.0          # Minimum trade size in dollars
+  solve_time_limit: 60         # Max seconds for MILP solver
 
 rebalance:
   enabled: true
@@ -35,3 +41,9 @@ dashboard:
   host: "0.0.0.0"
   port: 8000
   enable: true
+
+# Tax rates (2024 defaults for individuals)
+tax_rates:
+  short_term_rate: 0.37   # Ordinary income (held < 1 year)
+  long_term_rate: 0.20    # Capital gains (held >= 1 year)
+  interest_rate: 0.37    # Interest income

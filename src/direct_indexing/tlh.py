@@ -409,16 +409,12 @@ class TLHEngine:
                 continue
 
             # Scan lots for this symbol using lot tracker
-            # Pass the replacement ETF so wash sale check also blocks if
-            # we've already bought the replacement (holding VOO from prior harvest)
-            swap_target = (
-                self.config.swap_etfs[0] if self.config.swap_etfs else "VOO"
-            )
+            # For direct indexing: no replacement ETF, just track wash sale on ticker
             harvestable_lots = self._lot_tracker.scan_harvestable_lots(
                 symbol=pos.symbol,
                 current_price=current_price,
                 min_loss_amount=self.config.min_loss_amount,
-                replacement_etf=swap_target,
+                replacement_etf=None,  # No ETF wrapper in direct indexing
             )
 
             if not harvestable_lots:
@@ -459,14 +455,12 @@ class TLHEngine:
                 return []
             current_price = latest
 
-        swap_target = (
-            self.config.swap_etfs[0] if self.config.swap_etfs else "VOO"
-        )
+        # Direct indexing: no replacement ETF
         return self._lot_tracker.scan_harvestable_lots(
             symbol=symbol,
             current_price=current_price,
             min_loss_amount=self.config.min_loss_amount,
-            replacement_etf=swap_target,
+            replacement_etf=None,  # No ETF wrapper in direct indexing
         )
 
     # --------------------------------------------------------------------------
@@ -480,16 +474,17 @@ class TLHEngine:
     ) -> HarvestResult:
         """Execute a single harvest: sell losing lots from a position.
 
+        Direct indexing model: sells at loss, holds cash, waits 31 days,
+        then can repurchase original ticker.
+
         Args:
             position: The Alpaca position to harvest from
-            replacement_etf: The ETF to buy as replacement (for wash sale tracking)
+            replacement_etf: Deprecated, not used in direct indexing
 
         Returns:
             HarvestResult with details of what was harvested
         """
-        swap_target = replacement_etf or (
-            self.config.swap_etfs[0] if self.config.swap_etfs else "VOO"
-        )
+        # Direct indexing: no replacement ETF - just hold cash after harvest
 
         try:
             # Get current price
@@ -507,7 +502,7 @@ class TLHEngine:
                     symbol=position.symbol,
                     loss_amount=0.0,
                     loss_percent=0.0,
-                    swap_target=swap_target,
+                    swap_target="CASH",  # Direct indexing: hold cash, no replacement
                     success=False,
                     error="No losing lots found",
                 )
@@ -554,33 +549,15 @@ class TLHEngine:
                     source=f"{position.symbol} harvest ({len(losing_lots)} lots)",
                 )
 
-            # Record the replacement ETF buy in recent trades
-            # This is critical: buying VOO after selling SPY triggers wash sale!
-            if replacement_etf:
-                self._lot_tracker.record_recent_trade(
-                    replacement_etf.upper(),
-                    side="buy",
-                )
-
-                # Check if replacement ETF was already held (washed into an
-                # existing lot). If so, the disallowed loss must be added to
-                # that lot's cost basis per IRS Sec. 1091.
-                existing_lots = self._lot_tracker.get_lots(
-                    replacement_etf.upper()
-                )
-                if existing_lots:
-                    # Replacement was already owned — add disallowed loss to the
-                    # most recently acquired open lot (specific ID rule)
-                    self._lot_tracker.add_wash_sale_disallowed_loss(
-                        symbol=replacement_etf.upper(),
-                        amount=total_loss,
-                    )
+            # Direct indexing: no replacement buy, just hold cash
+            # Wash sale restriction is tracked separately via record_wash_sale()
+            # After 31 days, can repurchase original ticker
 
             return HarvestResult(
                 symbol=position.symbol,
                 loss_amount=total_loss,
                 loss_percent=abs(position.loss_percent),
-                swap_target=swap_target,
+                swap_target="CASH",  # Direct indexing: hold cash
                 lots_harvested=len(losing_lots),
                 success=True,
                 harvest_date=datetime.now(),
@@ -591,7 +568,7 @@ class TLHEngine:
                 symbol=position.symbol,
                 loss_amount=abs(position.loss_amount),
                 loss_percent=abs(position.loss_percent),
-                swap_target=swap_target,
+                swap_target="CASH",
                 success=False,
                 error=str(e),
             )
@@ -678,24 +655,19 @@ class TLHEngine:
         position: Position,
         replacement_etf: str | None = None,
     ) -> GainHarvestResult:
-        """Execute a gain harvest: sell position at gain and buy replacement ETF.
+        """Execute a gain harvest: sell position at gain.
 
-        Gain harvesting differs from loss harvesting:
-        - We sell the ENTIRE position (all lots at a gain)
-        - The gain is REALIZED immediately (not disallowed)
-        - We immediately buy the replacement ETF to stay invested
-        - Cost basis is reset to current market price (lower tax exposure)
+        Direct indexing: after selling at a gain, hold cash.
+        (Future: could rotate to another individual stock in same sector)
 
         Args:
             position: The Alpaca position to harvest gains from
-            replacement_etf: The ETF to buy as replacement
+            replacement_etf: Deprecated, not used in direct indexing
 
         Returns:
             GainHarvestResult with details of the realized gain.
         """
-        swap_target = replacement_etf or (
-            self.config.swap_etfs[0] if self.config.swap_etfs else "VOO"
-        )
+        swap_target = "CASH"  # Direct indexing: hold cash after gain harvest
 
         try:
             current_price = position.current_price

@@ -46,15 +46,25 @@ class TestTLHConfig:
 
     def test_default_loss_threshold(self):
         cfg = TLHConfig()
-        assert cfg.loss_threshold_percent == 5.0
+        assert cfg.loss_threshold_percent == 1.5  # Optimization-based threshold
         assert cfg.min_loss_amount == 100.0
         assert cfg.enabled is True
 
-    def test_swap_etfs_default(self):
+    def test_wash_sale_window_days_default(self):
         cfg = TLHConfig()
-        assert "VOO" in cfg.swap_etfs
-        assert "SPY" in cfg.swap_etfs
-        assert len(cfg.swap_etfs) >= 1
+        assert cfg.wash_sale_window_days == 31  # 31 days for direct indexing
+        assert cfg.wash_sale_enabled is True
+
+    def test_no_swap_etfs(self):
+        cfg = TLHConfig()
+        assert not hasattr(cfg, 'swap_etfs')  # No ETF wrapper pattern
+
+    def test_optimizer_settings(self):
+        cfg = TLHConfig()
+        assert cfg.min_weight_multiplier == 0.5
+        assert cfg.max_weight_multiplier == 2.0
+        assert cfg.min_notional == 100.0
+        assert cfg.solve_time_limit == 60
 
     def test_wash_sale_enabled_by_default(self):
         cfg = TLHConfig()

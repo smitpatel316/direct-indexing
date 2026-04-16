@@ -21,7 +21,6 @@ def config():
         min_loss_amount=100.0,
         max_harvests_per_year=10,
         frequency="daily",
-        swap_etfs=["VOO", "SPY", "IVV"],
         wash_sale_enabled=True,
         carryforward_enabled=True,
     )
@@ -361,7 +360,6 @@ class TestHarvestQty:
         low_threshold_config = TLHConfig(
             loss_threshold_percent=5.0,
             min_loss_amount=0.0,  # Allow any non-zero loss
-            swap_etfs=["VOO"],
             wash_sale_enabled=True,
             carryforward_enabled=True,
         )
@@ -417,7 +415,6 @@ class TestGainHarvesting:
             min_loss_amount=0.0,
             max_gain_to_sell=20.0,  # Harvest gains > 20%
             min_gain_amount=100.0,
-            swap_etfs=["VOO"],
             wash_sale_enabled=True,
             carryforward_enabled=True,
         )
@@ -452,7 +449,6 @@ class TestGainHarvesting:
             min_loss_amount=0.0,
             max_gain_to_sell=50.0,
             min_gain_amount=1000.0,  # Need at least $1000 gain
-            swap_etfs=["VOO"],
             wash_sale_enabled=True,
             carryforward_enabled=True,
         )
@@ -484,7 +480,6 @@ class TestGainHarvesting:
             min_loss_amount=0.0,
             max_gain_to_sell=20.0,
             min_gain_amount=100.0,
-            swap_etfs=["VOO"],
             wash_sale_enabled=True,
             carryforward_enabled=True,
         )
@@ -513,7 +508,7 @@ class TestGainHarvesting:
         assert result.gain_amount == 500.0
         assert result.qty_sold == 10.0
         assert result.new_cost_basis == 200.0
-        assert result.swap_target == "VOO"
+        assert result.swap_target == "CASH"  # Direct indexing: hold cash
 
         # Verify sell order was submitted
         mock_client.submit_order.assert_called_once()
@@ -529,7 +524,6 @@ class TestGainHarvesting:
             min_loss_amount=0.0,
             max_gain_to_sell=20.0,
             min_gain_amount=100.0,
-            swap_etfs=["VOO"],
             wash_sale_enabled=True,
             carryforward_enabled=True,
         )
