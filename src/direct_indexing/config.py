@@ -42,6 +42,9 @@ class TLHConfig:
     wash_sale_window_days: int = 31
     wash_sale_enabled: bool = True
     carryforward_enabled: bool = True
+    ltcg_rate: float = 0.20  # Long-term capital gains rate
+    stcg_rate: float = 0.37  # Short-term capital gains rate
+    swap_etfs: list[str] = None  # ETFs to swap into after harvest
     # Optimizer-specific settings
     min_weight_multiplier: float = 0.5  # Min position weight as % of target
     max_weight_multiplier: float = 2.0  # Max position weight as % of target

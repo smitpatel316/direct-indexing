@@ -433,7 +433,7 @@ def cmd_backtest(args, config: AppConfig) -> int:
 
     # Run backtest
     print("Loading S&P 500 composition data...")
-    engine = BacktestEngine(backtest_config, data_mgr)
+    engine = BacktestEngine(data_mgr, backtest_config)
 
     print("Running backtest... (this may take a few minutes)")
     result = asyncio.run(engine.run())
@@ -471,7 +471,7 @@ def cmd_backtest(args, config: AppConfig) -> int:
             reverse=True
         )[:5]
         for ev in sorted_events:
-            dt = str(ev.harvest_date)[:10]
+            dt = str(ev.date)[:10]
             saved = f"~${ev.tax_saved:.2f}" if ev.tax_saved else "$0.00"
             print(f"  {dt}: {ev.symbol} -${ev.loss_amount:.2f} (saved {saved})")
 
