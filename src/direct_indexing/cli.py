@@ -114,6 +114,51 @@ def create_parser() -> argparse.ArgumentParser:
         help="Initial portfolio value. Default: $100,000"
     )
 
+    # pure-direct run command
+    pure_run_parser = subparsers.add_parser(
+        "run-pure",
+        help="Run Pure Direct Indexer: 31-day rebalance + TLH with sector substitutes"
+    )
+    pure_run_parser.add_argument(
+        "--force", "-f",
+        action="store_true",
+        help="Force rebalance even if < 31 days since last"
+    )
+    pure_run_parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Show plan without executing trades"
+    )
+    pure_run_parser.add_argument(
+        "--drift-threshold",
+        type=float,
+        default=0.0005,
+        help="Drift threshold to trigger trade (default: 0.0005 = 0.05%%)"
+    )
+    pure_run_parser.add_argument(
+        "--tlh-loss-min",
+        type=float,
+        default=10.0,
+        help="Minimum loss $ to harvest (default: $10)"
+    )
+
+    # pure-direct status
+    pure_status_parser = subparsers.add_parser(
+        "status-pure",
+        help="Show Pure Direct Indexer status"
+    )
+
+    # pure-direct rebalance
+    pure_rebal_parser = subparsers.add_parser(
+        "rebalance-pure",
+        help="Force a Pure Direct Indexer rebalance"
+    )
+    pure_rebal_parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Show plan without executing trades"
+    )
+
     return parser
 
 
@@ -417,6 +462,118 @@ def cmd_backtest(args, config: AppConfig) -> int:
     return 0
 
 
+def cmd_run_pure(args, config: AppConfig) -> int:
+    """Run Pure Direct Indexer."""
+    from .direct_indexer import PureDirectIndexer, RebalanceReason
+    import asyncio
+
+    client = AlpacaClient(
+        config.alpaca.api_key,
+        config.alpaca.api_secret,
+        paper=config.alpaca.paper_trading,
+    )
+    indexer = PureDirectIndexer(
+        alpaca_client=client,
+        drift_threshold=args.drift_threshold,
+        tlh_loss_min=args.tlh_loss_min,
+    )
+
+    status = indexer.get_status()
+    print("=== Pure Direct Indexer Status ===")
+    print(f"Portfolio value: ${status['portfolio_value']:,.2f}")
+    print(f"Positions:       {status['num_positions']}")
+    print(f"Cash:            ${status['cash']:,.2f}")
+    print(f"Last rebalance:  {status['last_rebalance'] or 'Never'}")
+    print(f"Days since:      {status['days_since_rebalance']}")
+    print(f"Needs rebalance: {status['needs_rebalance']}")
+    print(f"Wash sales:      {status['wash_sales_active']} active")
+    print()
+
+    if not args.force and not indexer.needs_rebalance():
+        days = indexer.get_days_since_rebalance()
+        print(f"Not yet time to rebalance ({days}/{indexer.rebalance_days} days).")
+        print("Use --force to rebalance anyway.")
+        return 0
+
+    if args.dry_run:
+        print("[Dry run — showing plan without executing trades]")
+        # TODO: implement dry-run plan generation
+        print("Dry-run plan generation not yet implemented.")
+        return 0
+
+    plan = asyncio.run(indexer.rebalance(RebalanceReason.SCHEDULED))
+    print(f"\nRebalance complete:")
+    print(f"  Sells: {len(plan.sell_orders)}")
+    print(f"  TLH sells: {len(plan.tlh_sells)}")
+    print(f"  Buys: {len(plan.buy_orders)}")
+    print(f"  TLH buys: {len(plan.tlh_buys)}")
+
+    return 0
+
+
+def cmd_status_pure(args, config: AppConfig) -> int:
+    """Show Pure Direct Indexer status."""
+    from .direct_indexer import PureDirectIndexer
+
+    client = AlpacaClient(
+        config.alpaca.api_key,
+        config.alpaca.api_secret,
+        paper=config.alpaca.paper_trading,
+    )
+    indexer = PureDirectIndexer(alpaca_client=client)
+    status = indexer.get_status()
+
+    print("=== Pure Direct Indexer ===")
+    print(f"Portfolio value:  ${status['portfolio_value']:,.2f}")
+    print(f"Cash:             ${status['cash']:,.2f}")
+    print(f"Positions:        {status['num_positions']}")
+    print(f"Last rebalance:   {status['last_rebalance'] or 'Never'}")
+    print(f"Days since:       {status['days_since_rebalance']} / 31")
+    print(f"Needs rebalance:  {status['needs_rebalance']}")
+    print(f"Active wash sales:{status['wash_sales_active']}")
+    print()
+
+    # Show open wash sales
+    today = date.today()
+    from datetime import timedelta
+    ws_list = indexer.lot_tracker.get_open_wash_sales(today)
+    if ws_list:
+        print("Open Wash Sale Restrictions:")
+        for ws in ws_list[:10]:
+            days_left = (ws.reopen_date - today).days
+            print(f"  {ws.ticker}: restricted until {ws.reopen_date} ({days_left}d left) → {ws.substitute_used}")
+    else:
+        print("No active wash sale restrictions.")
+
+    return 0
+
+
+def cmd_rebalance_pure(args, config: AppConfig) -> int:
+    """Force a Pure Direct Indexer rebalance."""
+    from .direct_indexer import PureDirectIndexer, RebalanceReason
+    import asyncio
+
+    client = AlpacaClient(
+        config.alpaca.api_key,
+        config.alpaca.api_secret,
+        paper=config.alpaca.paper_trading,
+    )
+    indexer = PureDirectIndexer(alpaca_client=client)
+
+    if args.dry_run:
+        print("[Dry run]")
+        return 0
+
+    plan = asyncio.run(indexer.rebalance(RebalanceReason.SCHEDULED))
+    print(f"Rebalance complete:")
+    print(f"  Sells: {len(plan.sell_orders)}")
+    print(f"  TLH sells: {len(plan.tlh_sells)}")
+    print(f"  Buys: {len(plan.buy_orders)}")
+    print(f"  TLH buys: {len(plan.tlh_buys)}")
+
+    return 0
+
+
 def main() -> int:
     """Main entry point."""
     parser = create_parser()
@@ -446,6 +603,12 @@ def main() -> int:
             return cmd_report(args, config)
         elif args.command == "backtest":
             return cmd_backtest(args, config)
+        elif args.command == "run-pure":
+            return cmd_run_pure(args, config)
+        elif args.command == "status-pure":
+            return cmd_status_pure(args, config)
+        elif args.command == "rebalance-pure":
+            return cmd_rebalance_pure(args, config)
         else:
             parser.print_help()
             return 0
