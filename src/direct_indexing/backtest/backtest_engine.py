@@ -212,7 +212,6 @@ class MetricsEngine:
 
             # Other
             "win_rate": win_rate,
-            "turnover": turnover,
             "num_trading_days": n,
         }
 
@@ -323,6 +322,9 @@ class BacktestEngine:
         metrics["tax_alpha_annual"] = 0.0
         metrics["total_tlh_harvested"] = 0.0
         metrics["num_tlh_events"] = 0
+
+        # Add total turnover (from simulation) to metrics
+        metrics["total_turnover"] = result.get("total_turnover", 0.0)
 
         self._results = {**metrics, **result}
         return self._results
@@ -439,6 +441,17 @@ class BacktestEngine:
         # --- DEPLOY INITIAL CAPITAL ON FIRST TRADING DAY ---
         target_weights = self.sp500.get_weights()
 
+        # NOTE: Using current (2024) cap weights for the entire 2015-2023 backtest
+        # introduces look-ahead bias since 2015 weights were significantly different
+        # (e.g., AAPL was ~2.6% in 2015 vs 14% in 2024, NVDA was ~0.3% vs 5.5%).
+        # This inflates returns by systematically overweighting stocks that
+        # happened to grow a lot. For a proper backtest, use equal weights or
+        # historical point-in-time weights (requires WRDS/Compustat access).
+        # Using equal weights here to avoid look-ahead bias until fixed.
+        num_tickers = len(target_weights)
+        equal_weight = 1.0 / num_tickers
+        target_weights = {t: equal_weight for t in target_weights}
+
         # Find first trading day (start might be a weekend/holiday)
         first_trading_day = start
         while first_trading_day.weekday() >= 5:
@@ -454,7 +467,7 @@ class BacktestEngine:
                     break
                 temp += timedelta(days=1)
 
-        per_ticker_value = initial / len(target_weights)
+        per_ticker_value = initial / num_tickers
 
         for ticker, target_w in target_weights.items():
             price = self._get_price(ticker, first_trading_day)
@@ -660,7 +673,7 @@ class BacktestEngine:
             f"  Info Ratio:       {r.get('information_ratio', 0):.2f}\n"
             f"\n"
             f"TURNOVER & TLH\n"
-            f"  Turnover:        {r.get('turnover', 0):.2f}x\n"
+            f"  Total Notional:  ${r.get('total_turnover', 0):,.0f}\n"
             f"  Rebalance trades: {r.get('num_trades', 0)}\n"
             f"  TLH events:       {r.get('num_tlh_events', 0)}\n"
             f"  Total TLH:        ${r.get('total_tlh_harvested', 0):,.2f}\n"
