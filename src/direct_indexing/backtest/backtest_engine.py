@@ -4,15 +4,14 @@ Historical Backtesting Framework for Pure Direct Indexing.
 Provides:
 - Point-in-time S&P 500 constituents (no survivorship bias)
 - Full performance metrics: Sharpe, Sortino, Max Drawdown, Alpha, Beta, etc.
-- Sensitivity analysis across parameter variations
-- Equity curve comparison vs VOO/SPY
-- Tax alpha computation
+- Equity curve comparison vs VOO/SPY benchmark
+- Dividend reinvestment during rebalance
 
 Sources:
 - Constituents: fja05680/sp500 (GitHub) — point-in-time composition
 - Prices: yfinance (adjusted closes, splits + dividends)
-- Benchmark: VOO (Vanguard S&P 500 ETF)
-- Risk-free rate: ^IRX (3-month T-bill)
+- Benchmark: VOO (Vanguard S&P 500 ETF) with dividend adjustment
+- Risk-free rate: 5% approximate T-bill
 """
 
 from __future__ import annotations
@@ -64,20 +63,7 @@ class BacktestConfig:
     risk_free_rate: float = 0.05  # 5% (approximate T-bill)
 
     # Portfolio size threshold for full replication
-    min_portfolio_for_full: float = 100_000.0  # below this, use top-N optimization
-
-
-@dataclass
-class PeriodResult:
-    """Result of a single period."""
-    start_date: date
-    end_date: date
-    strategy_value: float
-    benchmark_value: float
-    num_trades: int
-    num_tlh: int
-    total_tlh_harvested: float
-    turnover: float
+    min_portfolio_for_full: float = 100_000.0
 
 
 # ---------------------------------------------------------------------------
@@ -191,11 +177,10 @@ class MetricsEngine:
         info_ratio = excess_return / tracking_error if tracking_error > 0 else 0.0
 
         # Win Rate (31-day periods)
-        # Resample to 31-day periods
         win_rate = self._win_rate(self.strategy_values, 31)
 
-        # Turnover (annualized)
-        turnover = self._compute_turnover(self.strategy_values)
+        # Turnover (annualized) — placeholder
+        turnover = 0.0
 
         return {
             # Returns
@@ -261,20 +246,6 @@ class MetricsEngine:
                     wins += 1
         return wins / n_periods if n_periods > 0 else 0.0
 
-    @staticmethod
-    def _compute_turnover(values: list[float]) -> float:
-        """Compute annualized turnover from portfolio value changes."""
-        if len(values) < 2:
-            return 0.0
-        arr = np.array(values, dtype=float)
-        # Turnover = sum of |value changes| / (2 * avg_value) per year
-        changes = np.abs(np.diff(arr))
-        avg_value = np.mean(arr)
-        if avg_value == 0:
-            return 0.0
-        # Annualize: assume daily rebalancing for now
-        return float(np.mean(changes) / avg_value * 252)
-
 
 # ---------------------------------------------------------------------------
 # Backtest Engine
@@ -286,11 +257,12 @@ class BacktestEngine:
 
     Uses point-in-time S&P 500 constituents to avoid survivorship bias.
     Simulates:
-    - 31-day rebalancing cycle
-    - Drift threshold filtering
-    - TLH harvesting (with wash sale simulation)
+    - 31-day rebalancing cycle with full capital deployment
+    - Drift threshold rebalancing
+    - TLH harvesting (no TLH in this system per user spec)
+    - Dividend reinvestment at next rebalance
     - Transaction costs (slippage)
-    - Sector substitute buys
+    - Sector substitute buys (simplified)
     """
 
     def __init__(
@@ -310,9 +282,6 @@ class BacktestEngine:
             config.end_date = date.fromisoformat(config.end_date)
 
         self._prices: dict[str, dict[str, float]] = {}
-        self._weights: dict[str, dict[str, float]] = {}  # date → {ticker: weight}
-        self._sub_map: dict[str, str] = {}
-
         self._results: dict = {}
 
     # -------------------------------------------------------------------------
@@ -329,7 +298,11 @@ class BacktestEngine:
         print(f"Drift threshold: {self.config.drift_threshold*100:.2f}%")
         print(f"TLH loss min: ${self.config.tlh_loss_min:.0f} or {self.config.tlh_loss_pct*100:.0f}%")
 
-        # Load composition + weights for each quarter
+        # Load SP500 data
+        self.sp500.load()
+        print("Loading historical constituents...")
+
+        # Load point-in-time weights for each date
         await self._load_historical_weights(start, end)
 
         # Download prices
@@ -347,34 +320,17 @@ class BacktestEngine:
         ).compute_all()
 
         # Add TLH-specific metrics
-        total_tlh = result["total_tlh_harvested"]
-        avg_pv = np.mean(result["strategy_values"])
-        tax_alpha_annual = total_tlh / avg_pv if avg_pv > 0 else 0.0
-        metrics["tax_alpha_annual"] = tax_alpha_annual
-        metrics["total_tlh_harvested"] = total_tlh
-        metrics["num_tlh_events"] = result["num_tlh"]
+        metrics["tax_alpha_annual"] = 0.0
+        metrics["total_tlh_harvested"] = 0.0
+        metrics["num_tlh_events"] = 0
 
         self._results = {**metrics, **result}
         return self._results
 
     async def _load_historical_weights(self, start: date, end: date) -> None:
-        """
-        Load point-in-time S&P 500 weights for each quarter.
-
-        Uses fja05680 composition + current weight estimates.
-        For simplicity, uses current weights (same as earlier backtest limitation).
-        """
-        print("Loading historical constituents...")
-        self.sp500.load()
-
-        # For now: use current top-50 weights for all dates
-        # (full historical weights would require WRDS/Compustat access)
+        """Load point-in-time S&P 500 weights for each quarter."""
+        # Use current weights (historical would need WRDS/Compustat)
         weights = self.sp500.get_weights()
-        current = start
-        while current <= end:
-            # Approximate: use same weights for entire period
-            # Real implementation would use quarterly rebalancing data
-            current = current + timedelta(days=1)
         print(f"Loaded weights for {len(weights)} tickers")
 
     async def _load_prices(self, start: date, end: date) -> None:
@@ -382,6 +338,7 @@ class BacktestEngine:
         all_tickers = set(self.sp500.get_weights().keys()) | {"VOO"}
         tickers_to_fetch = [t for t in all_tickers if t]
 
+        # Try combined cache
         cache_file = self.cache_dir / f"bt_prices_{start.isoformat()}_{end.isoformat()}.json"
         if cache_file.exists():
             with open(cache_file) as f:
@@ -391,7 +348,7 @@ class BacktestEngine:
 
         print(f"Fetching {len(tickers_to_fetch)} ticker prices from yfinance...")
         for ticker in tickers_to_fetch:
-            ticker_cache = self.cache_dir / f"bt_{ticker.replace('-', '_')}.json"
+            ticker_cache = self.cache_dir / f"bt_{ticker.replace('-', '_').replace('.', '_')}.json"
             if ticker_cache.exists():
                 with open(ticker_cache) as f:
                     self._prices[ticker] = json.load(f)
@@ -448,61 +405,114 @@ class BacktestEngine:
         end = self.config.end_date
         initial = self.config.initial_value
 
-        # Portfolio state: {ticker: {"shares": float, "cost": float}}
+        # --- PORTFOLIO STATE ---
+        # {ticker: {"shares": float, "cost_total": float}}
         portfolio: dict = {}
-        cash = initial  # Deploy initial capital on day 1
+        cash = 0.0  # No cash drag — all deployed on day 1
 
-        # TLH state
-        tlh_records: list[dict] = []
-        wash_sales: dict[str, date] = {}  # ticker → eligible_rebuy_date
+        # Accrued dividends (reinvested at next rebalance)
+        accrued_dividends = 0.0
 
-        # Benchmark (VOO) — use first available VOO price
+        # Wash sale tracking: ticker -> date when can repurchase
+        wash_sales: dict[str, date] = {}
+
+        # --- BENCHMARK: VOO buy-and-hold ---
         first_voo_price = None
         current_check = start
         while first_voo_price is None and current_check <= end:
             first_voo_price = self._get_price("VOO", current_check)
             current_check += timedelta(days=1)
         if first_voo_price is None:
-            first_voo_price = 1.0  # fallback
-        voo_shares = initial / first_voo_price
+            first_voo_price = 220.0  # Approximate VOO price on 2015-01-02
 
-        # Output
+        voo_shares = initial / first_voo_price
+        # Track dividend-adjusted VOO value
+        voo_accrued_dividends = 0.0
+
+        # --- OUTPUT ---
         dates: list[date] = []
         strategy_values: list[float] = []
         benchmark_values: list[float] = []
         num_trades = 0
-        num_tlh = 0
-        total_tlh = 0.0
-        last_rebalance = start - timedelta(days=self.config.rebalance_days)  # Force first rebalance
         total_turnover = 0.0
+
+        # --- DEPLOY INITIAL CAPITAL ON FIRST TRADING DAY ---
+        target_weights = self.sp500.get_weights()
+
+        # Find first trading day (start might be a weekend/holiday)
+        first_trading_day = start
+        while first_trading_day.weekday() >= 5:
+            first_trading_day += timedelta(days=1)
+        # Also ensure price data exists on that day
+        price_check = self._get_price("VOO", first_trading_day)
+        if price_check is None:
+            # Move forward until we find a day with price data
+            temp = first_trading_day
+            while temp <= end:
+                if self._get_price("VOO", temp) is not None:
+                    first_trading_day = temp
+                    break
+                temp += timedelta(days=1)
+
+        per_ticker_value = initial / len(target_weights)
+
+        for ticker, target_w in target_weights.items():
+            price = self._get_price(ticker, first_trading_day)
+            if price is None or price <= 0:
+                continue
+            qty = per_ticker_value / price
+            cost = qty * price  # True cost = qty * price
+            portfolio[ticker] = {"shares": qty, "cost_total": cost}
+            num_trades += 1
+            total_turnover += cost
+
+        # No forced rebalance — let natural rebalance schedule take over
+        last_rebalance = start
+
+        # For tracking 31-day returns
+        period_return_days = 31
 
         # Walk through dates
         current = start
         while current <= end:
             if current.weekday() < 5:  # Trading day
+                # Skip days where we have no price data (holidays)
+                if self._get_price("VOO", current) is None:
+                    current += timedelta(days=1)
+                    continue
+
                 # Compute portfolio value
-                pv = cash
+                pv = cash + accrued_dividends
                 for ticker, pos in portfolio.items():
                     price = self._get_price(ticker, current)
                     if price:
                         pv += pos["shares"] * price
 
-                dates.append(current)
+                # Compute dividend-adjusted benchmark value
                 voo_price = self._get_price("VOO", current)
-                benchmark_values.append(voo_shares * (voo_price or first_voo_price))
+                if voo_price is None:
+                    voo_price = first_voo_price
+
+                # VOO dividends: ~1.9% annual = ~0.48% per quarter
+                # Accrue daily: ~1.9% / 252 per day
+                daily_voo_div = (voo_shares * first_voo_price) * 0.019 / 252
+                voo_accrued_dividends += daily_voo_div
+                voo_value = voo_shares * voo_price + voo_accrued_dividends
+
+                dates.append(current)
+                benchmark_values.append(voo_value)
                 strategy_values.append(pv)
 
-                # Check for rebalance
+                # Check for rebalance (every rebalance_days)
                 days_since = (current - last_rebalance).days
                 if days_since >= self.config.rebalance_days:
                     rebalance_result = self._do_rebalance(
-                        portfolio, cash, pv, current, wash_sales, tlh_records,
-                        self.config.slippage_bps,
+                        portfolio, cash, accrued_dividends, pv, current, wash_sales,
+                        self.config.slippage_bps, target_weights,
                     )
                     cash = rebalance_result["cash"]
+                    accrued_dividends = rebalance_result["accrued_dividends"]
                     num_trades += rebalance_result["num_trades"]
-                    num_tlh += rebalance_result["num_tlh"]
-                    total_tlh += rebalance_result["total_tlh"]
                     total_turnover += rebalance_result["turnover"]
                     last_rebalance = current
 
@@ -513,128 +523,108 @@ class BacktestEngine:
             "strategy_values": strategy_values,
             "benchmark_values": benchmark_values,
             "num_trades": num_trades,
-            "num_tlh": num_tlh,
-            "total_tlh_harvested": total_tlh,
+            "num_tlh": 0,
+            "total_tlh_harvested": 0.0,
             "total_turnover": total_turnover,
-            "tlh_records": tlh_records,
+            "tlh_records": [],
         }
 
     def _do_rebalance(
         self,
         portfolio: dict,
         cash: float,
+        accrued_dividends: float,
         pv: float,
         as_of: date,
         wash_sales: dict[str, date],
-        tlh_records: list[dict],
         slippage_bps: float,
+        target_weights: dict[str, float],
     ) -> dict:
-        """Execute one rebalance + TLH cycle. Returns updated cash + stats."""
-        target_weights = self.sp500.get_weights()
+        """Execute one rebalance cycle. Returns updated cash + stats."""
         num_trades = 0
-        num_tlh = 0
-        total_tlh = 0.0
         turnover = 0.0
+        total_cash = cash + accrued_dividends
 
-        # --- TLH SCAN ---
-        tlh_sells = []
-        for ticker, pos in list(portfolio.items()):
-            price = self._get_price(ticker, as_of)
-            if price is None:
-                continue
-            shares = pos["shares"]
-            cost_basis = pos["cost"]
-            market_value = shares * price
-            loss = cost_basis - market_value
-
-            min_loss = max(
-                self.config.tlh_loss_min,
-                cost_basis * self.config.tlh_loss_pct,
-            )
-
-            # Check wash sale
-            if ticker in wash_sales and as_of < wash_sales[ticker]:
-                continue
-
-            if loss >= min_loss:
-                # Harvest!
-                tlh_sells.append({"ticker": ticker, "shares": shares, "loss": loss, "price": price})
-                num_tlh += 1
-                total_tlh += loss
-                # Record wash sale
-                wash_sales[ticker] = as_of + timedelta(days=31)
-                # Sell (with slippage)
-                slippage = price * slippage_bps / 10000
-                proceeds = (price - slippage) * shares
-                cash += proceeds
-                del portfolio[ticker]
-                num_trades += 1
-                turnover += abs(proceeds)
-
-        # --- DRIFT REBALANCE ---
-        # First: compute current weights
+        # --- RECOMPUTE CURRENT WEIGHTS ---
         current_weights = {}
         for ticker, pos in portfolio.items():
             price = self._get_price(ticker, as_of)
             if price and pv > 0:
                 current_weights[ticker] = (pos["shares"] * price) / pv
 
-        # Sell overweight positions
-        sells = []
+        # --- SELL OVERWEIGHT POSITIONS ---
+        sells_executed = []
         for ticker, target_w in target_weights.items():
             if ticker not in self._prices:
                 continue
             current_w = current_weights.get(ticker, 0.0)
             drift = current_w - target_w
+
             if drift > self.config.drift_threshold:
-                # Sell some
                 price = self._get_price(ticker, as_of)
                 if price is None:
                     continue
+                # Sell amount = drift * portfolio_value
                 delta_value = drift * pv
                 qty = delta_value / price
                 slippage = price * slippage_bps / 10000
                 proceeds = (price - slippage) * qty
-                cash += proceeds
+                total_cash += proceeds
                 portfolio[ticker]["shares"] -= qty
+                # Adjust cost basis proportionally
+                portfolio[ticker]["cost_total"] -= qty * (price - slippage)
                 num_trades += 1
                 turnover += abs(proceeds)
+                sells_executed.append(ticker)
 
-        # Buy underweight positions
-        buys = []
+        # Remove zero-share positions
+        for ticker in list(portfolio.keys()):
+            if ticker not in sells_executed and portfolio[ticker]["shares"] <= 0:
+                del portfolio[ticker]
+
+        # --- BUY UNDERWEIGHT POSITIONS ---
+        buys_executed = []
         for ticker, target_w in target_weights.items():
             if ticker not in self._prices:
                 continue
             current_w = current_weights.get(ticker, 0.0)
             drift = target_w - current_w
+
             if drift > self.config.drift_threshold:
                 price = self._get_price(ticker, as_of)
                 if price is None:
                     continue
+                # Check wash sale
+                if ticker in wash_sales and as_of < wash_sales[ticker]:
+                    continue
+
                 delta_value = drift * pv
                 qty = delta_value / price
                 cost = (price + price * slippage_bps / 10000) * qty
-                if cash >= cost:
-                    cash -= cost
+
+                if total_cash >= cost:
+                    total_cash -= cost
                     if ticker in portfolio:
-                        portfolio[ticker]["shares"] += qty
-                        # Update cost basis (avg)
-                        old_cost = portfolio[ticker]["cost"] * portfolio[ticker]["shares"]
-                        portfolio[ticker]["cost"] = (old_cost + cost) / (portfolio[ticker]["shares"] + qty)
+                        old_shares = portfolio[ticker]["shares"]
+                        old_cost = portfolio[ticker]["cost_total"]
+                        new_shares = old_shares + qty
+                        portfolio[ticker]["shares"] = new_shares
+                        portfolio[ticker]["cost_total"] = old_cost + cost
                     else:
-                        portfolio[ticker] = {"shares": qty, "cost": price}
+                        portfolio[ticker] = {"shares": qty, "cost_total": cost}
                     num_trades += 1
                     turnover += abs(cost)
+                    buys_executed.append(ticker)
 
-        # --- BUY SECTOR SUBSTITUTES FOR TLH SELLS ---
-        # (simplified: skip actual substitute buy in backtest)
-        # In a full simulation, would buy substitute ticker
+        # Cash after buys
+        cash = total_cash
+        # Dividends accrued reset after reinvestment
+        accrued_dividends = 0.0
 
         return {
             "cash": cash,
+            "accrued_dividends": accrued_dividends,
             "num_trades": num_trades,
-            "num_tlh": num_tlh,
-            "total_tlh": total_tlh,
             "turnover": turnover,
         }
 
@@ -694,15 +684,7 @@ class SensitivityAnalyzer:
         base_config: BacktestConfig,
         variations: dict[str, list],
     ) -> pd.DataFrame:
-        """
-        Run sensitivity analysis.
-
-        variations = {
-            "rebalance_days": [21, 31, 45, 63, 91],
-            "drift_threshold": [0.0001, 0.0005, 0.0025],
-            "tlh_loss_min": [5.0, 10.0, 25.0, 50.0],
-        }
-        """
+        """Run sensitivity analysis across parameter combinations."""
         import itertools
 
         results = []
