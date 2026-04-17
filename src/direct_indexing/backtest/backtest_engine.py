@@ -17,6 +17,7 @@ Sources:
 from __future__ import annotations
 
 import asyncio
+import bisect
 import json
 import logging
 import math
@@ -37,6 +38,26 @@ from ..sp500 import get_sp500, SP500Data
 # ---------------------------------------------------------------------------
 
 logger = logging.getLogger(__name__)
+
+
+# ---------------------------------------------------------------------------
+# Sector dividend yields (approximate historical S&P 500 averages, 2015-2023)
+# ---------------------------------------------------------------------------
+
+SECTOR_DIVIDEND_YIELDS: dict[str, float] = {
+    "Information Technology": 0.008,
+    "Health Care": 0.012,
+    "Financials": 0.015,
+    "Consumer Discretionary": 0.008,
+    "Communication Services": 0.010,
+    "Consumer Staples": 0.025,
+    "Energy": 0.035,
+    "Utilities": 0.035,
+    "Materials": 0.020,
+    "Industrials": 0.015,
+    "Real Estate": 0.030,
+}
+S_P_500_AVG_YIELD: float = 0.018  # ~1.8% average
 
 
 # ---------------------------------------------------------------------------
@@ -281,6 +302,8 @@ class BacktestEngine:
             config.end_date = date.fromisoformat(config.end_date)
 
         self._prices: dict[str, dict[str, float]] = {}
+        self._dividend_yields: dict[str, float] = {}  # ticker -> annual yield (e.g. 0.02 = 2%)
+        self._price_dates: dict[str, list[str]] = {}  # ticker -> sorted date strings for binary search
         self._results: dict = {}
 
     # -------------------------------------------------------------------------
@@ -346,6 +369,11 @@ class BacktestEngine:
             with open(cache_file) as f:
                 self._prices = json.load(f)
             print(f"Loaded {len(self._prices)} tickers from cache")
+            # Build sorted date index for fast lookups
+            for ticker, prices in self._prices.items():
+                self._price_dates[ticker] = sorted(prices.keys())
+            # Also ensure dividends are loaded
+            self._load_dividends()
             return
 
         print(f"Fetching {len(tickers_to_fetch)} ticker prices from yfinance...")
@@ -387,15 +415,46 @@ class BacktestEngine:
 
         print(f"Loaded prices for {len(self._prices)} tickers")
 
+        # Build sorted date index for O(log n) price lookups
+        self._price_dates = {}
+        for ticker, prices in self._prices.items():
+            self._price_dates[ticker] = sorted(prices.keys())
+        print(f"Built price date index for {len(self._price_dates)} tickers")
+
+        # Also load dividends to compute yields
+        self._load_dividends()
+
+    def _load_dividends(self) -> None:
+        """Compute per-ticker dividend yields using sector averages."""
+        sector_map = self.sp500.get_sector_map()
+        div_yields = {}
+        for ticker in self._prices.keys():
+            if ticker == "VOO":
+                continue
+            sector, _ = sector_map.get(ticker, ("", ""))
+            yield_rate = SECTOR_DIVIDEND_YIELDS.get(sector, S_P_500_AVG_YIELD)
+            div_yields[ticker] = yield_rate
+
+        self._dividend_yields = div_yields
+        non_zero = sum(1 for v in div_yields.values() if v > 0)
+        print(f"Applied dividend yields: {non_zero} tickers (sector-based)")
+
+
+
     def _get_price(self, ticker: str, as_of: date) -> Optional[float]:
-        """Get price on or before as_of date."""
+        """Get price on or before as_of date using binary search."""
         if ticker not in self._prices:
             return None
         date_str = as_of.isoformat()
-        candidates = {d: p for d, p in self._prices[ticker].items() if d <= date_str}
-        if not candidates:
+        dates = self._price_dates.get(ticker)
+        if not dates:
             return None
-        return candidates[max(candidates.keys())]
+        # Find rightmost date <= date_str
+        idx = bisect.bisect_right(dates, date_str)
+        if idx == 0:
+            return None
+        found_date = dates[idx - 1]
+        return self._prices[ticker][found_date]
 
     # -------------------------------------------------------------------------
     # Simulation
@@ -499,18 +558,23 @@ class BacktestEngine:
                 for ticker, pos in portfolio.items():
                     price = self._get_price(ticker, current)
                     if price:
-                        pv += pos["shares"] * price
+                        mv = pos["shares"] * price
+                        pv += mv
+                        # Accrue dividends daily based on position market value
+                        yield_rate = self._dividend_yields.get(ticker, 0.018)
+                        accrued_dividends += mv * yield_rate / 252
 
                 # Compute dividend-adjusted benchmark value
                 voo_price = self._get_price("VOO", current)
                 if voo_price is None:
                     voo_price = first_voo_price
 
-                # VOO dividends: ~1.9% annual = ~0.48% per quarter
-                # Accrue daily: ~1.9% / 252 per day
-                daily_voo_div = (voo_shares * first_voo_price) * 0.019 / 252
+                # VOO dividends: ~1.9% annual yield
+                # Accrue daily based on current market value
+                current_voo_mv = voo_shares * voo_price
+                daily_voo_div = current_voo_mv * 0.019 / 252
                 voo_accrued_dividends += daily_voo_div
-                voo_value = voo_shares * voo_price + voo_accrued_dividends
+                voo_value = current_voo_mv + voo_accrued_dividends
 
                 dates.append(current)
                 benchmark_values.append(voo_value)
