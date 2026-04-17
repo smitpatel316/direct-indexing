@@ -346,8 +346,12 @@ class BacktestEngine:
         metrics["total_tlh_harvested"] = 0.0
         metrics["num_tlh_events"] = 0
 
-        # Add total turnover (from simulation) to metrics
-        metrics["total_turnover"] = result.get("total_turnover", 0.0)
+        # Add turnover metrics
+        total_turnover = result.get("total_turnover", 0.0)
+        n_days = len(result["dates"])
+        years = n_days / 252
+        metrics["total_turnover"] = total_turnover
+        metrics["annualized_turnover"] = total_turnover / self.config.initial_value / years if years > 0 else 0.0
 
         self._results = {**metrics, **result}
         return self._results
@@ -496,6 +500,7 @@ class BacktestEngine:
         benchmark_values: list[float] = []
         num_trades = 0
         total_turnover = 0.0
+        num_rebalances = 0
 
         # --- DEPLOY INITIAL CAPITAL ON FIRST TRADING DAY ---
         target_weights = self.sp500.get_weights()
@@ -591,6 +596,7 @@ class BacktestEngine:
                     accrued_dividends = rebalance_result["accrued_dividends"]
                     num_trades += rebalance_result["num_trades"]
                     total_turnover += rebalance_result["turnover"]
+                    num_rebalances += 1
                     last_rebalance = current
 
             current += timedelta(days=1)
@@ -600,6 +606,7 @@ class BacktestEngine:
             "strategy_values": strategy_values,
             "benchmark_values": benchmark_values,
             "num_trades": num_trades,
+            "num_rebalances": num_rebalances,
             "num_tlh": 0,
             "total_tlh_harvested": 0.0,
             "total_turnover": total_turnover,
@@ -738,6 +745,8 @@ class BacktestEngine:
             f"\n"
             f"TURNOVER & TLH\n"
             f"  Total Notional:  ${r.get('total_turnover', 0):,.0f}\n"
+            f"  Ann. Turnover:   {r.get('annualized_turnover', 0)*100:.1f}% of AUM\n"
+            f"  Rebalances:      {r.get('num_rebalances', 0)}\n"
             f"  Rebalance trades: {r.get('num_trades', 0)}\n"
             f"  TLH events:       {r.get('num_tlh_events', 0)}\n"
             f"  Total TLH:        ${r.get('total_tlh_harvested', 0):,.2f}\n"
