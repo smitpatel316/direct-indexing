@@ -1,0 +1,3524 @@
+Basket Holdings: 3520AS OF 03/31/2026
+All Basket Holdings
+Symbol	Company	
+Weight
+NVDA	NVIDIA Corp	6.41
+AAPL	Apple Inc	5.93
+MSFT	Microsoft Corp	4.37
+AMZN	Amazon.com Inc	3.20
+GOOGL	Alphabet Inc Class A	2.66
+AVGO	Broadcom Inc	2.33
+GOOG	Alphabet Inc Class C	2.11
+META	Meta Platforms Inc Class A	1.99
+TSLA	Tesla Inc	1.66
+BRK.B	Berkshire Hathaway Inc Class B	1.36
+LLY	Eli Lilly and Co	1.24
+JPM	JPMorgan Chase & Co	1.19
+XOM	Exxon Mobil Corp	1.12
+JNJ	Johnson & Johnson	0.94
+WMT	Walmart Inc	0.87
+V	Visa Inc Class A	0.79
+COST	Costco Wholesale Corp	0.70
+NFLX	Netflix Inc	0.65
+MA	Mastercard Inc Class A	0.63
+CVX	Chevron Corp	0.62
+ABBV	AbbVie Inc	0.61
+MU	Micron Technology Inc	0.60
+AMD	Advanced Micro Devices Inc	0.53
+PG	Procter & Gamble Co	0.53
+HD	The Home Depot Inc	0.52
+CAT	Caterpillar Inc	0.52
+PLTR	Palantir Technologies Inc Ordinary Shares - Class A	0.51
+BAC	Bank of America Corp	0.48
+MRK	Merck & Co Inc	0.47
+GE	GE Aerospace	0.45
+CSCO	Cisco Systems Inc	0.44
+AMAT	Applied Materials Inc	0.43
+KO	Coca-Cola Co	0.42
+LRCX	Lam Research Corp	0.42
+PM	Philip Morris International Inc	0.41
+RTX	RTX Corp	0.41
+ORCL	Oracle Corp	0.40
+UNH	UnitedHealth Group Inc	0.39
+WFC	Wells Fargo & Co	0.39
+GS	The Goldman Sachs Group Inc	0.38
+LIN	Linde PLC	0.37
+GEV	GE Vernova Inc	0.37
+IBM	International Business Machines Corp	0.36
+MCD	McDonald's Corp	0.35
+PEP	PepsiCo Inc	0.34
+T	AT&T Inc	0.32
+KLAC	KLA Corp	0.31
+NEE	NextEra Energy Inc	0.31
+MS	Morgan Stanley	0.31
+AMGN	Amgen Inc	0.30
+VZ	Verizon Communications Inc	0.30
+C	Citigroup Inc	0.30
+TMO	Thermo Fisher Scientific Inc	0.29
+Mktliq 12/31/2049	0.28
+INTC	Intel Corp	0.28
+TJX	TJX Companies Inc	0.28
+ABT	Abbott Laboratories	0.28
+TXN	Texas Instruments Inc	0.28
+GILD	Gilead Sciences Inc	0.28
+DIS	The Walt Disney Co	0.27
+CRM	Salesforce Inc	0.26
+ISRG	Intuitive Surgical Inc	0.26
+COP	ConocoPhillips	0.26
+PFE	Pfizer Inc	0.25
+SCHW	Charles Schwab Corp	0.25
+BA	Boeing Co	0.25
+ADI	Analog Devices Inc	0.25
+APH	Amphenol Corp Class A	0.25
+UBER	Uber Technologies Inc	0.24
+Slcmt1142	0.23
+AXP	American Express Co	0.23
+DE	Deere & Co	0.23
+UNP	Union Pacific Corp	0.23
+HON	Honeywell International Inc	0.23
+WELL	Welltower Inc	0.22
+LMT	Lockheed Martin Corp	0.22
+ETN	Eaton Corp PLC	0.22
+QCOM	Qualcomm Inc	0.22
+BLK	BlackRock Inc	0.21
+BKNG	Booking Holdings Inc	0.21
+LOW	Lowe's Companies Inc	0.21
+ANET	Arista Networks Inc	0.21
+PANW	Palo Alto Networks Inc	0.21
+SPGI	S&P Global Inc	0.20
+BMY	Bristol-Myers Squibb Co	0.20
+PLD	Prologis Inc	0.19
+ACN	Accenture PLC Class A	0.19
+DHR	Danaher Corp	0.19
+INTU	Intuit Inc	0.19
+NEM	Newmont Corp	0.19
+PGR	Progressive Corp	0.18
+CB	Chubb Ltd	0.18
+VRTX	Vertex Pharmaceuticals Inc	0.18
+COF	Capital One Financial Corp	0.18
+SYK	Stryker Corp	0.18
+PH	Parker Hannifin Corp	0.18
+MDT	Medtronic PLC	0.18
+MO	Altria Group Inc	0.18
+NOW	ServiceNow Inc	0.17
+SO	Southern Co	0.17
+MCK	McKesson Corp	0.17
+CME	CME Group Inc Class A	0.17
+GLW	Corning Inc	0.17
+CMCSA	Comcast Corp Class A	0.16
+SBUX	Starbucks Corp	0.16
+DUK	Duke Energy Corp	0.16
+ADBE	Adobe Inc	0.16
+APP	AppLovin Corp Ordinary Shares - Class A	0.16
+EQIX	Equinix Inc	0.15
+NOC	Northrop Grumman Corp	0.15
+VRT	Vertiv Holdings Co Class A	0.15
+CRWD	CrowdStrike Holdings Inc Class A	0.15
+BSX	Boston Scientific Corp	0.15
+WM	Waste Management Inc	0.15
+TMUS	T-Mobile US Inc	0.15
+SNDK	SanDisk Corp Ordinary Shares	0.15
+HWM	Howmet Aerospace Inc	0.15
+TT	Trane Technologies PLC Class A	0.15
+WDC	Western Digital Corp	0.15
+CVS	CVS Health Corp	0.15
+ICE	Intercontinental Exchange Inc	0.14
+WMB	Williams Companies Inc	0.14
+MRVL	Marvell Technology Inc	0.14
+CEG	Constellation Energy Corp	0.14
+STX	Seagate Technology Holdings PLC	0.14
+BX	Blackstone Inc	0.14
+AMT	American Tower Corp	0.13
+REGN	Regeneron Pharmaceuticals Inc	0.13
+JCI	Johnson Controls International PLC Registered Shares	0.13
+USB	U.S. Bancorp	0.13
+FCX	Freeport-McMoRan Inc	0.13
+MRSH	Marsh	0.13
+PNC	PNC Financial Services Group Inc	0.13
+GD	General Dynamics Corp	0.13
+PWR	Quanta Services Inc	0.13
+ADP	Automatic Data Processing Inc	0.13
+BK	Bank of New York Mellon Corp	0.13
+HCA	HCA Healthcare Inc	0.12
+MDLZ	Mondelez International Inc Class A	0.12
+VLO	Valero Energy Corp	0.12
+EMR	Emerson Electric Co	0.12
+UPS	United Parcel Service Inc Class B	0.12
+PSX	Phillips 66	0.12
+ORLY	O'Reilly Automotive Inc	0.12
+EOG	EOG Resources Inc	0.12
+SLB	SLB Ltd	0.12
+CDNS	Cadence Design Systems Inc	0.12
+MMM	3M Co	0.12
+CSX	CSX Corp	0.12
+SNPS	Synopsys Inc	0.12
+SHW	Sherwin-Williams Co	0.12
+FDX	FedEx Corp	0.12
+CMI	Cummins Inc	0.12
+MPC	Marathon Petroleum Corp	0.11
+MSI	Motorola Solutions Inc	0.11
+ITW	Illinois Tool Works Inc	0.11
+AEP	American Electric Power Co Inc	0.11
+CI	The Cigna Group	0.11
+CRH	CRH PLC	0.11
+ROST	Ross Stores Inc	0.11
+HLT	Hilton Worldwide Holdings Inc	0.11
+MAR	Marriott International Inc Class A	0.11
+CL	Colgate-Palmolive Co	0.11
+ECL	Ecolab Inc	0.11
+GM	General Motors Co	0.11
+RCL	Royal Caribbean Group	0.11
+MCO	Moodys Corp	0.10
+AON	Aon PLC Class A	0.10
+TDG	TransDigm Group Inc	0.10
+WBD	Warner Bros. Discovery Inc Ordinary Shares - Class A	0.10
+APD	Air Products and Chemicals Inc	0.10
+ELV	Elevance Health Inc	0.10
+LHX	L3Harris Technologies Inc	0.10
+NSC	Norfolk Southern Corp	0.10
+KMI	Kinder Morgan Inc Class P	0.10
+SRE	Sempra	0.10
+TRV	The Travelers Companies Inc	0.10
+NKE	Nike Inc Class B	0.10
+NET	Cloudflare Inc	0.10
+DLR	Digital Realty Trust Inc	0.10
+KKR	KKR & Co Inc Ordinary Shares	0.10
+TEL	TE Connectivity PLC Registered Shares	0.10
+PCAR	PACCAR Inc	0.10
+BKR	Baker Hughes Co Class A	0.10
+Us Dollar	0.09
+O	Realty Income Corp	0.09
+SPG	Simon Property Group Inc	0.09
+COR	Cencora Inc	0.09
+CTAS	Cintas Corp	0.09
+TFC	Truist Financial Corp	0.09
+CTVA	Corteva Inc	0.09
+OKE	ONEOK Inc	0.09
+LNG	Cheniere Energy Inc	0.09
+AZO	AutoZone Inc	0.09
+AJG	Arthur J. Gallagher & Co	0.09
+CIEN	Ciena Corp	0.09
+TGT	Target Corp	0.09
+HOOD	Robinhood Markets Inc Class A	0.09
+D	Dominion Energy Inc	0.09
+TRGP	Targa Resources Corp	0.09
+ALL	Allstate Corp	0.09
+MNST	Monster Beverage Corp	0.08
+CAH	Cardinal Health Inc	0.08
+LITE	Lumentum Holdings Inc	0.08
+MPWR	Monolithic Power Systems Inc	0.08
+ADSK	Autodesk Inc	0.08
+ETR	Entergy Corp	0.08
+VST	Vistra Corp	0.08
+AFL	Aflac Inc	0.08
+EA	Electronic Arts Inc	0.08
+OXY	Occidental Petroleum Corp	0.08
+ABNB	Airbnb Inc Ordinary Shares - Class A	0.08
+FTNT	Fortinet Inc	0.08
+KEYS	Keysight Technologies Inc	0.08
+FIX	Comfort Systems USA Inc	0.08
+SNOW	Snowflake Inc Ordinary Shares	0.08
+GWW	W.W. Grainger Inc	0.08
+AME	AMETEK Inc	0.08
+DELL	Dell Technologies Inc Ordinary Shares - Class C	0.08
+EXC	Exelon Corp	0.08
+XEL	Xcel Energy Inc	0.08
+FAST	Fastenal Co	0.08
+DASH	DoorDash Inc Ordinary Shares - Class A	0.08
+PSA	Public Storage	0.07
+Trs:jpmorgan Chase & Co Usd 2027-Aug-31	0.07
+ED	Consolidated Edison Inc	0.07
+KR	The Kroger Co	0.07
+WCN	Waste Connections Inc	0.07
+CMG	Chipotle Mexican Grill Inc	0.07
+FITB	Fifth Third Bancorp	0.07
+WAB	Westinghouse Air Brake Technologies Corp	0.07
+CVNA	Carvana Co Class A	0.07
+F	Ford Motor Co	0.07
+FERG	Ferguson Enterprises Inc	0.07
+URI	United Rentals Inc	0.07
+TER	Teradyne Inc	0.07
+EW	Edwards Lifesciences Corp	0.07
+YUM	Yum Brands Inc	0.07
+DAL	Delta Air Lines Inc	0.07
+NDAQ	Nasdaq Inc	0.07
+ALNY	Alnylam Pharmaceuticals Inc	0.07
+RSG	Republic Services Inc	0.07
+COHR	Coherent Corp	0.07
+CARR	Carrier Global Corp Ordinary Shares	0.07
+IDXX	IDEXX Laboratories Inc	0.07
+BDX	Becton Dickinson & Co	0.07
+ZTS	Zoetis Inc Class A	0.07
+APO	Apollo Global Management Inc	0.07
+VMC	Vulcan Materials Co	0.06
+RBLX	Roblox Corp Ordinary Shares - Class A	0.06
+DHI	D.R. Horton Inc	0.06
+BE	Bloom Energy Corp Class A	0.06
+ROP	Roper Technologies Inc	0.06
+RKLB	Rocket Lab Corp	0.06
+NUE	Nucor Corp	0.06
+TTWO	Take-Two Interactive Software Inc	0.06
+MCHP	Microchip Technology Inc	0.06
+ADM	Archer-Daniels-Midland Co	0.06
+INSM	Insmed Inc	0.06
+MLM	Martin Marietta Materials Inc	0.06
+VTR	Ventas Inc	0.06
+CCI	Crown Castle Inc	0.06
+ODFL	Old Dominion Freight Line Inc Ordinary Shares	0.06
+COIN	Coinbase Global Inc Ordinary Shares - Class A	0.06
+HIG	The Hartford Insurance Group Inc	0.06
+PCG	PG&E Corp	0.06
+MSCI	MSCI Inc	0.06
+WEC	WEC Energy Group Inc	0.06
+GRMN	Garmin Ltd	0.06
+DDOG	Datadog Inc Class A	0.06
+PYPL	PayPal Holdings Inc	0.06
+FANG	Diamondback Energy Inc	0.06
+MET	MetLife Inc	0.06
+MSTR	Strategy Inc Class A	0.06
+EQT	EQT Corp	0.06
+CBRE	CBRE Group Inc Class A	0.06
+ROK	Rockwell Automation Inc	0.06
+AIG	American International Group Inc	0.06
+PEG	Public Service Enterprise Group Inc	0.06
+AMP	Ameriprise Financial Inc	0.06
+EBAY	eBay Inc	0.06
+CCL	Carnival Corp	0.05
+CPRT	Copart Inc	0.05
+IQV	IQVIA Holdings Inc	0.05
+XYL	Xylem Inc	0.05
+WAT	Waters Corp	0.05
+CTSH	Cognizant Technology Solutions Corp Class A	0.05
+CBOE	Cboe Global Markets Inc	0.05
+DOW	Dow Inc	0.05
+HAL	Halliburton Co	0.05
+PAYX	Paychex Inc	0.05
+OTIS	Otis Worldwide Corp Ordinary Shares	0.05
+UAL	United Airlines Holdings Inc	0.05
+AEE	Ameren Corp	0.05
+ATO	Atmos Energy Corp	0.05
+GEHC	GE HealthCare Technologies Inc Common Stock	0.05
+HSY	The Hershey Co	0.05
+MTB	M&T Bank Corp	0.05
+NRG	NRG Energy Inc	0.05
+DVN	Devon Energy Corp	0.05
+IR	Ingersoll Rand Inc	0.05
+HPE	Hewlett Packard Enterprise Co	0.05
+HBAN	Huntington Bancshares Inc	0.05
+KMB	Kimberly-Clark Corp	0.05
+A	Agilent Technologies Inc	0.05
+ACGL	Arch Capital Group Ltd	0.05
+AXON	Axon Enterprise Inc	0.05
+RMD	ResMed Inc	0.05
+EME	EMCOR Group Inc	0.05
+XYZ	Block Inc Class A	0.05
+KVUE	Kenvue Inc	0.05
+STT	State Street Corp	0.05
+KDP	Keurig Dr Pepper Inc	0.05
+PRU	Prudential Financial Inc	0.05
+SYY	Sysco Corp	0.05
+IRM	Iron Mountain Inc	0.05
+IBKR	Interactive Brokers Group Inc Class A	0.05
+TPR	Tapestry Inc	0.05
+CHD	Church & Dwight Co Inc	0.04
+NI	NiSource Inc	0.04
+CRWV	CoreWeave Inc Ordinary Shares - Class A	0.04
+RF	Regions Financial Corp	0.04
+DRI	Darden Restaurants Inc	0.04
+PHM	PulteGroup Inc	0.04
+MKL	Markel Group Inc	0.04
+ARES	Ares Management Corp Ordinary Shares - Class A	0.04
+FISV	Fiserv Inc	0.04
+BIIB	Biogen Inc	0.04
+CASY	Casey's General Stores Inc	0.04
+EXPE	Expedia Group Inc	0.04
+SUNB	Sunbelt Rentals Holdings Inc	0.04
+PPL	PPL Corp	0.04
+WTW	Willis Towers Watson PLC	0.04
+WDAY	Workday Inc Class A	0.04
+FTI	TechnipFMC PLC	0.04
+ULTA	Ulta Beauty Inc	0.04
+OMC	Omnicom Group Inc	0.04
+SYF	Synchrony Financial	0.04
+CMS	CMS Energy Corp	0.04
+TSCO	Tractor Supply Co	0.04
+PPG	PPG Industries Inc	0.04
+FICO	Fair Isaac Corp	0.04
+FLEX	Flex Ltd	0.04
+CFG	Citizens Financial Group Inc	0.04
+FIS	Fidelity National Information Services Inc	0.04
+LPLA	LPL Financial Holdings Inc	0.04
+DXCM	DexCom Inc	0.04
+Q	Qnity Electronics Inc	0.04
+ON	ON Semiconductor Corp	0.04
+CINF	Cincinnati Financial Corp	0.04
+NTRS	Northern Trust Corp	0.04
+STLD	Steel Dynamics Inc	0.04
+LYV	Live Nation Entertainment Inc	0.04
+CW	Curtiss-Wright Corp	0.04
+FTAI	FTAI Aviation Ltd	0.04
+CTRA	Coterra Energy Inc Ordinary Shares	0.04
+RJF	Raymond James Financial Inc	0.04
+MTD	Mettler-Toledo International Inc	0.04
+DTE	DTE Energy Co	0.04
+UTHR	United Therapeutics Corp	0.04
+VEEV	Veeva Systems Inc Class A	0.04
+ES	Eversource Energy	0.04
+BRK.A	Berkshire Hathaway Inc Class A	0.04
+HUBB	Hubbell Inc	0.04
+DG	Dollar General Corp	0.04
+VRSK	Verisk Analytics Inc	0.04
+EXE	Expand Energy Corp Ordinary Shares - New	0.04
+NTRA	Natera Inc	0.04
+AWK	American Water Works Co Inc	0.04
+JBL	Jabil Inc	0.04
+VICI	VICI Properties Inc Ordinary Shares	0.04
+EXR	Extra Space Storage Inc	0.04
+AVB	AvalonBay Communities Inc	0.04
+TPL	Texas Pacific Land Corp	0.04
+FE	FirstEnergy Corp	0.04
+TDY	Teledyne Technologies Inc	0.04
+DOV	Dover Corp	0.04
+EIX	Edison International	0.04
+CNP	CenterPoint Energy Inc	0.04
+LH	Labcorp Holdings Inc	0.03
+WY	Weyerhaeuser Co	0.03
+SBAC	SBA Communications Corp Class A	0.03
+EQR	Equity Residential	0.03
+RVMD	Revolution Medicines Inc Ordinary Shares	0.03
+LNT	Alliant Energy Corp	0.03
+LUV	Southwest Airlines Co	0.03
+PSTG	Everpure Inc Class A	0.03
+KHC	The Kraft Heinz Co	0.03
+BWXT	BWX Technologies Inc	0.03
+DD	DuPont de Nemours Inc	0.03
+CRS	Carpenter Technology Corp	0.03
+FN	Fabrinet	0.03
+SNA	Snap-on Inc	0.03
+BRO	Brown & Brown Inc	0.03
+PKG	Packaging Corp of America	0.03
+IP	International Paper Co	0.03
+WRB	WR Berkley Corp	0.03
+MDB	MongoDB Inc Class A	0.03
+FWONK	Liberty Media Corp Registered Shs Series -C- Formula One	0.03
+BR	Broadridge Financial Solutions Inc	0.03
+TWLO	Twilio Inc Class A	0.03
+EXPD	Expeditors International of Washington Inc	0.03
+NVT	nVent Electric PLC	0.03
+CPAY	Corpay Inc	0.03
+PFG	Principal Financial Group Inc	0.03
+TROW	T. Rowe Price Group Inc	0.03
+NTAP	NetApp Inc	0.03
+LDOS	Leidos Holdings Inc	0.03
+CHRW	C.H. Robinson Worldwide Inc	0.03
+BG	Bunge Global SA	0.03
+GIS	General Mills Inc	0.03
+CF	CF Industries Holdings Inc	0.03
+ATI	ATI Inc	0.03
+FSLR	First Solar Inc	0.03
+SOFI	SoFi Technologies Inc Ordinary Shares	0.03
+MTZ	MasTec Inc	0.03
+ZM	Zoom Communications Inc	0.03
+USFD	US Foods Holding Corp	0.03
+BURL	Burlington Stores Inc	0.03
+VRSN	VeriSign Inc	0.03
+HEI.A	Heico Corp Class A	0.03
+DLTR	Dollar Tree Inc	0.03
+LYB	LyondellBasell Industries NV Class A	0.03
+VLTO	Veralto Corp	0.03
+STZ	Constellation Brands Inc Class A	0.03
+SW	Smurfit WestRock PLC	0.03
+HUM	Humana Inc	0.03
+ALB	Albemarle Corp	0.03
+WWD	Woodward Inc	0.03
+ASTS	AST SpaceMobile Inc Ordinary Shares - Class A	0.03
+DGX	Quest Diagnostics Inc	0.03
+RGLD	Royal Gold Inc	0.03
+XPO	XPO Inc	0.03
+STE	Steris PLC	0.03
+EFX	Equifax Inc	0.03
+WSM	Williams-Sonoma Inc	0.03
+KEY	KeyCorp	0.03
+RS	Reliance Inc	0.03
+LEN	Lennar Corp Class A	0.03
+ALAB	Astera Labs Inc	0.03
+INCY	Incyte Corp	0.03
+JBHT	JB Hunt Transport Services Inc	0.03
+CNC	Centene Corp	0.03
+LVS	Las Vegas Sands Corp	0.03
+FFIV	F5 Inc	0.03
+LULU	Lululemon Athletica Inc	0.03
+ITT	ITT Inc	0.03
+THC	Tenet Healthcare Corp	0.03
+PR	Permian Resources Corp Class A	0.03
+AKAM	Akamai Technologies Inc	0.03
+ROL	Rollins Inc	0.03
+OVV	Ovintiv Inc	0.03
+HOLX	Hologic Inc	0.03
+PTC	PTC Inc	0.03
+CSGP	CoStar Group Inc	0.03
+FTV	Fortive Corp	0.03
+NXT	Nextpower Inc Class A	0.03
+RBC	RBC Bearings Inc	0.03
+NVR	NVR Inc	0.03
+AA	Alcoa Corp	0.03
+L	Loews Corp	0.03
+HPQ	HP Inc	0.03
+ZBH	Zimmer Biomet Holdings Inc	0.03
+IFF	International Flavors & Fragrances Inc	0.03
+EL	The Estee Lauder Companies Inc Class A	0.03
+CHTR	Charter Communications Inc Class A	0.03
+ENTG	Entegris Inc	0.03
+EVRG	Evergy Inc	0.03
+RBA	RB Global Inc	0.03
+RDDT	Reddit Inc Class A Shares	0.03
+ILMN	Illumina Inc	0.03
+TSN	Tyson Foods Inc Class A	0.03
+MRNA	Moderna Inc	0.03
+WST	West Pharmaceutical Services Inc	0.03
+FCNCA	First Citizens BancShares Inc Class A	0.02
+VTRS	Viatris Inc	0.02
+SATS	EchoStar Corp Class A	0.02
+CDW	CDW Corp	0.02
+CPT	Camden Property Trust	0.02
+EGP	EastGroup Properties Inc	0.02
+LAMR	Lamar Advertising Co Class A	0.02
+AGNC	AGNC Investment Corp	0.02
+UDR	UDR Inc	0.02
+INVH	Invitation Homes Inc	0.02
+DOC	Healthpeak Properties Inc	0.02
+REG	Regency Centers Corp	0.02
+MAA	Mid-America Apartment Communities Inc	0.02
+ELS	Equity Lifestyle Properties Inc	0.02
+OHI	Omega Healthcare Investors Inc	0.02
+GLPI	Gaming and Leisure Properties Inc	0.02
+HST	Host Hotels & Resorts Inc	0.02
+SUI	Sun Communities Inc	0.02
+KIM	Kimco Realty Corp	0.02
+WPC	W.P. Carey Inc	0.02
+NLY	Annaly Capital Management Inc	0.02
+ESS	Essex Property Trust Inc	0.02
+Trs:goldman Sachs Group Inc Usd 2027-Aug-31	0.02
+Trs:bank Of America Corp Usd 2027-Jan-29	0.02
+Trs:visa Inc-Class A Shares Usd 2026-Aug-31	0.02
+APA	APA Corp	0.02
+MDLN	Medline Inc Ordinary Shares - Class A	0.02
+MTSI	MACOM Technology Solutions Holdings Inc	0.02
+TXT	Textron Inc	0.02
+CRDO	Credo Technology Group Holding Ltd	0.02
+TRMB	Trimble Inc	0.02
+GPN	Global Payments Inc	0.02
+MKSI	MKS Inc	0.02
+BALL	Ball Corp	0.02
+CSL	Carlisle Companies Inc	0.02
+RGA	Reinsurance Group of America Inc	0.02
+WCC	WESCO International Inc	0.02
+TRU	TransUnion	0.02
+OKTA	Okta Inc Class A	0.02
+NBIX	Neurocrine Biosciences Inc	0.02
+AVY	Avery Dennison Corp	0.02
+TOST	Toast Inc Class A	0.02
+HAS	Hasbro Inc	0.02
+EG	Everest Group Ltd	0.02
+TOL	Toll Brothers Inc	0.02
+NYT	New York Times Co Class A	0.02
+MKC	McCormick & Co Inc Ordinary Shares (Non Voting)	0.02
+PFGC	Performance Food Group Co	0.02
+BBY	Best Buy Co Inc	0.02
+GWRE	Guidewire Software Inc	0.02
+RPM	RPM International Inc	0.02
+WSO	Watsco Inc Ordinary Shares	0.02
+LSCC	Lattice Semiconductor Corp	0.02
+FIVE	Five Below Inc	0.02
+RL	Ralph Lauren Corp Class A	0.02
+TKO	TKO Group Holdings Inc	0.02
+ALLE	Allegion PLC	0.02
+CLX	Clorox Co	0.02
+AR	Antero Resources Corp	0.02
+DKS	Dick's Sporting Goods Inc	0.02
+RRX	Regal Rexnord Corp	0.02
+ROKU	Roku Inc Class A	0.02
+MLI	Mueller Industries Inc	0.02
+MAS	Masco Corp	0.02
+PEN	Penumbra Inc	0.02
+SNX	TD Synnex Corp	0.02
+AEIS	Advanced Energy Industries Inc	0.02
+CG	The Carlyle Group Inc	0.02
+HUBS	HubSpot Inc	0.02
+PNW	Pinnacle West Capital Corp	0.02
+SOLS	Solstice Advanced Materials Inc	0.02
+AFRM	Affirm Holdings Inc Ordinary Shares - Class A	0.02
+CACI	CACI International Inc Class A	0.02
+FNF	Fidelity National Financial Inc	0.02
+RKT	Rocket Companies Inc Ordinary Shares Class A	0.02
+KTOS	Kratos Defense & Security Solutions Inc	0.02
+QXO	QXO Inc	0.02
+PNFP	Pinnacle Financial Partners Inc	0.02
+BBIO	BridgeBio Pharma Inc	0.02
+RNR	RenaissanceRe Holdings Ltd	0.02
+BJ	BJ's Wholesale Club Holdings Inc	0.02
+ROIV	Roivant Sciences Ltd Ordinary Shares	0.02
+ELAN	Elanco Animal Health Inc	0.02
+HL	Hecla Mining Co	0.02
+STRL	Sterling Infrastructure Inc	0.02
+IONS	Ionis Pharmaceuticals Inc	0.02
+ALGN	Align Technology Inc	0.02
+ENSG	Ensign Group Inc	0.02
+TEAM	Atlassian Corp Class A	0.02
+SMCI	Super Micro Computer Inc	0.02
+GH	Guardant Health Inc	0.02
+GGG	Graco Inc	0.02
+RIVN	Rivian Automotive Inc Class A	0.02
+NDSN	Nordson Corp	0.02
+IEX	IDEX Corp	0.02
+PNR	Pentair PLC	0.02
+DECK	Deckers Outdoor Corp	0.02
+SSNC	SS&C Technologies Holdings Inc	0.02
+DTM	DT Midstream Inc Ordinary Shares	0.02
+CLH	Clean Harbors Inc	0.02
+MOD	Modine Manufacturing Co	0.02
+WTRG	Essential Utilities Inc	0.02
+JKHY	Jack Henry & Associates Inc	0.02
+CRCL	Circle Internet Group Inc Ordinary Shares - Class A	0.02
+COO	The Cooper Companies Inc	0.02
+GNRC	Generac Holdings Inc	0.02
+JLL	Jones Lang LaSalle Inc	0.02
+FLUT	Flutter Entertainment PLC	0.02
+LII	Lennox International Inc	0.02
+TLN	Talen Energy Corp Ordinary Shares New	0.02
+GPC	Genuine Parts Co	0.02
+TYL	Tyler Technologies Inc	0.02
+ZS	Zscaler Inc	0.02
+EWBC	East West Bancorp Inc	0.02
+SGI	Somnigroup International Inc	0.02
+APTV	Aptiv PLC	0.02
+PODD	Insulet Corp	0.02
+APG	APi Group Corp	0.02
+J	Jacobs Solutions Inc	0.02
+HII	Huntington Ingalls Industries Inc	0.02
+LECO	Lincoln Electric Holdings Inc	0.02
+TW	Tradeweb Markets Inc	0.02
+CCK	Crown Holdings Inc	0.02
+UNM	Unum Group	0.02
+EVR	Evercore Inc Class A	0.02
+BWA	BorgWarner Inc	0.02
+WBS	Webster Financial Corp	0.02
+ACM	AECOM	0.02
+TXRH	Texas Roadhouse Inc	0.02
+FHN	First Horizon Corp	0.02
+FOXA	Fox Corp Class A	0.02
+GL	Globe Life Inc	0.02
+SCI	Service Corp International	0.02
+BMRN	BioMarin Pharmaceutical Inc	0.02
+ALLY	Ally Financial Inc	0.02
+CDE	Coeur Mining Inc	0.02
+COKE	Coca-Cola Consolidated Inc	0.02
+MEDP	Medpace Holdings Inc	0.02
+SF	Stifel Financial Corp	0.02
+DPZ	Domino's Pizza Inc	0.02
+AIZ	Assurant Inc	0.02
+WMS	Advanced Drainage Systems Inc	0.02
+ARMK	Aramark	0.02
+RRC	Range Resources Corp	0.02
+EXEL	Exelixis Inc	0.02
+IT	Gartner Inc	0.02
+EQH	Equitable Holdings Inc	0.02
+NWSA	News Corp Class A	0.02
+ZBRA	Zebra Technologies Corp Ordinary Shares - Class A	0.02
+GEN	Gen Digital Inc	0.02
+NTNX	Nutanix Inc Class A	0.02
+IOT	Samsara Inc Ordinary Shares - Class A	0.02
+JAZZ	Jazz Pharmaceuticals PLC	0.02
+DT	Dynatrace Inc Ordinary Shares	0.02
+GDDY	GoDaddy Inc Class A	0.02
+SWK	Stanley Black & Decker Inc	0.02
+OGE	OGE Energy Corp	0.02
+SPXC	SPX Technologies Inc	0.02
+TTD	The Trade Desk Inc Class A	0.02
+AES	The AES Corp	0.02
+DKNG	DraftKings Inc Ordinary Shares - Class A	0.02
+ONTO	Onto Innovation Inc	0.02
+PINS	Pinterest Inc Class A	0.02
+IVZ	Invesco Ltd	0.02
+BLD	TopBuild Corp	0.02
+AIT	Applied Industrial Technologies Inc	0.02
+DCI	Donaldson Co Inc	0.02
+DAR	Darling Ingredients Inc	0.02
+RVTY	Revvity Inc	0.02
+DINO	HF Sinclair Corp	0.02
+SJM	JM Smucker Co	0.02
+GMED	Globus Medical Inc Class A	0.02
+ALSN	Allison Transmission Holdings Inc	0.02
+MDGL	Madrigal Pharmaceuticals Inc	0.02
+SOLV	Solventum Corp	0.02
+DY	Dycom Industries Inc	0.02
+EHC	Encompass Health Corp	0.02
+TTMI	TTM Technologies Inc	0.02
+AFG	American Financial Group Inc	0.02
+IONQ	IonQ Inc Class A	0.02
+DOCU	Docusign Inc	0.02
+CALM	Cal-Maine Foods Inc	0.01
+WHD	Cactus Inc Class A	0.01
+BOX	Box Inc Class A	0.01
+ADT	ADT Inc	0.01
+ALHC	Alignment Healthcare Inc	0.01
+TMDX	TransMedics Group Inc	0.01
+SIG	Signet Jewelers Ltd	0.01
+PJT	PJT Partners Inc Class A	0.01
+GNW	Genworth Financial Inc	0.01
+ICUI	ICU Medical Inc	0.01
+NATL	NCR Atleos Corp	0.01
+EXPO	Exponent Inc	0.01
+GFF	Griffon Corp	0.01
+PLMR	Palomar Holdings Inc	0.01
+CATY	Cathay General Bancorp	0.01
+PVH	PVH Corp	0.01
+ZETA	Zeta Global Holdings Corp Class A	0.01
+AAP	Advance Auto Parts Inc	0.01
+PLUG	Plug Power Inc	0.01
+SPHR	Sphere Entertainment Co Ordinary Shares - Class A	0.01
+OMF	OneMain Holdings Inc	0.01
+CFR	Cullen/Frost Bankers Inc	0.01
+MASI	Masimo Corp	0.01
+CGNX	Cognex Corp	0.01
+CHRD	Chord Energy Corp Ordinary Shares - New	0.01
+OWL	Blue Owl Capital Inc Ordinary Shares - Class A	0.01
+AAOI	Applied Optoelectronics Inc	0.01
+ECG	Everus Construction Group Inc	0.01
+GATX	GATX Corp	0.01
+MIDD	The Middleby Corp	0.01
+GKOS	Glaukos Corp	0.01
+LBRDK	Liberty Broadband Corp Registered Shs Series -C-	0.01
+JEF	Jefferies Financial Group Inc	0.01
+SITE	SiteOne Landscape Supply Inc	0.01
+RYTM	Rhythm Pharmaceuticals Inc	0.01
+FNB	F N B Corp	0.01
+EXP	Eagle Materials Inc	0.01
+COGT	Cogent Biosciences Inc	0.01
+ORI	Old Republic International Corp	0.01
+MUSA	Murphy USA Inc	0.01
+TECH	Bio-Techne Corp	0.01
+AVAV	AeroVironment Inc	0.01
+MOH	Molina Healthcare Inc	0.01
+MSA	MSA Safety Inc	0.01
+RGEN	Repligen Corp	0.01
+TKR	The Timken Co	0.01
+VOYA	Voya Financial Inc	0.01
+TXNM	TXNM Energy Inc	0.01
+G	Genpact Ltd	0.01
+CART	Maplebear Inc	0.01
+JHG	Janus Henderson Group PLC	0.01
+NE	Noble Corp PLC Class A	0.01
+EAT	Brinker International Inc	0.01
+SEE	Sealed Air Corp	0.01
+FOX	Fox Corp Class B	0.01
+HXL	Hexcel Corp	0.01
+WH	Wyndham Hotels & Resorts Inc Ordinary Shares	0.01
+ACI	Albertsons Companies Inc Class A	0.01
+BTSG	BrightSpring Health Services Inc	0.01
+LEA	Lear Corp	0.01
+IBP	Installed Building Products Inc	0.01
+POR	Portland General Electric Co	0.01
+RYN	Rayonier Inc	0.01
+STAG	Stag Industrial Inc	0.01
+CTRE	CareTrust REIT Inc	0.01
+AHR	American Healthcare REIT Inc Ordinary Shares	0.01
+STWD	Starwood Property Trust Inc	0.01
+TRNO	Terreno Realty Corp	0.01
+EPRT	Essential Properties Realty Trust Inc	0.01
+BXP	BXP Inc	0.01
+BRX	Brixmor Property Group Inc	0.01
+CUBE	CubeSmart	0.01
+ADC	Agree Realty Corp	0.01
+REXR	Rexford Industrial Realty Inc	0.01
+AMH	American Homes 4 Rent Class A	0.01
+FR	First Industrial Realty Trust Inc	0.01
+FRT	Federal Realty Investment Trust	0.01
+NNN	NNN REIT Inc	0.01
+ARE	Alexandria Real Estate Equities Inc	0.01
+MAC	Macerich Co	0.01
+HR	Healthcare Realty Trust Inc	0.01
+RHP	Ryman Hospitality Properties Inc	0.01
+RITM	Rithm Capital Corp	0.01
+KRG	Kite Realty Group Trust	0.01
+SBRA	Sabra Health Care REIT Inc	0.01
+PECO	Phillips Edison & Co Inc Ordinary Shares - New	0.01
+VNO	Vornado Realty Trust	0.01
+MRP	Millrose Properties Inc Class A	0.01
+OUT	Outfront Media Inc	0.01
+SKT	Tanger Inc	0.01
+COLD	Americold Realty Trust Inc	0.01
+NHI	National Health Investors Inc	0.01
+EPR	EPR Properties	0.01
+CUZ	Cousins Properties Inc	0.01
+KRC	Kilroy Realty Corp	0.01
+CDP	COPT Defense Properties	0.01
+BNL	Broadstone Net Lease Inc Ordinary Shares	0.01
+IRT	Independence Realty Trust Inc	0.01
+Trs:citigroup Inc Usd 2027-Aug-31	0.01
+CORT	Corcept Therapeutics Inc	0.01
+VKTX	Viking Therapeutics Inc	0.01
+LTH	Life Time Group Holdings Inc	0.01
+WMG	Warner Music Group Corp Ordinary Shares - Class A	0.01
+DRS	Leonardo DRS Inc	0.01
+BGC	BGC Group Inc Ordinary Shares Class A	0.01
+LRN	Stride Inc	0.01
+VIRT	Virtu Financial Inc Class A	0.01
+OII	Oceaneering International Inc	0.01
+TDW	Tidewater Inc	0.01
+CRGY	Crescent Energy Co Class A	0.01
+AGO	Assured Guaranty Ltd	0.01
+SYRE	Spyre Therapeutics Inc	0.01
+SYM	Symbotic Inc Ordinary Shares - Class A	0.01
+FELE	Franklin Electric Co Inc	0.01
+PATK	Patrick Industries Inc	0.01
+MMS	Maximus Inc	0.01
+CENX	Century Aluminum Co	0.01
+SLGN	Silgan Holdings Inc	0.01
+SHC	Sotera Health Co Ordinary Shares	0.01
+CVLT	CommVault Systems Inc	0.01
+TPC	Tutor Perini Corp	0.01
+KAI	Kadant Inc	0.01
+WSFS	WSFS Financial Corp	0.01
+CCC	CCC Intelligent Solutions Holdings Inc	0.01
+BILL	BILL Holdings Inc Ordinary Shares	0.01
+RNST	Renasant Corp	0.01
+WHR	Whirlpool Corp	0.01
+BHF	Brighthouse Financial Inc Registered Shs When Issued	0.01
+PRM	Perimeter Solutions Inc	0.01
+GHC	Graham Holdings Co Ordinary Shares - Class B	0.01
+BRC	Brady Corp Class A	0.01
+SHAK	Shake Shack Inc Class A	0.01
+DBX	Dropbox Inc Class A	0.01
+GSAT	Globalstar Inc	0.01
+GPOR	Gulfport Energy Corp Ordinary Shares (New)	0.01
+ELF	e.l.f. Beauty Inc	0.01
+GLXY	Galaxy Digital Inc Ordinary Shares - Class A	0.01
+VCTR	Victory Capital Holdings Inc Class A	0.01
+FUL	H.B. Fuller Co	0.01
+AVNT	Avient Corp	0.01
+WSBC	Wesbanco Inc	0.01
+CC	The Chemours Co	0.01
+KFY	Korn Ferry	0.01
+AVA	Avista Corp	0.01
+ENVA	Enova International Inc	0.01
+HP	Helmerich & Payne Inc	0.01
+KTB	Kontoor Brands Inc	0.01
+CBT	Cabot Corp	0.01
+RDNT	RadNet Inc	0.01
+STEP	StepStone Group Inc Ordinary Shares - Class A	0.01
+BRKR	Bruker Corp	0.01
+TTAN	ServiceTitan Inc Class A Ordinary Shares	0.01
+TREX	Trex Co Inc	0.01
+CRNX	Crinetics Pharmaceuticals Inc	0.01
+IRTC	iRhythm Holdings Inc	0.01
+BBWI	Bath & Body Works Inc	0.01
+ALGM	Allegro Microsystems Inc Ordinary Shares	0.01
+AMTM	Amentum Holdings Inc	0.01
+INDV	Indivior Pharmaceuticals Inc Ordinary Share	0.01
+SFBS	Servisfirst Bancshares Inc	0.01
+WLK	Westlake Corp	0.01
+VICR	Vicor Corp	0.01
+UCB	United Community Banks Inc	0.01
+DUOL	Duolingo Inc	0.01
+FTDR	Frontdoor Inc	0.01
+LGND	Ligand Pharmaceuticals Inc	0.01
+RUSHA	Rush Enterprises Inc Class A	0.01
+TPH	Tri Pointe Homes Inc	0.01
+VSCO	Victoria's Secret & Co	0.01
+SKYW	SkyWest Inc	0.01
+FULT	Fulton Financial Corp	0.01
+INDB	Independent Bank Corp	0.01
+SXT	Sensient Technologies Corp	0.01
+CNO	CNO Financial Group Inc	0.01
+MORN	Morningstar Inc	0.01
+DLB	Dolby Laboratories Inc Class A	0.01
+OTTR	Otter Tail Corp	0.01
+UNF	UniFirst Corp	0.01
+ONDS	Ondas Inc	0.01
+APPF	AppFolio Inc Class A	0.01
+CVSA	Covista Inc	0.01
+OPEN	Opendoor Technologies Inc Ordinary Shares - Class A	0.01
+ASO	Academy Sports and Outdoors Inc Ordinary Shares	0.01
+CVCO	Cavco Industries Inc	0.01
+IBOC	International Bancshares Corp	0.01
+ABG	Asbury Automotive Group Inc	0.01
+AZZ	AZZ Inc	0.01
+GPI	Group 1 Automotive Inc	0.01
+FBP	First BanCorp	0.01
+OLN	Olin Corp	0.01
+BKU	BankUnited Inc	0.01
+HRI	Herc Holdings Inc	0.01
+FFIN	First Financial Bankshares Inc	0.01
+INSW	International Seaways Inc	0.01
+FSLY	Fastly Inc Class A	0.01
+VISN	Vistance Networks Inc	0.01
+PSMT	Pricesmart Inc	0.01
+HLNE	Hamilton Lane Inc Class A	0.01
+MRCY	Mercury Systems Inc	0.01
+MTH	Meritage Homes Corp	0.01
+RYAN	Ryan Specialty Holdings Inc Class A	0.01
+DAN	Dana Inc	0.01
+PEGA	Pegasystems Inc	0.01
+CROX	Crocs Inc	0.01
+URBN	Urban Outfitters Inc	0.01
+THO	Thor Industries Inc	0.01
+ITRI	Itron Inc	0.01
+HRB	H&R Block Inc	0.01
+TDS	Telephone and Data Systems Inc	0.01
+BTU	Peabody Energy Corp	0.01
+SLM	SLM Corp	0.01
+ASB	Associated Banc-Corp	0.01
+POST	Post Holdings Inc	0.01
+OLED	Universal Display Corp	0.01
+NWE	NorthWestern Energy Group Inc	0.01
+TNL	Travel+Leisure Co	0.01
+MMSI	Merit Medical Systems Inc	0.01
+MSM	MSC Industrial Direct Co Inc Class A	0.01
+AIR	AAR Corp	0.01
+SKY	Champion Homes Inc	0.01
+PTEN	Patterson-UTI Energy Inc	0.01
+EBC	Eastern Bankshares Inc Ordinary Shares	0.01
+NVST	Envista Holdings Corp Ordinary Shares	0.01
+DNTH	Dianthus Therapeutics Inc	0.01
+RIOT	Riot Platforms Inc	0.01
+ACIW	ACI Worldwide Inc	0.01
+FHI	Federated Hermes Inc Class B	0.01
+OSIS	OSI Systems Inc	0.01
+ALK	Alaska Air Group Inc	0.01
+PBF	PBF Energy Inc Class A	0.01
+ANF	Abercrombie & Fitch Co Class A	0.01
+TCBI	Texas Capital Bancshares Inc	0.01
+OPCH	Option Care Health Inc	0.01
+MC	Moelis & Co Class A	0.01
+UHAL.B	U-Haul Holding Co Ordinary Shares - Series N	0.01
+ERAS	Erasca Inc	0.01
+LAUR	Laureate Education Inc Shs	0.01
+MDU	MDU Resources Group Inc	0.01
+WING	Wingstop Inc	0.01
+CSW	CSW Industrials Inc	0.01
+NOVT	Novanta Inc	0.01
+SIRI	Sirius XM Holdings Inc	0.01
+IESC	IES Holdings Inc	0.01
+BYD	Boyd Gaming Corp	0.01
+SAIC	Science Applications International Corp	0.01
+MIR	Mirion Technologies Inc Ordinary Shares Class A	0.01
+VVV	Valvoline Inc	0.01
+BCO	The Brink's Co	0.01
+SARO	StandardAero Inc	0.01
+S	SentinelOne Inc Class A	0.01
+SRRK	Scholar Rock Holding Corp	0.01
+LMND	Lemonade Inc Ordinary Shares	0.01
+MWA	Mueller Water Products Inc Class A shares	0.01
+EFR	Energy Fuels Inc	0.01
+REZI	Resideo Technologies Inc	0.01
+APLS	Apellis Pharmaceuticals Inc	0.01
+HIMS	Hims & Hers Health Inc Ordinary Shares - Class A	0.01
+LNTH	Lantheus Holdings Inc	0.01
+HCC	Warrior Met Coal Inc	0.01
+CIFR	Cipher Digital Inc	0.01
+SNAP	Snap Inc Class A	0.01
+ESTC	Elastic NV	0.01
+SIGI	Selective Insurance Group Inc	0.01
+M	Macy's Inc	0.01
+BFAM	Bright Horizons Family Solutions Inc	0.01
+PATH	UiPath Inc Class A	0.01
+LPX	Louisiana-Pacific Corp	0.01
+FOLD	Amicus Therapeutics Inc	0.01
+ETSY	Etsy Inc	0.01
+ATMU	Atmus Filtration Technologies Inc	0.01
+MTN	Vail Resorts Inc	0.01
+RGTI	Rigetti Computing Inc	0.01
+MYRG	MYR Group Inc	0.01
+LBRT	Liberty Energy Inc Class A	0.01
+PRMB	Primo Brands Corp Ordinary Shares - Class A	0.01
+BDC	Belden Inc	0.01
+EXLS	ExlService Holdings Inc	0.01
+RDN	Radian Group Inc	0.01
+AX	Axos Financial Inc	0.01
+LOPE	Grand Canyon Education Inc	0.01
+KNF	Knife River Corp	0.01
+CPB	The Campbell's Co	0.01
+CGON	CG Oncology Inc	0.01
+HASI	HA Sustainable Infrastructure Capital Inc	0.01
+KBR	KBR Inc	0.01
+FBIN	Fortune Brands Innovations Inc	0.01
+GNTX	Gentex Corp	0.01
+RAL	Ralliant Corp	0.01
+PCTY	Paylocity Holding Corp	0.01
+HUT	Hut 8 Corp	0.01
+LAZ	Lazard Inc	0.01
+FROG	JFrog Ltd Ordinary Shares	0.01
+ENPH	Enphase Energy Inc	0.01
+BC	Brunswick Corp	0.01
+JOBY	Joby Aviation Inc	0.01
+ROAD	Construction Partners Inc Class A	0.01
+CELC	Celcuity Inc	0.01
+VSEC	VSE Corp	0.01
+APGE	Apogee Therapeutics Inc	0.01
+MATX	Matson Inc	0.01
+QBTS	D-Wave Quantum Inc	0.01
+CNR	Core Natural Resources Inc Ordinary Shares	0.01
+TGTX	TG Therapeutics Inc	0.01
+LYFT	Lyft Inc Class A	0.01
+ABCB	Ameris Bancorp	0.01
+SR	Spire Inc	0.01
+TEM	Tempus AI Inc Class A common stock	0.01
+MHK	Mohawk Industries Inc	0.01
+AUB	Atlantic Union Bankshares Corp	0.01
+NEU	NewMarket Corp	0.01
+BSY	Bentley Systems Inc Ordinary Shares - Class B	0.01
+CZR	Caesars Entertainment Inc	0.01
+WULF	TeraWulf Inc	0.01
+ST	Sensata Technologies Holding PLC	0.01
+DVA	DaVita Inc	0.01
+PIPR	Piper Sandler Cos	0.01
+UFPI	UFP Industries Inc	0.01
+BIO	Bio-Rad Laboratories Inc Class A	0.01
+NXST	Nexstar Media Group Inc	0.01
+CNX	CNX Resources Corp	0.01
+CHYM	Chime Financial Inc Ordinary Shares - Class A	0.01
+COMP	Compass Inc Class A	0.01
+ACA	Arcosa Inc	0.01
+BKH	Black Hills Corp	0.01
+GVA	Granite Construction Inc	0.01
+ESNT	Essent Group Ltd	0.01
+RLI	RLI Corp	0.01
+WEX	WEX Inc	0.01
+POWL	Powell Industries Inc	0.01
+HWC	Hancock Whitney Corp	0.01
+VSNT	Versant Media Group Inc Class A	0.01
+NPO	Enpro Inc	0.01
+TFX	Teleflex Inc	0.01
+MIRM	Mirum Pharmaceuticals Inc	0.01
+TMHC	Taylor Morrison Home Corp	0.01
+WTM	White Mountains Insurance Group Ltd	0.01
+CHDN	Churchill Downs Inc	0.01
+SON	Sonoco Products Co	0.01
+FCN	FTI Consulting Inc	0.01
+AVTR	Avantor Inc	0.01
+CHE	Chemed Corp	0.01
+SNEX	StoneX Group Inc	0.01
+BCPC	Balchem Corp	0.01
+OGS	ONE Gas Inc	0.01
+PLXS	Plexus Corp	0.01
+TERN	Terns Pharmaceuticals Inc Ordinary Shares	0.01
+THG	The Hanover Insurance Group Inc	0.01
+LSTR	Landstar System Inc	0.01
+KYMR	Kymera Therapeutics Inc Ordinary Shares	0.01
+VAL	Valaris Ltd	0.01
+MGY	Magnolia Oil & Gas Corp Class A	0.01
+FND	Floor & Decor Holdings Inc Class A	0.01
+NJR	New Jersey Resources Corp	0.01
+AMKR	Amkor Technology Inc	0.01
+FIG	Figma Inc Class A	0.01
+ESAB	ESAB Corp	0.01
+TPG	TPG Inc Ordinary Shares - Class A	0.01
+PAYC	Paycom Software Inc	0.01
+LLYVK	Liberty Live Holdings Inc Ordinary Shares (Liberty Live Group) Series C	0.01
+MUR	Murphy Oil Corp	0.01
+MTG	MGIC Investment Corp	0.01
+H	Hyatt Hotels Corp Class A	0.01
+NUVL	Nuvalent Inc Class A	0.01
+PTCT	PTC Therapeutics Inc	0.01
+MSGS	Madison Square Garden Sports Corp Class A	0.01
+CORZ	Core Scientific Inc Ordinary Shares - New	0.01
+BOOT	Boot Barn Holdings Inc	0.01
+BMI	Badger Meter Inc	0.01
+FLG	Flagstar Bank NA	0.01
+MAT	Mattel Inc	0.01
+YOU	Clear Secure Inc Ordinary Shares Class A	0.01
+VNT	Vontier Corp Ordinary Shares	0.01
+AVT	Avnet Inc	0.01
+HOMB	Home BancShares Inc	0.01
+CWST	Casella Waste Systems Inc Class A	0.01
+KGS	Kodiak Gas Services Inc	0.01
+APLD	Applied Digital Corp	0.01
+OLLI	Ollie's Bargain Outlet Holdings Inc	0.01
+GTES	Gates Industrial Corp PLC	0.01
+AROC	Archrock Inc	0.01
+AAON	AAON Inc	0.01
+GBCI	Glacier Bancorp Inc	0.01
+VLY	Valley National Bancorp	0.01
+LAD	Lithia Motors Inc Class A	0.01
+FAF	First American Financial Corp	0.01
+MKTX	MarketAxess Holdings Inc	0.01
+UBSI	United Bankshares Inc	0.01
+CRC	California Resources Corp Ordinary Shares - New	0.01
+GAP	Gap Inc	0.01
+ALKS	Alkermes PLC	0.01
+VSAT	Viasat Inc	0.01
+LW	Lamb Weston Holdings Inc	0.01
+KMX	CarMax Inc	0.01
+AXTA	Axalta Coating Systems Ltd	0.01
+PLNT	Planet Fitness Inc Class A	0.01
+SWX	Southwest Gas Holdings Inc	0.01
+GXO	GXO Logistics Inc	0.01
+CLF	Cleveland-Cliffs Inc	0.01
+OZK	Bank OZK	0.01
+AM	Antero Midstream Corp	0.01
+PL	Planet Labs PBC Class A	0.01
+FORM	FormFactor Inc	0.01
+CAG	Conagra Brands Inc	0.01
+LKQ	LKQ Corp	0.01
+KNSL	Kinsale Capital Group Inc	0.01
+AOS	A.O. Smith Corp	0.01
+JXN	Jackson Financial Inc	0.01
+SM	SM Energy Co	0.01
+AXS	Axis Capital Holdings Ltd	0.01
+BF.B	Brown-Forman Corp Registered Shs -B- Non Vtg	0.01
+VMI	Valmont Industries Inc	0.01
+CRUS	Cirrus Logic Inc	0.01
+BEN	Franklin Resources Inc	0.01
+AXSM	Axsome Therapeutics Inc	0.01
+PRIM	Primoris Services Corp	0.01
+WAL	Western Alliance Bancorp	0.01
+ESE	ESCO Technologies Inc	0.01
+R	Ryder System Inc	0.01
+SFM	Sprouts Farmers Market Inc	0.01
+ARW	Arrow Electronics Inc	0.01
+CE	Celanese Corp Class A	0.01
+HSIC	Henry Schein Inc	0.01
+AGX	Argan Inc	0.01
+SSD	Simpson Manufacturing Co Inc	0.01
+MTCH	Match Group Inc Ordinary Shares - New	0.01
+HQY	HealthEquity Inc	0.01
+ZWS	Zurn Elkay Water Solutions Corp	0.01
+SMTC	Semtech Corp	0.01
+AAL	American Airlines Group Inc	0.01
+KEX	Kirby Corp	0.01
+MTDR	Matador Resources Co	0.01
+RBRK	Rubrik Inc Class A Shares	0.01
+INGR	Ingredion Inc	0.01
+AMG	Affiliated Managers Group Inc	0.01
+FCFS	FirstCash Holdings Inc	0.01
+AWI	Armstrong World Industries Inc	0.01
+EPAM	EPAM Systems Inc	0.01
+CWAN	Clearwater Analytics Holdings Inc Class A	0.01
+MOS	The Mosaic Co	0.01
+ATR	AptarGroup Inc	0.01
+CYTK	Cytokinetics Inc	0.01
+COLB	Columbia Banking System Inc	0.01
+SWKS	Skyworks Solutions Inc	0.01
+FDS	FactSet Research Systems Inc	0.01
+PRI	Primerica Inc	0.01
+CAVA	Cava Group Inc	0.01
+WTS	Watts Water Technologies Inc Class A	0.01
+BAH	Booz Allen Hamilton Holding Corp Class A	0.01
+SAIA	Saia Inc	0.01
+FLS	Flowserve Corp	0.01
+CNM	Core & Main Inc Class A	0.01
+GME	GameStop Corp Class A	0.01
+WTFC	Wintrust Financial Corp	0.01
+RMBS	Rambus Inc	0.01
+GTLS	Chart Industries Inc	0.01
+OSK	Oshkosh Corp	0.01
+MANH	Manhattan Associates Inc	0.01
+WYNN	Wynn Resorts Ltd	0.01
+TTEK	Tetra Tech Inc	0.01
+IDA	Idacorp Inc	0.01
+UGI	UGI Corp	0.01
+W	Wayfair Inc Class A	0.01
+HLI	Houlihan Lokey Inc Class A	0.01
+ONB	Old National Bancorp	0.01
+IDCC	InterDigital Inc	0.01
+MP	MP Materials Corp Ordinary Shares - Class A	0.01
+VIAV	Viavi Solutions Inc	0.01
+UMBF	UMB Financial Corp	0.01
+SITM	SiTime Corp Ordinary Shares	0.01
+VNOM	Viper Energy Inc Ordinary Shares - Class A	0.01
+TTC	The Toro Co	0.01
+UHS	Universal Health Services Inc Class B	0.01
+U	Unity Software Inc Ordinary Shares	0.01
+HALO	Halozyme Therapeutics Inc	0.01
+SSB	SouthState Bank Corp	0.01
+KRMN	Karman Holdings Inc	0.01
+EMN	Eastman Chemical Co	0.01
+BLDR	Builders FirstSource Inc	0.01
+OC	Owens-Corning Inc	0.01
+BAX	Baxter International Inc	0.01
+SEIC	SEI Investments Co	0.01
+AYI	Acuity Inc	0.01
+LFUS	Littelfuse Inc	0.01
+NCLH	Norwegian Cruise Line Holdings Ltd	0.01
+CRL	Charles River Laboratories International Inc	0.01
+ZION	Zions Bancorp NA	0.01
+PCVX	Vaxcyte Inc Ordinary Shares	0.01
+CR	Crane Co	0.01
+BMNR	BitMine Immersion Technologies Inc	0.01
+PRAX	Praxis Precision Medicines Inc Ordinary Shares	0.01
+NFG	National Fuel Gas Co	0.01
+KNX	Knight-Swift Transportation Holdings Inc Class A	0.01
+CNH	CNH Industrial NV	0.01
+BPOP	Popular Inc	0.01
+ARWR	Arrowhead Pharmaceuticals Inc	0.01
+MOG.A	Moog Inc Class A	0.01
+ESI	Element Solutions Inc	0.01
+HRL	Hormel Foods Corp	0.01
+PCOR	Procore Technologies Inc	0.01
+CBSH	Commerce Bancshares Inc	0.01
+SLAB	Silicon Laboratories Inc	0.01
+FLR	Fluor Corp	0.01
+TAP	Molson Coors Beverage Co Shs -B- Non-Voting	0.01
+WFRD	Weatherford International PLC Ordinary Shares - New	0.01
+CMC	Commercial Metals Co	0.01
+CELH	Celsius Holdings Inc	0.01
+AUR	Aurora Innovation Inc Class A	0.01
+HEI	Heico Corp	0.01
+LNC	Lincoln National Corp	0.01
+NOV	NOV Inc	0.01
+PTGX	Protagonist Therapeutics Inc	0.01
+KRYS	Krystal Biotech Inc	0.01
+Z	Zillow Group Inc Class C	0.01
+SANM	Sanmina Corp	0.01
+TEX	Terex Corp	0.01
+POOL	Pool Corp	0.01
+AGCO	AGCO Corp	0.01
+ACLX	Arcellx Inc	0.01
+VFC	VF Corp	0.01
+JBTM	JBT Marel Corp	0.01
+ULS	UL Solutions Inc Class A common stock	0.01
+MGM	MGM Resorts International	0.01
+DOCN	DigitalOcean Holdings Inc	0.01
+OKLO	Oklo Inc Class A Shares	0.01
+FSS	Federal Signal Corp	0.01
+RIG	Transocean Ltd	0.01
+AL	Air Lease Corp Class A	0.01
+UEC	Uranium Energy Corp	0.01
+CRBG	Corebridge Financial Inc	0.01
+ORA	Ormat Technologies Inc	0.01
+QRVO	Qorvo Inc	0.01
+PB	Prosperity Bancshares Inc	0.01
+AN	AutoNation Inc	0.01
+CHWY	Chewy Inc	0.01
+BROS	Dutch Bros Inc Class A	0.01
+LUMN	Lumen Technologies Inc Ordinary Shares	0.01
+ENS	EnerSys	0.01
+ERIE	Erie Indemnity Co Class A	0.01
+Escrow Luby's Inc	0.00
+EVGO	EVgo Inc Class A	0.00
+CV	CapsoVision Inc	0.00
+ASUR	Asure Software Inc	0.00
+CZWI	Citizens Community Bancorp Inc	0.00
+CTRN	Citi Trends Inc	0.00
+TBRG	TruBridge Inc	0.00
+NCMI	National CineMedia Inc	0.00
+PEBK	Peoples Bancorp of North Carolina Inc	0.00
+RBBN	Ribbon Communications Inc	0.00
+TG	Tredegar Corp	0.00
+WEYS	Weyco Group Inc	0.00
+VEL	Velocity Financial Inc Ordinary Shares	0.00
+KROS	Keros Therapeutics Inc	0.00
+BNTC	Benitec Biopharma Inc	0.00
+OPFI	OppFi Inc Ordinary Shares - Class A	0.00
+EFSI	Eagle Financial Services Inc	0.00
+LMRI	Lumexa Imaging Holdings Inc	0.00
+AMCX	AMC Networks Inc Class A	0.00
+OSG	Octave Specialty Group Inc	0.00
+NAGE	Niagen Bioscience Inc	0.00
+FOSL	Fossil Group Inc	0.00
+MYFW	First Western Financial Inc	0.00
+JOUT	Johnson Outdoors Inc Class A	0.00
+LOVE	The Lovesac Co	0.00
+INTT	inTest Corp	0.00
+OSUR	OraSure Technologies Inc	0.00
+SLP	Simulations Plus Inc	0.00
+SIGA	SIGA Technologies Inc	0.00
+VYGR	Voyager Therapeutics Inc	0.00
+LODE	Comstock Inc	0.00
+WOOF	Petco Health and Wellness Co Inc Ordinary Shares - Class A	0.00
+ASLE	AerSale Corp Ordinary Shares	0.00
+VABK	Virginia National Bankshares Corp	0.00
+CVRX	CVRx Inc	0.00
+LNKB	Linkbancorp Inc Ordinary Shares	0.00
+BPRN	Princeton Bancorp Inc	0.00
+PIII	P3 Health Partners Inc Class A	0.00
+NOTE	FiscalNote Holdings Inc Ordinary Shares - Class A	0.00
+Omniab	0.00
+Omniab	0.00
+SNAL	Snail Inc Class A common stock	0.00
+Next Bridge Hydrocarbons Inc	0.00
+Next Bridge Hydrocarbons	0.00
+SST	System1 Inc	0.00
+MGLD	The Marygold Companies Inc	0.00
+BFRG	Bullfrog AI Holdings Inc	0.00
+AIRE	ReAlpha Tech Corp	0.00
+MEC	Mayville Engineering Co Inc	0.00
+CTGO	Contango Silver & Gold Inc	0.00
+ALXO	ALX Oncology Holdings Inc Ordinary Shares	0.00
+BLFY	Blue Foundry Bancorp	0.00
+HLLY	Holley Inc	0.00
+CNTX	Context Therapeutics Inc	0.00
+FBLG	FibroBiologics Inc	0.00
+Amer Infrasct	0.00
+ADGM	Adagio Medical Holdings Inc	0.00
+SNYR	Synergy CHC Corp	0.00
+EXOZ	EXoZymes Inc	0.00
+BTOC	Armlogi Holding Corp	0.00
+Reelement Techno	0.00
+AMOD	Alpha Modus Holdings Inc Ordinary Shares - Class A	0.00
+RAIN	Rain Enhancement Technologies Holdco Inc Class A	0.00
+ATHR	Aether Holdings Inc	0.00
+ARAI	Arrive AI Inc	0.00
+TVGN	Tevogen Bio Holdings Inc	0.00
+ADTI	Adapti Inc	0.00
+JUNS	Jupiter Neurosciences Inc	0.00
+WGRX	Wellgistics Health Inc	0.00
+Pivotal Software Inc - Templine	0.00
+Bowl America Inc Escow Line - Nov 2025	0.00
+EVEX	Eve Holding Inc	0.00
+OBIO	Orchestra BioMed Holdings Inc	0.00
+FBLA	FB Bancorp Inc	0.00
+EVMN	Evommune Inc	0.00
+BOBS	Bobs Discount Furniture Inc	0.00
+JRVR	James River Group Holdings Inc	0.00
+BH	Biglari Holdings Inc	0.00
+CIA	Citizens Inc Class A	0.00
+FUNC	First United Corp	0.00
+FTK	Flotek Industries Inc	0.00
+FCCO	First Community Corp	0.00
+ELDN	Eledon Pharmaceuticals Inc	0.00
+DVLT	Datavault AI Inc Ordinary Shares	0.00
+HYLN	Hyliion Holdings Corp Ordinary Shares - Class A	0.00
+SMRT	SmartRent Inc Ordinary Shares - Class A	0.00
+TWFG	TWFG Inc Class A common stock	0.00
+AII	American Integrity Insurance Group Inc	0.00
+AVBH	Avidbank Holdings Inc	0.00
+VTIX	Virtuix Holdings Inc Ordinary Shares - Class A	0.00
+CFFI	C&F Financial Corp	0.00
+CLW	Clearwater Paper Corp	0.00
+HDSN	Hudson Technologies Inc	0.00
+BKTI	BK Technologies Corp	0.00
+AREC	American Resources Corp Class A	0.00
+LENZ	LENZ Therapeutics Inc	0.00
+VELO	Velo3D Inc	0.00
+WEST	Westrock Coffee Co	0.00
+ABEO	Abeona Therapeutics Inc	0.00
+ALCO	Alico Inc	0.00
+CHMG	Chemung Financial Corp	0.00
+EOLS	Evolus Inc	0.00
+EGHT	8x8 Inc	0.00
+MRBK	Meridian Corp Ordinary Shares	0.00
+NKSH	National Bankshares Inc	0.00
+QUAD	Quad/Graphics Inc Class A	0.00
+PPIH	Perma-Pipe International Holdings Inc	0.00
+RMNI	Rimini Street Inc	0.00
+SPOK	Spok Holdings Inc	0.00
+FRAF	Franklin Financial Services Corp	0.00
+TLS	Telos Corp Ordinary Shares	0.00
+USCB	USCB Financial Holdings Inc Ordinary Shares - Class A	0.00
+LMNR	Limoneira Co	0.00
+RM	Regional Management Corp	0.00
+RLGT	Radiant Logistics Inc	0.00
+ACIC	American Coastal Insurance Corp	0.00
+NGNE	Neurogene Inc	0.00
+JMSB	John Marshall Bancorp Inc	0.00
+XPER	Xperi Inc	0.00
+INV	Innventure Inc	0.00
+COSO	CoastalSouth Bancshares Inc	0.00
+OVLY	Oak Valley Bancorp	0.00
+ONIT	Onity Group Inc	0.00
+SENS	Senseonics Holdings Inc	0.00
+DDD	3D Systems Corp	0.00
+FVCB	FVCBankcorp Inc	0.00
+AMPY	Amplify Energy Corp	0.00
+CABA	Cabaletta Bio Inc Ordinary Shares	0.00
+CCCC	C4 Therapeutics Inc Ordinary Shares	0.00
+RZLT	Rezolute Inc	0.00
+BMBL	Bumble Inc Ordinary Shares Class A	0.00
+RXST	RxSight Inc	0.00
+NAUT	Nautilus Biotechnology Inc Ordinary Shares	0.00
+EIKN	Eikon Therapeutics Inc	0.00
+ANGI	Angi Inc Class A	0.00
+CRD.B	Crawford & Co Class B	0.00
+EDIT	Editas Medicine Inc	0.00
+FSTR	L.B. Foster Co Class A	0.00
+XWIN	XMax Inc	0.00
+RMR	The RMR Group Inc Class A	0.00
+PKOH	Park-Ohio Holdings Corp	0.00
+SHIM	Shimmick Corp	0.00
+DOCS	Doximity Inc Class A	0.00
+GPK	Graphic Packaging Holding Co	0.00
+PI	Impinj Inc	0.00
+PII	Polaris Inc	0.00
+CTRI	Centuri Holdings Inc	0.00
+MARA	MARA Holdings Inc	0.00
+SMR	NuScale Power Corp Class A	0.00
+CALX	Calix Inc	0.00
+AWR	American States Water Co	0.00
+PARR	Par Pacific Holdings Inc	0.00
+IPGP	IPG Photonics Corp	0.00
+NOG	Northern Oil & Gas Inc	0.00
+PSN	Parsons Corp	0.00
+PSKY	Paramount Skydance Corp Ordinary Shares - Class B	0.00
+KD	Kyndryl Holdings Inc Ordinary Shares	0.00
+GTLB	GitLab Inc Class A	0.00
+CPRX	Catalyst Pharmaceuticals Inc	0.00
+HWKN	Hawkins Inc	0.00
+NMIH	NMI Holdings Inc	0.00
+DORM	Dorman Products Inc	0.00
+ACLS	Axcelis Technologies Inc	0.00
+POWI	Power Integrations Inc	0.00
+FRPT	Freshpet Inc	0.00
+FIBK	First Interstate BancSystem Inc	0.00
+SFNC	Simmons First National Corp Class A	0.00
+OSCR	Oscar Health Inc Class A	0.00
+MGEE	MGE Energy Inc	0.00
+CWK	Cushman & Wakefield Ltd	0.00
+YETI	YETI Holdings Inc	0.00
+LCII	LCI Industries Inc	0.00
+EWTX	Edgewise Therapeutics Inc	0.00
+RRR	Red Rock Resorts Inc Class A	0.00
+TARS	Tarsus Pharmaceuticals Inc Ordinary Shares	0.00
+ACAD	ACADIA Pharmaceuticals Inc	0.00
+QTWO	Q2 Holdings Inc	0.00
+LEN.B	Lennar Corp Class B	0.00
+SUPN	Supernus Pharmaceuticals Inc	0.00
+DBRG	DigitalBridge Group Inc Class A	0.00
+IDYA	IDEAYA Biosciences Inc	0.00
+HAYW	Hayward Holdings Inc	0.00
+BANF	BancFirst Corp	0.00
+RNG	RingCentral Inc Class A	0.00
+WAY	Waystar Holding Corp	0.00
+FFBC	First Financial Bancorp	0.00
+KBH	KB Home	0.00
+KMT	Kennametal Inc	0.00
+WU	The Western Union Co	0.00
+WDFC	WD-40 Co	0.00
+TWST	Twist Bioscience Corp	0.00
+PBH	Prestige Consumer Healthcare Inc	0.00
+TVTX	Travere Therapeutics Inc Ordinary Shares	0.00
+MGRC	McGrath RentCorp	0.00
+IBRX	ImmunityBio Inc Ordinary Shares	0.00
+NIC	Nicolet Bankshares Inc	0.00
+PRK	Park National Corp	0.00
+BCC	Boise Cascade Co	0.00
+CBU	Community Financial System Inc	0.00
+OPLN	Openlane Inc	0.00
+LEU	Centrus Energy Corp Class A	0.00
+RES	RPC Inc	0.00
+RYAM	Rayonier Advanced Materials Inc	0.00
+HTB	HomeTrust Bancshares Inc	0.00
+MCHB	Mechanics Bancorp Ordinary Shares - Class A	0.00
+AMAL	Amalgamated Financial Corp Ordinary Shares Class A	0.00
+AMN	AMN Healthcare Services Inc	0.00
+BKD	Brookdale Senior Living Inc	0.00
+SXI	Standex International Corp	0.00
+QLYS	Qualys Inc	0.00
+BFH	Bread Financial Holdings Inc	0.00
+CWEN	Clearway Energy Inc Class C	0.00
+LIF	Life360 Inc Common Stock	0.00
+WSC	WillScot Holdings Corp Ordinary Shares - Class A	0.00
+CPK	Chesapeake Utilities Corp	0.00
+RUN	Sunrun Inc	0.00
+SBCF	Seacoast Banking Corp of Florida	0.00
+MHO	M/I Homes Inc	0.00
+ITGR	Integer Holdings Corp	0.00
+MTRN	Materion Corp	0.00
+BOH	Bank of Hawaii Corp	0.00
+AXTI	AXT Inc	0.00
+DIOD	Diodes Inc	0.00
+CNK	Cinemark Holdings Inc	0.00
+FHB	First Hawaiian Inc	0.00
+GPGI	GPGI Inc Class A	0.00
+WK	Workiva Inc Class A	0.00
+CLMT	Calumet Inc	0.00
+USAR	USA Rare Earth Inc	0.00
+LASR	nLight Inc	0.00
+TOWN	Towne Bank	0.00
+QS	QuantumScape Corp Ordinary Shares - Class A	0.00
+TSSI	TSS Inc	0.00
+SNDA	Sonida Senior Living Inc	0.00
+GNE	Genie Energy Ltd Class B	0.00
+MGPI	MGP Ingredients Inc	0.00
+PBYI	Puma Biotechnology Inc	0.00
+OVID	Ovid Therapeutics Inc	0.00
+WNEB	Western New England Bancorp Inc	0.00
+IRD	Opus Genetics Inc Ordinary Shares	0.00
+BRBS	Blue Ridge Bankshares Inc	0.00
+SRTA	Strata Critical Medical Inc Class A	0.00
+DNUT	Krispy Kreme Inc	0.00
+IMRX	Immuneering Corp Class A	0.00
+CZFS	Citizens Financial Services Inc	0.00
+ISBA	Isabella Bank Corp	0.00
+ATLO	Ames National Corp	0.00
+AVXL	Anavex Life Sciences Corp	0.00
+ACCO	ACCO Brands Corp	0.00
+MBI	MBIA Inc	0.00
+KELYA	Kelly Services Inc Registered Shs -A- Non Vtg	0.00
+NATH	Nathan's Famous Inc	0.00
+NRC	National Research Corp Class A	0.00
+REI	Ring Energy Inc	0.00
+CRSR	Corsair Gaming Inc Ordinary Shares	0.00
+SABS	SAB Biotherapeutics Inc	0.00
+GBFH	GBank Financial Holdings Inc Ordinary Shares	0.00
+SGP	SpyGlass Pharma Inc	0.00
+AVNW	Aviat Networks Inc	0.00
+AVTX	Avalo Therapeutics Inc	0.00
+EVH	Evolent Health Inc Class A	0.00
+NERV	Minerva Neurosciences Inc	0.00
+TARA	Protara Therapeutics Inc Ordinary Shares	0.00
+KIDS	OrthoPediatrics Corp	0.00
+SSP	The E W Scripps Co Class A	0.00
+CLPT	ClearPoint Neuro Inc	0.00
+CRNC	Cerence Inc Ordinary Shares	0.00
+FUBO	FuboTV Inc Ordinary Shares - Class A	0.00
+ONTF	ON24 Inc Ordinary Shares	0.00
+KRT	Karat Packaging Inc	0.00
+ALIT	Alight Inc Class A	0.00
+TOI	The Oncology Institute Inc	0.00
+DYN	Dyne Therapeutics Inc Ordinary Shares	0.00
+RCKT	Rocket Pharmaceuticals Inc	0.00
+ZUMZ	Zumiez Inc	0.00
+YEXT	Yext Inc	0.00
+PUBM	PubMatic Inc Ordinary Shares - Class A	0.00
+CADL	Candel Therapeutics Inc	0.00
+IVVD	Invivyd Inc Ordinary Shares	0.00
+NRDS	Nerdwallet Inc Class A	0.00
+NXDR	Nextdoor Holdings Inc Class A	0.00
+ANDG	Andersen Group Inc Ordinary Shares- Class A	0.00
+FSBW	FS Bancorp Inc	0.00
+DGICA	Donegal Group Inc Class A	0.00
+WSBF	Waterstone Financial Inc	0.00
+TSBK	Timberland Bancorp Inc	0.00
+TH	Target Hospitality Corp Class A	0.00
+PCB	PCB Bancorp	0.00
+SWIM	Latham Group Inc	0.00
+BOC	Boston Omaha Corp Class A	0.00
+CCRN	Cross Country Healthcare Inc	0.00
+DIN	Dine Brands Global Inc	0.00
+HCKT	The Hackett Group Inc	0.00
+BYND	Beyond Meat Inc	0.00
+MNPR	Monopar Therapeutics Inc	0.00
+DCTH	Delcath Systems Inc	0.00
+MAX	MediaAlpha Inc Ordinary Shares - Class A	0.00
+MVST	Microvast Holdings Inc	0.00
+HVT	Haverty Furniture Companies Inc	0.00
+GRPN	Groupon Inc	0.00
+ITIC	Investors Title Co	0.00
+NWFL	Norwood Financial Corp	0.00
+NEWT	NewtekOne Inc	0.00
+SPT	Sprout Social Inc Class A	0.00
+WEAV	Weave Communications Inc	0.00
+SVV	Savers Value Village Inc	0.00
+PTRN	Pattern Group Inc Ordinary Shares - Series A	0.00
+ATLC	Atlanticus Holdings Corp	0.00
+ASPN	Aspen Aerogels Inc	0.00
+ARTNA	Artesian Resources Corp Class A	0.00
+PLAY	Dave & Buster's Entertainment Inc	0.00
+FEIM	Frequency Electronics Inc	0.00
+MVBF	MVB Financial Corp	0.00
+SCVL	Shoe Carnival Inc	0.00
+RCKY	Rocky Brands Inc	0.00
+LCTX	Lineage Cell Therapeutics Inc	0.00
+NECB	NorthEast Community Bancorp Inc	0.00
+ULCC	Frontier Group Holdings Inc	0.00
+HNST	The Honest Co Inc	0.00
+BL	BlackLine Inc	0.00
+CXT	Crane NXT Co	0.00
+IRON	Disc Medicine Inc Ordinary Shares	0.00
+ELVN	Enliven Therapeutics Inc	0.00
+BRZE	Braze Inc Class A	0.00
+NHC	National Healthcare Corp	0.00
+GEF	Greif Inc Class A	0.00
+AGIO	Agios Pharmaceuticals Inc	0.00
+ACMR	ACM Research Inc Class A	0.00
+ATKR	Atkore Inc	0.00
+NMRK	Newmark Group Inc Class A	0.00
+PLUS	ePlus Inc	0.00
+DAVE	Dave Inc Ordinary Shares - Class A	0.00
+CPRI	Capri Holdings Ltd	0.00
+EYE	National Vision Holdings Inc	0.00
+ADPT	Adaptive Biotechnologies Corp	0.00
+TENB	Tenable Holdings Inc	0.00
+NEOG	Neogen Corp	0.00
+IMVT	Immunovant Inc	0.00
+VECO	Veeco Instruments Inc	0.00
+SNDX	Syndax Pharmaceuticals Inc	0.00
+BUSE	First Busey Corp	0.00
+PENN	PENN Entertainment Inc	0.00
+VAC	Marriott Vacations Worldwide Corp	0.00
+ADMA	ADMA Biologics Inc	0.00
+SOC	Sable Offshore Corp	0.00
+VRRM	Verra Mobility Corp Class A	0.00
+ALRM	Alarm.com Holdings Inc	0.00
+CLSK	Cleanspark Inc	0.00
+NSIT	Insight Enterprises Inc	0.00
+BANR	Banner Corp	0.00
+KN	Knowles Corp	0.00
+AMBA	Ambarella Inc	0.00
+BATRK	Atlanta Braves Holdings Inc Class C	0.00
+DXC	DXC Technology Co Registered Shs When Issued	0.00
+ALMS	Alumis Inc	0.00
+RH	RH Class A	0.00
+ATRO	Astronics Corp	0.00
+WRBY	Warby Parker Inc Ordinary Shares - Class A	0.00
+AMR	Alpha Metallurgical Resources Inc	0.00
+UPST	Upstart Holdings Inc Ordinary Shares	0.00
+VMD	Viemed Healthcare Inc Ordinary Shares	0.00
+DNA	Ginkgo Bioworks Holdings Inc	0.00
+INR	Infinity Natural Resources Inc Class A Common Stock	0.00
+ATNI	ATN International Inc	0.00
+CENT	Central Garden & Pet Co	0.00
+CDZI	Cadiz Inc	0.00
+FNLC	First Bancorp Inc	0.00
+LAB	Standard BioTools Inc	0.00
+DSGR	Distribution Solutions Group Inc	0.00
+STRS	Stratus Properties Inc	0.00
+FRPH	FRP Holdings Inc	0.00
+ACHR	Archer Aviation Inc Class A	0.00
+CWT	California Water Service Group	0.00
+SDRL	Seadrill Ltd	0.00
+KVYO	Klaviyo Inc Class A common stock	0.00
+MZTI	The Marzetti Co	0.00
+UCTT	Ultra Clean Holdings Inc	0.00
+SOUN	SoundHound AI Inc Ordinary Shares - Class A	0.00
+GEO	The GEO Group Inc	0.00
+ORKA	Oruka Therapeutics Inc	0.00
+SPSC	SPS Commerce Inc	0.00
+NBTB	NBT Bancorp Inc	0.00
+HURN	Huron Consulting Group Inc	0.00
+RSI	Rush Street Interactive Inc Ordinary Shares - Class A	0.00
+CUBI	Customers Bancorp Inc	0.00
+CLDX	Celldex Therapeutics Inc	0.00
+VVX	V2X Inc	0.00
+TBBK	The Bancorp Inc	0.00
+AMRX	Amneal Pharmaceuticals Inc Ordinary Shares - Class A	0.00
+OS	OneStream Inc Class A common stock	0.00
+NTCT	NetScout Systems Inc	0.00
+MTX	Minerals Technologies Inc	0.00
+NWN	Northwest Natural Holding Co	0.00
+CSGS	CSG Systems International Inc	0.00
+ACHC	Acadia Healthcare Co Inc	0.00
+IMNM	Immunome Inc Ordinary Shares	0.00
+ZG	Zillow Group Inc Class A	0.00
+FMC	FMC Corp	0.00
+HLIO	Helios Technologies Inc	0.00
+SRPT	Sarepta Therapeutics Inc	0.00
+CHEF	The Chefs' Warehouse Inc	0.00
+ARCB	ArcBest Corp	0.00
+LION	Lionsgate Studios Corp Ordinary Shares - New	0.00
+DNOW	Dnow Inc	0.00
+HTO	H2O America	0.00
+BELFB	Bel Fuse Inc Class B	0.00
+SMMT	Summit Therapeutics Inc Ordinary Shares	0.00
+VSH	Vishay Intertechnology Inc	0.00
+HUN	Huntsman Corp	0.00
+ARRY	Array Technologies Inc Ordinary Shares	0.00
+ORIC	ORIC Pharmaceuticals Inc	0.00
+REYN	Reynolds Consumer Products Inc Ordinary Shares	0.00
+NPKI	NPK International Inc	0.00
+CNMD	Conmed Corp	0.00
+SHLS	Shoals Technologies Group Inc Ordinary Shares - Class A	0.00
+PEBO	Peoples Bancorp Inc (Marietta OH)	0.00
+HFWA	Heritage Financial Corp	0.00
+WKC	World Kinect Corp	0.00
+PWP	Perella Weinberg Partners Ordinary Shares - Class A	0.00
+HROW	Harrow Inc	0.00
+PAHC	Phibro Animal Health Corp Class A	0.00
+PRGS	Progress Software Corp	0.00
+FIVN	Five9 Inc	0.00
+INVX	Innovex International Inc	0.00
+IAU	i-80 Gold Corp	0.00
+HMN	Horace Mann Educators Corp	0.00
+DXPE	DXP Enterprises Inc	0.00
+AXGN	Axogen Inc	0.00
+KWR	Quaker Houghton	0.00
+OFG	OFG Bancorp	0.00
+KALU	Kaiser Aluminum Corp	0.00
+STOK	Stoke Therapeutics Inc	0.00
+UTI	Universal Technical Institute Inc	0.00
+CXW	CoreCivic Inc	0.00
+AMPX	Amprius Technologies Inc	0.00
+MD	Pediatrix Medical Group Inc	0.00
+CAI	Caris Life Sciences Inc	0.00
+CNS	Cohen & Steers Inc	0.00
+STRA	Strategic Education Inc	0.00
+BLKB	Blackbaud Inc	0.00
+XPRO	Expro Group Holdings NV	0.00
+RLAY	Relay Therapeutics Inc Ordinary Shares	0.00
+PPC	Pilgrims Pride Corp	0.00
+KMPR	Kemper Corp	0.00
+BLBD	Blue Bird Corp	0.00
+PHR	Phreesia Inc	0.00
+HGTY	Hagerty Inc Ordinary Shares - Class A	0.00
+CBK	Commercial Bancgroup Inc	0.00
+ANIK	Anika Therapeutics Inc	0.00
+CHRS	Coherus Oncology Inc	0.00
+FLXS	Flexsteel Industries Inc	0.00
+NC	NACCO Industries Inc Class A	0.00
+MPAA	Motorcar Parts of America Inc	0.00
+PCYO	Pure Cycle Corp	0.00
+UTMD	Utah Medical Products Inc	0.00
+USNA	Usana Health Sciences Inc	0.00
+PAYS	PaySign Inc	0.00
+FXNC	First National Corp	0.00
+ARCT	Arcturus Therapeutics Holdings Inc	0.00
+RPAY	Repay Holdings Corp Ordinary Shares - Class A	0.00
+OLPX	Olaplex Holdings Inc	0.00
+SKYH	Sky Harbour Group Corp Ordinary Shares - Class A	0.00
+TYGO	Tigo Energy Inc	0.00
+BRCB	Black Rock Coffee Bar Inc Ordinary Shares-Class A	0.00
+AMTX	Aemetis Inc	0.00
+CNDT	Conduent Inc	0.00
+FDBC	Fidelity D & D Bancorp Inc	0.00
+HWBK	Hawthorn Bancshares Inc	0.00
+LCNB	LCNB Corp	0.00
+MVIS	Microvision Inc	0.00
+PESI	Perma-Fix Environmental Services Inc	0.00
+DBI	Designer Brands Inc Class A	0.00
+GDRX	GoodRx Holdings Inc Ordinary Shares - Class A	0.00
+PDYN	Palladyne AI Corp Class A	0.00
+SIDU	Sidus Space Inc Ordinary Shares - Class A	0.00
+SES	SES AI Corp	0.00
+ARDT	Ardent Health Inc	0.00
+RNA	Atrium Therapeutics Inc	0.00
+BSVN	Bank7 Corp	0.00
+ELMD	Electromed Inc	0.00
+MEI	Methode Electronics Inc	0.00
+RICK	RCI Hospitality Holdings Inc	0.00
+TWIN	Twin Disc Inc	0.00
+ESOA	Energy Services of America Corp	0.00
+IKT	Inhibikase Therapeutics Inc Ordinary Shares	0.00
+TCMD	Tactile Systems Technology Inc	0.00
+ETON	Eton Pharmaceuticals Inc	0.00
+UTZ	Utz Brands Inc Class A	0.00
+UHAL	U-Haul Holding Co	0.00
+PGC	Peapack Gladstone Financial Corp	0.00
+OXM	Oxford Industries Inc	0.00
+INDI	Indie Semiconductor Inc Ordinary Shares - Class A	0.00
+MAMA	Mama's Creations Inc Common Stock	0.00
+FSUN	Firstsun Capital Bancorp	0.00
+ZBIO	Zenas BioPharma Inc	0.00
+BZH	Beazer Homes USA Inc	0.00
+BHB	Bar Harbor Bankshares Inc	0.00
+AMWD	American Woodmark Corp	0.00
+URE	Ur-Energy Inc	0.00
+CARE	Carter Bankshares Inc	0.00
+AVO	Mission Produce Inc Ordinary Shares	0.00
+TCBX	Third Coast Bancshares Inc	0.00
+AOSL	Alpha & Omega Semiconductor Ltd	0.00
+EBF	Ennis Inc	0.00
+ZVRA	Zevra Therapeutics Inc	0.00
+NAVI	Navient Corp	0.00
+CODI	Compass Diversified Holdings	0.00
+CWCO	Consolidated Water Co Ltd	0.00
+REPX	Riley Exploration Permian Inc	0.00
+PKE	Park Aerospace Corp	0.00
+VTS	Vitesse Energy Inc	0.00
+ASPI	ASP Isotopes Inc	0.00
+AMC	AMC Entertainment Holdings Inc Class A	0.00
+IIIV	i3 Verticals Inc	0.00
+IPI	Intrepid Potash Inc	0.00
+MLR	Miller Industries Inc	0.00
+SIBN	SI-BONE Inc	0.00
+EMBC	Embecta Corp	0.00
+FIP	FTAI Infrastructure Inc Shs	0.00
+ERII	Energy Recovery Inc	0.00
+SD	SandRidge Energy Inc	0.00
+FULC	Fulcrum Therapeutics Inc	0.00
+VITL	Vital Farms Inc Ordinary Shares	0.00
+FDMT	4D Molecular Therapeutics Inc Ordinary Shares	0.00
+HIPO	Hippo Holdings Inc Class A	0.00
+CBLL	CeriBell Inc	0.00
+JCAP	Jefferson Capital Inc	0.00
+AROW	Arrow Financial Corp	0.00
+FOR	Forestar Group Inc	0.00
+FFIC	Flushing Financial Corp	0.00
+NRIM	Northrim BanCorp Inc	0.00
+SBGI	Sinclair Inc Ordinary Shares - Class A	0.00
+VPG	Vishay Precision Group Inc	0.00
+AIP	Arteris Inc	0.00
+PAR	PAR Technology Corp	0.00
+SABR	Sabre Corp	0.00
+PD	PagerDuty Inc	0.00
+SPFI	South Plains Financial Inc	0.00
+ASAN	Asana Inc Ordinary Shares - Class A	0.00
+FSBC	Five Star Bancorp	0.00
+ASST	Strive Inc Class A	0.00
+SERV	Serve Robotics Inc	0.00
+BIOA	Bioage Labs Inc	0.00
+NFBK	Northfield Bancorp Inc	0.00
+JANX	Janux Therapeutics Inc Ordinary Shares	0.00
+DC	Dakota Gold Corp	0.00
+UMAC	Unusual Machines Inc	0.00
+ETD	Ethan Allen Interiors Inc	0.00
+HNRG	Hallador Energy Co	0.00
+HZO	MarineMax Inc	0.00
+KFRC	Kforce Inc	0.00
+ACTU	Actuate Therapeutics Inc	0.00
+AGH	Aureus Greenway Holdings Inc	0.00
+MBBC	Marathon Bancorp Inc	0.00
+PPHC	Public Policy Holding Co Inc Ordinary Shares	0.00
+CLOV	Clover Health Investments Corp Ordinary Shares - Class A	0.00
+FET	Forum Energy Technologies Inc	0.00
+THFF	First Financial Corp	0.00
+ORRF	Orrstown Financial Services Inc	0.00
+SLS	SELLAS Life Sciences Group Inc	0.00
+OMDA	Omada Health Inc	0.00
+ODC	Oil-Dri Corp of America	0.00
+EGY	VAALCO Energy Inc	0.00
+WASH	Washington Trust Bancorp Inc	0.00
+AMSF	AMERISAFE Inc	0.00
+MG	MISTRAS Group Inc	0.00
+PDLB	Ponce Financial Group Inc	0.00
+CLMB	Climb Global Solutions Inc	0.00
+TWI	Titan International Inc	0.00
+LXFR	Luxfer Holdings PLC	0.00
+MCFT	MasterCraft Boat Holdings Inc	0.00
+FCEL	FuelCell Energy Inc	0.00
+DSGN	Design Therapeutics Inc	0.00
+AURA	Aura Biosciences Inc	0.00
+BETR	Better Home & Finance Holding Co Ordinary Shares - Class A	0.00
+GOGO	Gogo Inc	0.00
+BLLN	BillionToOne Inc Ordinary Shares - Class A	0.00
+CLFD	Clearfield Inc	0.00
+FMAO	Farmers & Merchants Bancorp Inc	0.00
+GCO	Genesco Inc	0.00
+NVEC	NVE Corp	0.00
+ARKO	ARKO Corp Ordinary Shares - Class A	0.00
+IPSC	Century Therapeutics Inc	0.00
+SPIR	Spire Global Inc Ordinary Shares - Class A	0.00
+MPLT	MapLight Therapeutics Inc	0.00
+BWFG	Bankwell Financial Group Inc	0.00
+ASMB	Assembly Biosciences Inc	0.00
+APPS	Digital Turbine Inc	0.00
+ISSC	Innovative Solutions and Support Inc	0.00
+MTRX	Matrix Service Co	0.00
+PLBC	Plumas Bancorp	0.00
+PKBK	Parke Bancorp Inc	0.00
+FRST	Primis Financial Corp	0.00
+OPXS	Optex Systems Holdings Inc	0.00
+HGBL	Heritage Global Inc	0.00
+SMTI	Sanara MedTech Inc	0.00
+SPRU	Spruce Power Holding Corp Ordinary Shares	0.00
+SERA	Sera Prognostics Inc Class A	0.00
+RPID	Rapid Micro Biosystems Inc Class A	0.00
+RENT	Rent the Runway Inc Class A	0.00
+BTCS	BTCS Inc	0.00
+ALOY	REalloys Inc	0.00
+NSTS	NSTS Bancorp Inc	0.00
+GRCE	Grace Therapeutics Inc Ordinary Shares	0.00
+OPAL	OPAL Fuels Inc Ordinary Shares - Class A	0.00
+BAER	Bridger Aerospace Group Holdings Inc Ordinary Shares	0.00
+NPWR	NET Power Inc Ordinary Shares - Class A	0.00
+CPBI	Central Plains Bancshares Inc	0.00
+GUTS	Fractyl Health Inc	0.00
+CARL	Carlsmed Inc	0.00
+BLNK	Blink Charging Co	0.00
+ASRV	AmeriServ Financial Inc	0.00
+CATO	The Cato Corp Class A	0.00
+CDLX	Cardlytics Inc	0.00
+CPSH	CPS Technologies Corp	0.00
+DLTH	Duluth Holdings Inc Class B	0.00
+FGBI	First Guaranty Bancshares Inc	0.00
+UNTY	Unity Bancorp Inc	0.00
+WRLD	World Acceptance Corp	0.00
+GDYN	Grid Dynamics Holdings Inc Ordinary Shares Class A	0.00
+PTLO	Portillos Inc Class A	0.00
+SMC	Summit Midstream Corp	0.00
+CZNC	Citizens & Northern Corp	0.00
+FRBA	First Bank	0.00
+AIOT	PowerFleet Inc	0.00
+MRVI	Maravai LifeSciences Holdings Inc Ordinary Shares - Class A	0.00
+AEVA	Aeva Technologies Inc Ordinary Shares	0.00
+ABX	Abacus Global Management Inc Ordinary Shares - Class A	0.00
+MNTN	MNTN Inc Ordinary Shares - Class A	0.00
+WLTH	Wealthfront Corp	0.00
+PLYX	Polaryx Therapeutics Inc	0.00
+AKBA	Akebia Therapeutics Inc	0.00
+OPTU	Optimum Communications Inc Class A	0.00
+CAL	Caleres Inc	0.00
+HY	Hyster Yale Inc Class A	0.00
+SFIX	Stitch Fix Inc Class A	0.00
+TITN	Titan Machinery Inc	0.00
+WNC	Wabash National Corp	0.00
+NPCE	NeuroPace Inc	0.00
+ABAT	American Battery Technology Co	0.00
+TECX	Tectonic Therapeutic Inc	0.00
+ENTA	Enanta Pharmaceuticals Inc	0.00
+LOCO	El Pollo Loco Holdings Inc	0.00
+LXRX	Lexicon Pharmaceuticals Inc	0.00
+NGVC	Natural Grocers by Vitamin Cottage Inc	0.00
+RBB	RBB Bancorp	0.00
+OPK	OPKO Health Inc	0.00
+ALTO	Alto Ingredients Inc	0.00
+LYEL	Lyell Immunopharma Inc Ordinary Shares	0.00
+OBT	Orange County Bancorp Inc	0.00
+ARHS	Arhaus Inc Class A	0.00
+PRME	Prime Medicine Inc	0.00
+GRND	Grindr Inc Ordinary Shares - Class A	0.00
+IBTA	Ibotta Inc Class A common stock	0.00
+AKTS	Aktis Oncology Inc	0.00
+CBNK	Capital Bancorp Inc	0.00
+MAGN	Magnera Corp	0.00
+NUS	Nu Skin Enterprises Inc Class A	0.00
+RPD	Rapid7 Inc	0.00
+RNGR	Ranger Energy Services Inc Class A	0.00
+LRMR	Larimar Therapeutics Inc	0.00
+BVS	Bioventus Inc Class A	0.00
+RR	Richtech Robotics Inc Class B Common Stock	0.00
+HELE	Helen Of Troy Ltd	0.00
+CERS	Cerus Corp	0.00
+LTBR	Lightbridge Corp	0.00
+NATR	Natures Sunshine Products Inc	0.00
+BBBY	Bed Bath & Beyond Inc	0.00
+STRT	Strattec Security Corp	0.00
+FBRX	Forte Biosciences Inc Ordinary Shares	0.00
+XFOR	X4 Pharmaceuticals Inc	0.00
+STTK	Shattuck Labs Inc Ordinary Shares	0.00
+TDUP	ThredUp Inc Ordinary Shares - Class A	0.00
+FLGT	Fulgent Genetics Inc	0.00
+WTI	W&T Offshore Inc	0.00
+IHRT	iHeartMedia Inc	0.00
+HBT	HBT Financial Inc Ordinary Shares	0.00
+GSBC	Great Southern Bancorp Inc	0.00
+GDOT	Green Dot Corp Class A	0.00
+OCGN	Ocugen Inc	0.00
+KZR	Kezar Life Sciences Inc	0.00
+PACB	Pacific Biosciences of California Inc	0.00
+VLGEA	Village Super Market Inc Class A	0.00
+IMMX	Immix Biopharma Inc	0.00
+BGS	B&G Foods Inc	0.00
+BMRC	Bank of Marin Bancorp	0.00
+CYH	Community Health Systems Inc	0.00
+MOV	Movado Group Inc	0.00
+CTOS	Custom Truck One Source Inc Class A	0.00
+BLND	Blend Labs Inc Ordinary Shares - Class A	0.00
+NABL	N-able Inc	0.00
+KYTX	Kyverna Therapeutics Inc	0.00
+AVBC	Avidia Bancorp Inc	0.00
+BWB	Bridgewater Bancshares Inc	0.00
+GTN	Gray Media Inc	0.00
+OOMA	Ooma Inc	0.00
+CVU	CPI Aerostructures Inc	0.00
+IBIO	iBio Inc	0.00
+LVO	LiveOne Inc	0.00
+LPCN	Lipocine Inc	0.00
+ICCC	ImmuCell Corp	0.00
+VHC	VirnetX Holding Corp	0.00
+UFI	Unifi Inc	0.00
+UEIC	Universal Electronics Inc	0.00
+AEYE	AudioEye Inc	0.00
+HQI	HireQuest Inc	0.00
+WRAP	Wrap Technologies Inc	0.00
+XGN	Exagen Inc Ordinary Shares	0.00
+LNSR	LENSAR Inc Ordinary Shares	0.00
+WFCF	Where Food Comes From Inc	0.00
+NRXP	NRX Pharmaceuticals Inc Ordinary Shares	0.00
+TCRX	TScan Therapeutics Inc	0.00
+DH	Definitive Healthcare Corp Class A	0.00
+CGTX	Cognition Therapeutics Inc	0.00
+DCGO	DocGo Inc	0.00
+FTLF	FitLife Brands Inc	0.00
+SVCO	Silvaco Group Inc	0.00
+PTHS	Pelthos Therapeutics Inc	0.00
+AARD	Aardvark Therapeutics Inc	0.00
+WSBK	Winchester Bancorp Inc	0.00
+MLCI	Mount Logan Capital Inc	0.00
+APC	Arko Petroleum Corp Class A common stock	0.00
+ATOS	Atossa Therapeutics Inc	0.00
+ASPS	Altisource Portfolio Solutions SA	0.00
+BWEN	Broadwind Inc	0.00
+CNTY	Century Casinos Inc	0.00
+CSBR	Champions Oncology Inc	0.00
+CIX	Compx International Inc	0.00
+TUSK	Mammoth Energy Services Inc	0.00
+LFVN	Lifevantage Corp	0.00
+LEE	Lee Enterprises Inc	0.00
+IZEA	IZEA Worldwide Inc	0.00
+NL	NL Industries Inc	0.00
+NTWK	NETSOL Technologies Inc	0.00
+RRGB	Red Robin Gourmet Burgers Inc	0.00
+OMEX	Odyssey Marine Exploration Inc	0.00
+PAMT	PAMT Corp	0.00
+PETS	PetMed Express Inc	0.00
+TISI	Team Inc	0.00
+TGEN	Tecogen Inc	0.00
+TZOO	Travelzoo	0.00
+STKS	The One Group Hospitality Inc	0.00
+PRTS	CarParts.com Inc	0.00
+ZDGE	Zedge Inc Class B	0.00
+FSI	Flexible Solutions International Inc	0.00
+ANVS	Annovis Bio Inc Ordinary Shares	0.00
+ACET	Adicet Bio Inc Ordinary Shares	0.00
+LUNG	Pulmonx Corp Ordinary Shares	0.00
+IMA	ImageneBio Inc	0.00
+ZVIA	Zevia PBC Class A	0.00
+FFAI	Faraday Future Intelligent Electric Inc Ordinary Shares	0.00
+EXFY	Expensify Inc Class A	0.00
+NRDY	Nerdy Inc Ordinary Shares - Class A	0.00
+BRCC	BRC Inc	0.00
+CING	Cingulate Inc	0.00
+KSCP	Knightscope Inc Ordinary Shares - Class A	0.00
+STSS	Sharps Technology Inc	0.00
+AISP	Airship AI Holdings Inc Ordinary Shares - Class A	0.00
+GCTS	GCT Semiconductor Holding Inc Ordinary Shares - Class A	0.00
+UAVS	AgEagle Aerial Systems Inc	0.00
+ARAY	Accuray Inc	0.00
+DIT	Amcon Distributing Co	0.00
+PBHC	Pathfinder Bancorp Inc	0.00
+OCC	Optical Cable Corp	0.00
+SYPR	Sypris Solutions Inc	0.00
+SNBR	Sleep Number Corp	0.00
+XPL	Solitario Resources Corp	0.00
+TRT	Trio-Tech International	0.00
+WYY	WidePoint Corp	0.00
+VTSI	VirTra Inc	0.00
+NXTC	NextCure Inc	0.00
+PHUN	Phunware Inc Ordinary Shares	0.00
+OPHC	OptimumBank Holdings Inc	0.00
+BSBK	Bogota Financial Corp	0.00
+TMCI	Treace Medical Concepts Inc	0.00
+FTCI	FTC Solar Inc	0.00
+FKWL	Franklin Wireless Corp	0.00
+UP	Wheels Up Experience Inc Ordinary Shares - Class A	0.00
+MYPS	PLAYSTUDIOS Inc Ordinary Shares - Class A	0.00
+BTMD	Biote Corp	0.00
+GROV	Grove Collaborative Holdings Inc Class A	0.00
+CTM	Castellum Inc	0.00
+SCLX	Scilex Holding Co	0.00
+DTI	Drilling Tools International Corp	0.00
+FLYX	flyExclusive Inc Ordinary Shares - Class A	0.00
+EONR	EON Resources Inc Ordinary Shares - Class A	0.00
+SPAI	Safe Pro Group Inc	0.00
+GENB	Generate Biomedicines Inc	0.00
+ATNM	Actinium Pharmaceuticals Inc	0.00
+RNTX	Rein Therapeutics Inc	0.00
+LSTA	Lisata Therapeutics Inc	0.00
+CNVS	Cineverse Corp Class A	0.00
+EHTH	eHealth Inc	0.00
+CULP	Culp Inc	0.00
+SCOR	comScore Inc	0.00
+JOB	GEE Group Inc	0.00
+VATE	Innovate Corp	0.00
+CYPH	Cypherpunk Technologies Inc	0.00
+KLXE	KLX Energy Services Holdings Inc Ordinary Shares	0.00
+ACCS	ACCESS Newswire Inc	0.00
+MCHX	Marchex Inc Class B	0.00
+RFL	Rafael Holdings Inc Ordinary Shares - Class B	0.00
+PRPL	Purple Innovation Inc Ordinary Shares - Class A	0.00
+IMDX	Insight Molecular Diagnostics Inc	0.00
+PXLW	Pixelworks Inc	0.00
+RGS	Regis Corp	0.00
+SCYX	SCYNEXIS Inc	0.00
+GROW	US Global Investors Inc Class A	0.00
+CRVO	CervoMed Inc	0.00
+STRR	Star Equity Holdings Inc	0.00
+KLRS	Kalaris Therapeutics Inc	0.00
+LONA	LeonaBio Inc	0.00
+ALGS	Aligos Therapeutics Inc Ordinary Shares	0.00
+CLNN	Clene Inc Ordinary Shares	0.00
+TIL	Instil Bio Inc	0.00
+OCUL	Ocular Therapeutix Inc	0.00
+SEM	Select Medical Holdings Corp	0.00
+ESPR	Esperion Therapeutics Inc	0.00
+NPK	National Presto Industries Inc	0.00
+QNST	QuinStreet Inc	0.00
+STAA	Staar Surgical Co	0.00
+GO	Grocery Outlet Holding Corp	0.00
+EQPT	EquipmentShare.com Inc Class A	0.00
+ARVN	Arvinas Inc	0.00
+CSV	Carriage Services Inc	0.00
+MMI	Marcus & Millichap Inc	0.00
+OIS	Oil States International Inc	0.00
+SMBC	Southern Missouri Bancorp Inc	0.00
+CSTL	Castle Biosciences Inc	0.00
+AMPL	Amplitude Inc Class A	0.00
+AVNS	Avanos Medical Inc	0.00
+CCBG	Capital City Bank Group Inc	0.00
+CBRL	Cracker Barrel Old Country Store Inc	0.00
+GEVO	Gevo Inc	0.00
+AVAH	Aveanna Healthcare Holdings Inc	0.00
+ANRO	Alto Neuroscience Inc	0.00
+LPTH	LightPath Technologies Inc Class A	0.00
+IART	Integra Lifesciences Holdings Corp	0.00
+ASIX	AdvanSix Inc	0.00
+IIIN	Insteel Industries Inc	0.00
+SMBK	SmartFinancial Inc	0.00
+PGEN	Precigen Inc	0.00
+JBIO	Jade Biosciences Inc	0.00
+KMTS	Kestra Medical Technologies Ltd	0.00
+HRTG	Heritage Insurance Holdings Inc	0.00
+LQDT	Liquidity Services Inc	0.00
+TALK	Talkspace Inc Ordinary Shares	0.00
+FWRG	First Watch Restaurant Group Inc	0.00
+FISI	Financial Institutions Inc	0.00
+NTGR	Netgear Inc	0.00
+RBCAA	Republic Bancorp Inc Class A	0.00
+VOR	Vor Biopharma Inc Ordinary Shares	0.00
+SWBI	Smith & Wesson Brands Inc	0.00
+SHBI	Shore Bancshares Inc	0.00
+HTZ	Hertz Global Holdings Inc Ordinary Shares (New)	0.00
+SXC	SunCoke Energy Inc	0.00
+HTLD	Heartland Express Inc	0.00
+COOK	Traeger Inc	0.00
+BODI	The Beachbody Co Inc Class A	0.00
+RNXT	RenovoRx Inc	0.00
+SOTK	Sono-Tek Corp	0.00
+BEAT	HeartBeam Inc	0.00
+EP	Empire Petroleum Corp	0.00
+BOF	Branchout Food inc	0.00
+NRXS	Neuraxis Inc	0.00
+MGX	Metagenomi Therapeutics Inc	0.00
+TELO	Telomir Pharmaceuticals Inc	0.00
+ARTV	Artiva Biotherapeutics Inc	0.00
+EXOD	Exodus Movement Inc Class A	0.00
+AWRE	Aware Inc	0.00
+ATRA	Atara Biotherapeutics Inc	0.00
+PLCE	Children's Place Inc	0.00
+TVRD	Tvardi Therapeutics Inc	0.00
+CVV	CVD Equipment Corp	0.00
+ECOR	electroCore Inc	0.00
+CRWS	Crown Crafts Inc	0.00
+DXLG	Destination XL Group Inc	0.00
+CTSO	CytoSorbents Corp	0.00
+CPIX	Cumberland Pharmaceuticals Inc	0.00
+KYNB	Kyntra Bio Inc	0.00
+FTEK	Fuel Tech Inc	0.00
+TOON	Kartoon Studios Inc	0.00
+LITS	Lite Strategy Inc	0.00
+LPSN	LivePerson Inc	0.00
+KTCC	Key Tronic Corp	0.00
+INUV	Inuvo Inc	0.00
+VANI	Vivani Medical Inc	0.00
+RMTI	Rockwell Medical Inc	0.00
+SIF	SIFCO Industries Inc	0.00
+VERU	Veru Inc	0.00
+TACT	Transact Technologies Inc	0.00
+XTNT	Xtant Medical Holdings Inc	0.00
+DOMH	Dominari Holdings Inc	0.00
+USIO	Usio Inc	0.00
+SLNG	Stabilis Solutions Inc Ordinary Shares	0.00
+TELA	TELA Bio Inc Ordinary Shares	0.00
+BATL	Battalion Oil Corp Ordinary Shares	0.00
+ELUT	Elutia Inc Ordinary Shares - Class A	0.00
+HOWL	Werewolf Therapeutics Inc	0.00
+TEAD	Teads Holding Co	0.00
+RLYB	Rallybio Corp	0.00
+MKTW	Marketwise Inc Ordinary Shares - Class A	0.00
+JSPR	Jasper Therapeutics Inc Ordinary Shares	0.00
+SEAT	Vivid Seats Inc Class A	0.00
+BRFH	Barfresh Food Group Inc	0.00
+ACRV	Acrivon Therapeutics Inc	0.00
+BURU	Nuburu Inc Class A	0.00
+BEEP	Mobile Infrastructure Corp	0.00
+MDAI	Spectral AI Inc Ordinary Shares - Class A	0.00
+ONMD	OneMedNet Corp Ordinary Shares - Class A	0.00
+GCMG	GCM Grosvenor Inc Ordinary Shares - Class A	0.00
+MTUS	Metallus Inc	0.00
+VOYG	Voyager Technologies Inc Class A	0.00
+KE	Kimball Electronics Inc	0.00
+EXPI	eXp World Holdings Inc	0.00
+STGW	Stagwell Inc Ordinary Shares - Class A	0.00
+MITK	Mitek Systems Inc	0.00
+RGR	Sturm Ruger & Co Inc	0.00
+MCBS	MetroCity Bankshares Inc	0.00
+PRAA	PRA Group Inc	0.00
+CCO	Clear Channel Outdoor Holdings Inc Ordinary Shares	0.00
+ACEL	Accel Entertainment Inc Class A1	0.00
+LYTS	LSI Industries Inc	0.00
+SLDP	Solid Power Inc	0.00
+CASS	Cass Information Systems Inc	0.00
+CLB	Core Laboratories Inc	0.00
+GDEN	Golden Entertainment Inc	0.00
+HSTM	HealthStream Inc	0.00
+PSIX	Power Solutions International Inc	0.00
+ALRS	Alerus Financial Corp	0.00
+SANA	Sana Biotechnology Inc Ordinary Shares	0.00
+SG	Sweetgreen Inc Ordinary Shares - Class A	0.00
+AMBQ	Ambiq Micro Inc	0.00
+HOV	Hovnanian Enterprises Inc Class A	0.00
+ROOT	Root Inc Ordinary Shares - Class A	0.00
+IRWD	Ironwood Pharmaceuticals Inc Class A	0.00
+CRMD	Cormedix Inc	0.00
+RLMD	Relmada Therapeutics Inc	0.00
+BAND	Bandwidth Inc Class A	0.00
+ACRS	Aclaris Therapeutics Inc	0.00
+CLBK	Columbia Financial Inc	0.00
+CNNE	Cannae Holdings Inc Ordinary Shares	0.00
+BBW	Build-A-Bear Workshop Inc	0.00
+CEVA	CEVA Inc	0.00
+SLDB	Solid Biosciences Inc	0.00
+MATV	Mativ Holdings Inc	0.00
+CTKB	Cytek Biosciences Inc	0.00
+IDR	Idaho Strategic Resources Inc	0.00
+BETA	BETA Technologies Inc Ordinary Shares- Class A	0.00
+MBUU	Malibu Boats Inc Class A	0.00
+MDXG	MiMedx Group Inc	0.00
+PFIS	Peoples Financial Services Corp	0.00
+INN	Summit Hotel Properties Inc	0.00
+IVR	Invesco Mortgage Capital Inc	0.00
+CTO	CTO Realty Growth Inc Ordinary Shares- New	0.00
+CBL	CBL & Associates Properties Inc New	0.00
+ADAM	Adamas Trust Inc	0.00
+SHO	Sunstone Hotel Investors Inc	0.00
+LTC	LTC Properties Inc	0.00
+BFS	Saul Centers Inc	0.00
+FPI	Farmland Partners Inc	0.00
+IIPR	Innovative Industrial Properties Inc	0.00
+AHRT	AH Realty Trust Inc	0.00
+BDN	Brandywine Realty Trust	0.00
+XRN	Chiron Real Estate Inc	0.00
+PSTL	Postal Realty Trust Inc	0.00
+CHCT	Community Healthcare Trust Inc	0.00
+TWO	Two Harbors Investment Corp	0.00
+XHR	Xenia Hotels & Resorts Inc	0.00
+PEB	Pebblebrook Hotel Trust	0.00
+SMA	Smartstop Self Storage REIT Inc Ordinary Shares	0.00
+VRE	Veris Residential Inc	0.00
+SUNS	Sunrise Realty Trust Inc	0.00
+ARI	Apollo Commercial Real Estate Finance Inc	0.00
+DHC	Diversified Healthcare Trust	0.00
+DEI	Douglas Emmett Inc	0.00
+SILA	Sila Realty Trust Inc	0.00
+ABR	Arbor Realty Trust Inc	0.00
+EFC	Ellington Financial Inc	0.00
+GPMT	Granite Point Mortgage Trust Inc	0.00
+ORC	Orchid Island Capital Inc	0.00
+SEVN	Seven Hills Realty Trust	0.00
+REFI	Chicago Atlantic Real Estate Finance Inc	0.00
+Nexpoint Diversi	0.00
+NLOP	Net Lease Office Properties	0.00
+NREF	NexPoint Real Estate Finance Inc Ordinary Shares	0.00
+ONL	Orion Properties Inc	0.00
+MDV	Modiv Industrial Inc Ordinary Shares - Class C	0.00
+AHT	Ashford Hospitality Trust Inc	0.00
+BHR	Braemar Hotels & Resorts Inc	0.00
+BRT	BRT Apartments Corp	0.00
+ELME	Elme Communities	0.00
+New York Reit In	0.00
+ACR	ACRES Commercial Realty Corp	0.00
+AOMR	Angel Oak Mortgage REIT Inc Ordinary Shares	0.00
+FSP	Franklin Street Properties Corp	0.00
+FBRT	Franklin BSP Realty Trust Inc Ordinary Shares	0.00
+RPT	Rithm Property Trust Inc	0.00
+CHMI	Cherry Hill Mortgage Investment Corp	0.00
+STRW	Strawberry Fields REIT Inc Ordinary Shares	0.00
+DEA	Easterly Government Properties Inc	0.00
+AAT	American Assets Trust Inc	0.00
+UMH	UMH Properties Inc	0.00
+MFA	MFA Financial Inc	0.00
+LADR	Ladder Capital Corp Class A	0.00
+PDM	Piedmont Realty Trust Inc Class A	0.00
+JAN	Janus Living Inc Ordinary Shares - Class A-1	0.00
+PMT	PennyMac Mortgage Investment Trust	0.00
+CIM	Chimera Investment Corp	0.00
+RLJ	RLJ Lodging Trust Registered Shs of Benef Interest	0.00
+JBGS	JBG SMITH Properties	0.00
+CSR	Centerspace	0.00
+WSR	Whitestone REIT	0.00
+PKST	Peakstone Realty Trust Ordinary Shares	0.00
+RWT	Redwood Trust Inc	0.00
+SAFE	Safehold Inc	0.00
+UNIT	Uniti Group Inc	0.00
+ESRT	Empire State Realty Trust Inc Class A	0.00
+FCPT	Four Corners Property Trust Inc	0.00
+BRSP	BrightSpire Capital Inc Class A	0.00
+UE	Urban Edge Properties	0.00
+IVT	InvenTrust Properties Corp	0.00
+AKR	Acadia Realty Trust	0.00
+APLE	Apple Hospitality REIT Inc	0.00
+CURB	Curbline Properties Corp	0.00
+DX	Dynex Capital Inc	0.00
+HIW	Highwoods Properties Inc	0.00
+NSA	National Storage Affiliates Trust	0.00
+LXP	LXP Industrial Trust	0.00
+GNL	Global Net Lease Inc	0.00
+PK	Park Hotels & Resorts Inc	0.00
+GTY	Getty Realty Corp	0.00
+DRH	Diamondrock Hospitality Co	0.00
+LFT	Lument Finance Trust Inc	0.00
+SACH	Sachem Capital Corp	0.00
+Bluerock Hom	0.00
+LOAN	Manhattan Bridge Capital Inc	0.00
+CLPR	Clipper Realty Inc	0.00
+OLP	One Liberty Properties Inc	0.00
+LAND	Gladstone Land Corp	0.00
+CLDT	Chatham Lodging Trust	0.00
+TRTX	TPG RE Finance Trust Inc	0.00
+UHT	Universal Health Realty Income Trust	0.00
+AIV	Apartment Investment & Management Co Ordinary Shares - Class A	0.00
+FVR	FrontView REIT Inc REITs	0.00
+KREF	KKR Real Estate Finance Trust Inc	0.00
+SELF	Global Self Storage Inc	0.00
+HPP	Hudson Pacific Properties Inc	0.00
+ALX	Alexander's Inc	0.00
+NXRT	NexPoint Residential Trust Inc	0.00
+ILPT	Industrial Logistics Properties Trust	0.00
+GOOD	Gladstone Commercial Corp	0.00
+NTST	Netstreit Corp Ordinary Shares	0.00
+LINE	Lineage Inc REIT	0.00
+SLG	SL Green Realty Corp	0.00
+PINE	Alpine Income Property Trust Inc Ordinary Shares	0.00
+MPT	Medical Properties Trust Inc	0.00
+ARR	ARMOUR Residential REIT Inc	0.00
+SITC	SITE Centers Corp	0.00
+CMTG	Claros Mortgage Trust Inc	0.00
+BXMT	Blackstone Mortgage Trust Inc Class A	0.00
+RC	Ready Capital Corp	0.00
+SVC	Service Properties Trust	0.00
+MITT	TPG Mortgage Investment Trust Inc	0.00
+ACRE	Ares Commercial Real Estate Corp	0.00
+NOVUSTERRA INC	0.00
+Q32 Bio Inc - Cvr (March 2024)	0.00
+Traws Pharma Inc - Cvr (Apr 2024)	0.00
+Tectonic Therapeutic Inc - Cvr (June 2024)	0.00
+Ikena Oncology Inc - Cvr (July 2025)	0.00
+Novo Nordisk A/S - Cvr (Dec 25)	0.00
+Datavault Ai Inc Warrant 012026	0.00
+Fundamental Global Inc - Cvr (Aug 2025)	0.00
+Pfizer Inc - Cvr (Nov 25)	0.00
+Neurogene Inc - Cvr (Dec 2023)	0.00
+Magenta Therapeutics Inc - Cvr (Sep 2023)	0.00
+Sellas Life Sciences Group Warrant	0.00
+Tempest Therapeutics Inc - Warrant Feb 2026	0.00
+Blackboxstocks Inc-Cvr (Feb 2026)	0.00
+Abiomed Inc-Cvr	0.00
+Catalyst Biosciences Inc - Cvr (Jan 2023)	0.00
+Carisma Therapeutics Inc - Cvr (Mar 2023)	0.00
+Presidio Ppty Tr ([Wts/Rts])	0.00
+Tobira Therapeutics Inc - Cvr 2018	0.00
+Coherus Biosciences Inc - Cvr (Sep 2023)	0.00
+Korro Bio Inc - Cvr (Nov 2023)	0.00
+Ambit Bioscience	0.00
+Eli Lilly & Co - Cvr (Dec 25)	0.00
+M-TRON INDUSTRIE (RIGHTS MAR 2026)	0.00
+ALTISOURCE - 30	0.00
+ALTISOURCE - 29C	0.00
+Gtx Inc Cvr	0.00
+Aduro Biotech Cvr	0.00
+Cvr F Star Therapeutic	0.00
+Cvr F Star	0.00
+Alexza Pharmaceu	0.00
+Spectrum Pharmaceuticals Inc - Cvr (August 2023)	0.00
+Enliven Therapeutics Inc -- Cvr	0.00
+Inhibrx Inc - Cvr (May 2024)	0.00
+Srax Pfd	0.00
+Btcs Incorporation	0.00
+Nutriband Inc	0.00
+Clearone Inc	0.00
+Trs:global Payments Inc Usd 2026-Aug-31	0.00
+Trs:raymond James Financial Inc Usd 2027-Jan-29	0.00
+Trs:paypal Holdings Inc Usd 2026-Aug-31	0.00
+Trs:vici Properties Inc Usd 2026-Aug-31	0.00
+Trs:arbor Realty Trust Inc Usd 2027-Jan-29	0.00
+Trs:netapp Inc Usd 2026-Aug-31	0.00
+FORA	Forian Inc Ordinary Shares	0.00
+AMPG	AmpliTech Group Inc	0.00
+TKNO	Alpha Teknova Inc	0.00
+MIND	MIND Technology Inc	0.00
+NDLS	Noodles & Co Class A	0.00
+PNRG	PrimeEnergy Resources Corp	0.00
+FGNX	FG Nexus Inc	0.00
+SPWH	Sportsman's Warehouse Holdings Inc	0.00
+SGA	Saga Communications Inc Class A	0.00
+GAIA	Gaia Inc Class A	0.00
+QTTB	Q32 Bio Inc	0.00
+EVTC	Evertec Inc	0.00
+CECO	CECO Environmental Corp	0.00
+LEVI	Levi Strauss & Co Class A	0.00
+AGYS	Agilysys Inc	0.00
+GT	Goodyear Tire & Rubber Co	0.00
+FLY	Firefly Aerospace Inc	0.00
+IOSP	Innospec Inc	0.00
+CACC	Credit Acceptance Corp	0.00
+NWBI	Northwest Bancshares Inc	0.00
+WT	WisdomTree Inc	0.00
+FWONA	Liberty Media Corp Registered Shs Series -A- Formula One	0.00
+XMTR	Xometry Inc Ordinary Shares - Class A	0.00
+BRBR	BellRing Brands Inc Class A	0.00
+STC	Stewart Information Services Corp	0.00
+LLYVA	Liberty Live Holdings Inc Ordinary Shares (Liberty Live Group) Series A	0.00
+GRAL	GRAIL Inc	0.00
+TALO	Talos Energy Inc Ordinary Shares	0.00
+VG	Venture Global Inc Ordinary Shares - Class A	0.00
+CALY	Callaway Golf Co	0.00
+RCUS	Arcus Biosciences Inc	0.00
+VRDN	Viridian Therapeutics Inc	0.00
+EXTR	Extreme Networks Inc	0.00
+FRSH	Freshworks Inc Ordinary Shares Class A	0.00
+EFSC	Enterprise Financial Services Corp	0.00
+RARE	Ultragenyx Pharmaceutical Inc	0.00
+NKTR	Nektar Therapeutics	0.00
+EPAC	Enerpac Tool Group Corp Class A	0.00
+BHE	Benchmark Electronics Inc	0.00
+LGN	Legence Corp Ordinary Shares - Class A	0.00
+ROG	Rogers Corp	0.00
+KNSA	Kiniksa Pharmaceuticals International PLC Class A	0.00
+FOUR	Shift4 Payments Inc Class A	0.00
+GRBK	Green Brick Partners Inc	0.00
+CARG	CarGurus Inc Class A	0.00
+SEI	Solaris Energy Infrastructure Inc Class A	0.00
+HAE	Haemonetics Corp	0.00
+SMG	The Scotts Miracle Gro Co Class A	0.00
+CHH	Choice Hotels International Inc	0.00
+HNI	HNI Corp	0.00
+FBNC	First Bancorp	0.00
+ABM	ABM Industries Inc	0.00
+NWS	News Corp Class B	0.00
+LMAT	LeMaitre Vascular Inc	0.00
+HOG	Harley-Davidson Inc	0.00
+TDC	Teradata Corp	0.00
+PLAB	Photronics Inc	0.00
+FBK	FB Financial Corp	0.00
+PRDO	Perdoceo Education Corp	0.00
+HUBG	Hub Group Inc Class A	0.00
+RELY	Remitly Global Inc	0.00
+PFS	Provident Financial Services Inc	0.00
+PRVA	Privia Health Group Inc	0.00
+MSGE	Madison Square Garden Entertainment Corp	0.00
+SPNT	SiriusPoint Ltd	0.00
+BEAM	Beam Therapeutics Inc	0.00
+ANDE	Andersons Inc	0.00
+BOKF	BOK Financial Corp	0.00
+FRME	First Merchants Corp	0.00
+TRMK	Trustmark Corp	0.00
+KNTK	Kinetik Holdings Inc	0.00
+HGV	Hilton Grand Vacations Inc	0.00
+BCRX	BioCryst Pharmaceuticals Inc	0.00
+VERA	Vera Therapeutics Inc Class A	0.00
+PHIN	Phinia Inc	0.00
+RXO	RXO Inc	0.00
+WAFD	WaFd Inc	0.00
+VC	Visteon Corp	0.00
+VRNS	Varonis Systems Inc	0.00
+IRDM	Iridium Communications Inc	0.00
+LOAR	Loar Holdings Inc	0.00
+MCY	Mercury General Corp	0.00
+HE	Hawaiian Electric Industries Inc	0.00
+APAM	Artisan Partners Asset Management Inc Class A	0.00
+CON	Concentra Group Holdings Parent Inc	0.00
+PAG	Penske Automotive Group Inc	0.00
+SHOO	Steven Madden Ltd	0.00
+HHH	Howard Hughes Holdings Inc	0.00
+CVBF	CVB Financial Corp	0.00
+CAKE	The Cheesecake Factory Inc	0.00
+LQDA	Liquidia Corp Ordinary Shares	0.00
+GOLF	Acushnet Holdings Corp	0.00
+FPS	Forgent Power Solutions Inc Ordinary Shares - Class A	0.00
+RHI	Robert Half Inc	0.00
+ADEA	Adeia Inc	0.00
+EEFT	Euronet Worldwide Inc	0.00
+TXG	10x Genomics Inc Ordinary Shares - Class A	0.00
+NGVT	Ingevity Corp	0.00
+PFSI	PennyMac Financial Services Inc Class A	0.00
+BANC	Banc of California Inc	0.00
+CAR	Avis Budget Group Inc	0.00
+COCO	The Vita Coco Co Inc	0.00
+XRAY	Dentsply Sirona Inc	0.00
+AEO	American Eagle Outfitters Inc	0.00
+BBT	Beacon Financial Corp	0.00
+VCYT	Veracyte Inc	0.00
+JOE	The St. Joe Co	0.00
+CMPX	Compass Therapeutics Inc Ordinary Shares	0.00
+KURA	Kura Oncology Inc	0.00
+COTY	Coty Inc Class A	0.00
+ASH	Ashland Inc	0.00
+DNLI	Denali Therapeutics Inc	0.00
+TRN	Trinity Industries Inc	0.00
+TNGX	Tango Therapeutics Inc	0.00
+IAC	IAC Inc Ordinary Shares - New	0.00
+ARQT	Arcutis Biotherapeutics Inc Ordinary Shares	0.00
+UNFI	United Natural Foods Inc	0.00
+SYNA	Synaptics Inc	0.00
+BJRI	BJ's Restaurants Inc	0.00
+BBSI	Barrett Business Services Inc	0.00
+PRCH	Porch Group Inc Ordinary Shares - Class A	0.00
+SENEA	Seneca Foods Corp Class A	0.00
+SCHL	Scholastic Corp	0.00
+OMER	Omeros Corp	0.00
+MNKD	MannKind Corp	0.00
+LUNR	Intuitive Machines Inc Ordinary Shares - Class A	0.00
+DK	Delek US Holdings Inc Registered Shs Stock Settlement	0.00
+MEG	Montrose Environmental Group Inc Ordinary Shares	0.00
+DRVN	Driven Brands Holdings Inc Ordinary Shares	0.00
+NWPX	NWPX Infrastructure Inc	0.00
+EQBK	Equity Bancshares Inc A	0.00
+APOG	Apogee Enterprises Inc	0.00
+CXM	Sprinklr Inc Class A	0.00
+BFLY	Butterfly Network Inc Ordinary Shares - Class A	0.00
+SAIL	SailPoint Inc	0.00
+AD	Array Digital Infrastructure Inc	0.00
+KOP	Koppers Holdings Inc	0.00
+SMP	Standard Motor Products Inc	0.00
+FCBC	First Community Bankshares Inc	0.00
+WOLF	Wolfspeed Inc Ordinary Shares (New)	0.00
+FMNB	Farmers National Banc Corp	0.00
+TR	Tootsie Roll Industries Inc	0.00
+LXU	LSB Industries Inc	0.00
+HTBK	Heritage Commerce Corp	0.00
+SCSC	ScanSource Inc	0.00
+MATW	Matthews International Corp Class A	0.00
+MRTN	Marten Transport Ltd	0.00
+DAKT	Daktronics Inc	0.00
+ANNX	Annexon Inc Ordinary Shares	0.00
+TFSL	TFS Financial Corp	0.00
+BKSY	BlackSky Technology Inc Class A	0.00
+NBN	Northeast Bank	0.00
+NNE	Nano Nuclear Energy Inc	0.00
+INBX	Inhibrx Biosciences Inc	0.00
+LGIH	LGI Homes Inc	0.00
+ESQ	Esquire Financial Holdings Inc Shs Registered Shs	0.00
+MYE	Myers Industries Inc	0.00
+BHRB	Burke & Herbert Financial Services Corp	0.00
+TE	T1 Energy Inc	0.00
+SEMR	SEMrush Holdings Inc Ordinary Shares - Class A	0.00
+HAFC	Hanmi Financial Corp	0.00
+GOLD	Gold.com Inc	0.00
+AMRC	Ameresco Inc Class A	0.00
+ARX	Accelerant Holdings Ordinary Shares - Class A	0.00
+KODK	Eastman Kodak Co	0.00
+EE	Excelerate Energy Inc Class A	0.00
+NEO	NeoGenomics Inc	0.00
+REAL	The RealReal Inc	0.00
+PRKS	United Parks & Resorts Inc	0.00
+SHEN	Shenandoah Telecommunications Co	0.00
+FIZZ	National Beverage Corp	0.00
+MBWM	Mercantile Bank Corp	0.00
+IRMD	iRadimed Corp	0.00
+RAPP	Rapport Therapeutics Inc	0.00
+LWLG	Lightwave Logic Inc	0.00
+ENVX	Enovix Corp	0.00
+LZ	LegalZoom.com Inc	0.00
+MCB	Metropolitan Bank Holding Corp	0.00
+CMP	Compass Minerals International Inc	0.00
+CTMX	CytomX Therapeutics Inc	0.00
+CTBI	Community Trust Bancorp Inc	0.00
+CCB	Coastal Financial Corp	0.00
+UTL	Unitil Corp	0.00
+TDOC	Teladoc Health Inc	0.00
+TDAY	USA Today Co Inc	0.00
+IDT	IDT Corp Class B	0.00
+OCFC	OceanFirst Financial Corp	0.00
+MSEX	Middlesex Water Co	0.00
+PZZA	Papa John's International Inc	0.00
+CRAI	CRA International Inc	0.00
+ADTN	Adtran Holdings Inc	0.00
+MLKN	MillerKnoll Inc	0.00
+MANE	Veradermics Inc	0.00
+TYRA	Tyra Biosciences Inc	0.00
+GIII	G-III Apparel Group Ltd	0.00
+CVI	CVR Energy Inc	0.00
+SKYT	SkyWater Technology Inc	0.00
+NEXT	NextDecade Corp	0.00
+NIQ	NIQ Global Intelligence PLC	0.00
+EVLV	Evolv Technologies Holdings Inc Ordinary Shares - Class A	0.00
+TTI	Tetra Technologies Inc	0.00
+TMP	Tompkins Financial Corp	0.00
+OSBC	Old Second Bancorp Inc	0.00
+XPEL	XPEL Inc	0.00
+UAMY	United States Antimony Corp	0.00
+PDFS	PDF Solutions Inc	0.00
+GSHD	Goosehead Insurance Inc Class A	0.00
+ATAI	AtaiBeckley Inc	0.00
+PFBC	Preferred Bank	0.00
+SVRA	Savara Inc	0.00
+WEN	The Wendy's Co Class A	0.00
+MBC	MasterBrand Inc Ordinary Shares	0.00
+FG	F&G Annuities & Life Inc	0.00
+TSHA	Taysha Gene Therapies Inc Ordinary Shares	0.00
+EYPT	EyePoint Inc	0.00
+SION	Sionna Therapeutics Inc	0.00
+AESI	Atlas Energy Solutions Inc Class A	0.00
+GLDD	Great Lakes Dredge & Dock Corp	0.00
+AEHR	Aehr Test Systems	0.00
+MAZE	Maze Therapeutics Inc	0.00
+GRDN	Guardian Pharmacy Services Inc Class A Shares	0.00
+PRSU	Pursuit Attractions and Hospitality Inc	0.00
+THRM	Gentherm Inc Class A	0.00
+LMB	Limbach Holdings Inc	0.00
+LBRDA	Liberty Broadband Corp Registered Shs Series -A-	0.00
+GHM	Graham Corp	0.00
+CPF	Central Pacific Financial Corp	0.00
+NBBK	NB Bancorp Inc	0.00
+TRUP	Trupanion Inc	0.00
+UFCS	United Fire Group Inc	0.00
+NX	Quanex Building Products Corp	0.00
+ALH	Alliance Laundry Holdings Inc	0.00
+INGM	Ingram Micro Holding Corp	0.00
+WGO	Winnebago Industries Inc	0.00
+TRST	Trustco Bank Corp N Y	0.00
+CGEM	Cullinan Therapeutics Inc	0.00
+VERX	Vertex Inc Class A	0.00
+CAC	Camden National Corp	0.00
+BV	BrightView Holdings Inc	0.00
+AVBP	ArriVent BioPharma Inc	0.00
+COUR	Coursera Inc	0.00
+RUSHB	Rush Enterprises Inc Class B	0.00
+HBNC	Horizon Bancorp (IN)	0.00
+CFFN	Capitol Federal Financial Inc	0.00
+CDNA	CareDx Inc	0.00
+EIG	Employers Holdings Inc	0.00
+PCT	PureCycle Technologies Inc Ordinary Shares	0.00
+XNCR	Xencor Inc	0.00
+LIND	Lindblad Expeditions Holdings Inc	0.00
+CCNE	CNB Financial Corp	0.00
+UAA	Under Armour Inc Class A	0.00
+TNET	Trinet Group Inc	0.00
+WLDN	Willdan Group Inc	0.00
+SCL	Stepan Co	0.00
+SAFT	Safety Insurance Group Inc	0.00
+CRVS	Corvus Pharmaceuticals Inc	0.00
+PRG	PROG Holdings Inc Ordinary Shares	0.00
+ANAB	AnaptysBio Inc	0.00
+SEZL	Sezzle Inc	0.00
+LINC	Lincoln Educational Services Corp	0.00
+EPC	Edgewell Personal Care Co	0.00
+COLL	Collegium Pharmaceutical Inc	0.00
+PNTG	Pennant Group Inc	0.00
+RYZ	Ryerson Holding Corp	0.00
+GPRE	Green Plains Inc	0.00
+MBX	MBX Biosciences Inc	0.00
+LFST	LifeStance Health Group Inc Ordinary Shares	0.00
+ALKT	Alkami Technology Inc	0.00
+KALV	KalVista Pharmaceuticals Inc	0.00
+BCAX	Bicara Therapeutics Inc	0.00
+FTRE	Fortrea Holdings Inc	0.00
+SAH	Sonic Automotive Inc Class A	0.00
+FMBH	First Mid Bancshares Inc	0.00
+BY	Byline Bancorp Inc	0.00
+AZTA	Azenta Inc	0.00
+APEI	American Public Education Inc	0.00
+BLFS	BioLife Solutions Inc	0.00
+VSTS	Vestis Corp	0.00
+CDRE	Cadre Holdings Inc	0.00
+UVE	Universal Insurance Holdings Inc	0.00
+VRTS	Virtus Investment Partners Inc	0.00
+MBIN	Merchants Bancorp	0.00
+VYX	NCR Voyix Corp	0.00
+BFST	Business First Bancshares Inc	0.00
+PENG	Penguin Solutions Inc	0.00
+SBSI	Southside Bancshares Inc	0.00
+OPY	Oppenheimer Holdings Inc Class A	0.00
+APPN	Appian Corp Class A	0.00
+SNCY	Sun Country Airlines Holdings Inc	0.00
+GBTG	Global Business Travel Group Inc Ordinary Shares - Class A	0.00
+FLNC	Fluence Energy Inc Class A	0.00
+ALNT	Allient Inc	0.00
+AMTB	Amerant Bancorp Inc Ordinary Shares - Class A	0.00
+RVLV	Revolve Group Inc Class A	0.00
+XERS	Xeris Biopharma Holdings Inc	0.00
+NSP	Insperity Inc	0.00
+FA	First Advantage Corp	0.00
+PCRX	Pacira BioSciences Inc	0.00
+PLOW	Douglas Dynamics Inc	0.00
+UWMC	UWM Holdings Corp Ordinary Shares - Class A	0.00
+WMK	Weis Markets Inc	0.00
+SGRY	Surgery Partners Inc	0.00
+CCOI	Cogent Communications Holdings Inc	0.00
+ASTH	Astrana Health Inc	0.00
+BKV	BKV Corp	0.00
+UA	Under Armour Inc Class C	0.00
+UPBD	Upbound Group Inc	0.00
+UVSP	Univest Financial Corp	0.00
+GERN	Geron Corp	0.00
+HLIT	Harmonic Inc	0.00
+INLX	Intellinetics Inc	0.00
+LASE	Laser Photonics Corp	0.00
+CVKD	Cadrenal Therapeutics Inc	0.00
+VGAS	Verde Clean Fuels Inc Ordinary Shares - Class A	0.00
+PODC	PodcastOne Inc	0.00
+BTM	Bitcoin Depot Inc Ordinary Shares - Class A	0.00
+GENK	GEN Restaurant Group Inc Class A Shares	0.00
+RFIL	RF Industries Ltd	0.00
+VIRC	Virco Manufacturing Corp	0.00
+UNB	Union Bankshares Inc	0.00
+HCAT	Health Catalyst Inc	0.00
+KRRO	Korro Bio Inc	0.00
+SLQT	SelectQuote Inc Ordinary Shares	0.00
+SEER	Seer Inc Ordinary Shares - Class A	0.00
+ABOS	Acumen Pharmaceuticals Inc	0.00
+OWLT	Owlet Inc Class A	0.00
+HYPR	Hyperfine Inc Class A	0.00
+ANTX	AN2 Therapeutics Inc	0.00
+SKYX	SKYX Platforms Corp	0.00
+ESLA	Estrella Immunopharma Inc	0.00
+RMCO	Royalty Management Holding Corp Ordinary Shares - Class A	0.00
+COCH	Envoy Medical Inc Ordinary Shares - Class A	0.00
+MSAI	MultiSensor AI Holdings Inc	0.00
+DFNS	T3 Defense Inc Ordinary Shares - New	0.00
+SMXT	SolarMax Technology Inc	0.00
+ZEO	Zeo Energy Corp Ordinary Shares - Class A	0.00
+CMTL	Comtech Telecommunications Corp	0.00
+EQ	Equillium Inc	0.00
+HURC	Hurco Companies Inc	0.00
+GPRO	GoPro Inc Class A	0.00
+KEQU	Kewaunee Scientific Corp	0.00
+KPTI	Karyopharm Therapeutics Inc	0.00
+XTIA	XTI Aerospace Inc	0.00
+PROV	Provident Financial Holdings Inc	0.00
+SAMG	Silvercrest Asset Management Group Inc Class A	0.00
+SPRO	Spero Therapeutics Inc	0.00
+BDTX	Black Diamond Therapeutics Inc Ordinary Shares	0.00
+HURA	TuHURA Biosciences Inc	0.00
+BMEA	Biomea Fusion Inc	0.00
+RANI	Rani Therapeutics Holdings Inc Class A	0.00
+UPXI	Upexi Inc	0.00
+SRZN	Surrozen Inc Ordinary Shares	0.00
+COEP	Coeptis Therapeutics Holdings Inc Ordinary Shares	0.00
+GNLX	Genelux Corp	0.00
+SPWR	SunPower Inc	0.00
+DTCX	Datacentrex Inc	0.00
+BH.A	Biglari Holdings Inc Ordinary Shares - Class A	0.00
+PMTS	CPI Card Group Inc	0.00
+FDSB	Fifth District Bancorp Inc	0.00
+PEW	GrabAGun Digital Holdings Inc	0.00
+ANIX	Anixa Biosciences Inc	0.00
+CODA	Coda Octopus Group Inc	0.00
+CHGG	Chegg Inc	0.00
+CLAR	Clarus Corp	0.00
+CSPI	CSP Inc	0.00
+CPSS	Consumer Portfolio Services Inc	0.00
+MPX	Marine Products Corp	0.00
+LCUT	Lifetime Brands Inc	0.00
+GNSS	Genasys Inc	0.00
+JILL	J.Jill Inc	0.00
+BOOM	DMC Global Inc	0.00
+DOMO	Domo Inc	0.00
+CHCI	Comstock Holding Co Inc Class A	0.00
+INVE	Identiv Inc	0.00
+LFCR	Lifecore Biomedical Inc	0.00
+RCMT	RCM Technologies Inc	0.00
+SRG	Seritage Growth Properties Class A	0.00
+RDNW	RideNow Group Inc Class B	0.00
+VTVT	vTv Therapeutics Inc Class A	0.00
+TLYS	Tilly's Inc A	0.00
+CTLP	Cantaloupe Inc	0.00
+MPB	Mid Penn Bancorp Inc	0.00
+MWH	SOLV Energy Inc Class A	0.00
+FLOC	Flowco Holdings Inc Ordinary Shares - Class A	0.00
+EHAB	Enhabit Inc Shs	0.00
+JBI	Janus International Group Inc Ordinary Shares - Class A	0.00
+MCW	Mister Car Wash Inc	0.00
+PLPC	Preformed Line Products Co	0.00
+EGBN	Eagle Bancorp Inc	0.00
+TRNS	Transcat Inc	0.00
+JBSS	John B Sanfilippo & Son Inc	0.00
+CNXN	PC Connection Inc	0.00
+FOXF	Fox Factory Holding Corp	0.00
+TBPH	Theravance Biopharma Inc	0.00
+ABUS	Arbutus Biopharma Corp	0.00
+RHLD	Resolute Holdings Management Inc	0.00
+SEPN	Septerna Inc	0.00
+ACVA	ACV Auctions Inc Ordinary Shares - Class A	0.00
+CERT	Certara Inc Ordinary Shares	0.00
+SDGR	Schrodinger Inc Ordinary Shares	0.00
+PHAT	Phathom Pharmaceuticals Inc Ordinary shares	0.00
+METC	Ramaco Resources Inc Class A	0.00
+IBCP	Independent Bank Corp.	0.00
+AMPH	Amphastar Pharmaceuticals Inc	0.00
+REKR	Rekor Systems Inc	0.00
+NKTX	Nkarta Inc Ordinary Shares	0.00
+BDSX	Biodesix Inc Ordinary Shares	0.00
+CHPT	ChargePoint Holdings Inc Ordinary Shares - Class A	0.00
+AGL	Agilon Health Inc	0.00
+LAW	CS Disco Inc	0.00
+KULR	KULR Technology Group Inc	0.00
+GETY	Getty Images Holdings Inc	0.00
+SUIG	Sui Group Holdings Ltd	0.00
+STHO	Star Holdings	0.00
+ZONE	CleanCore Solutions Inc Class B Shares	0.00
+CBNA	Chain Bridge Bancorp Inc Class A	0.00
+ARQ	Arq Inc	0.00
+DMRC	Digimarc Corp	0.00
+TSQ	Townsquare Media Inc Class A	0.00
+ATYR	aTyr Pharma Inc	0.00
+AMWL	American Well Corp Ordinary Shares - Class A	0.00
+AFBI	Affinity Bancshares Inc Ordinary Shares	0.00
+BARK	BARK Inc Ordinary Shares - Class A	0.00
+CURV	Torrid Holdings Inc	0.00
+MXCT	MaxCyte Inc	0.00
+MAPS	WM Technology Inc Ordinary Shares - Class A	0.00
+PYXS	Pyxis Oncology Inc	0.00
+KORE	Kore Group Holdings Inc	0.00
+METCB	Ramaco Resources Inc Ordinary Shares - Class B	0.00
+PROP	Prairie Operating Co	0.00
+KG	Kestrel Group Ltd	0.00
+FLD	Fold Holdings Inc Ordinary Shares - Class A	0.00
+GEMI	Gemini Space Station Inc Ordinary Shares-Class A	0.00
+BYFC	Broadway Financial Corp Ordinary Shares - Class A	0.00
+DLHC	DLH Holdings Corp	0.00
+HNNA	Hennessy Advisors Inc	0.00
+QMCO	Quantum Corp Shs Dlt & Storage Systems Group	0.00
+MCRB	Seres Therapeutics Inc	0.00
+RNAC	Cartesian Therapeutics Inc	0.00
+WWR	Westwater Resources Inc	0.00
+FSEA	First Seacoast Bancorp Inc	0.00
+GRWG	GrowGeneration Corp	0.00
+RSSS	Research Solutions Inc	0.00
+PMVP	PMV Pharmaceuticals Inc Ordinary Shares	0.00
+AIRT	Air T Inc	0.00
+CVM	CEL-SCI Corp	0.00
+CRD.A	Crawford & Co Class A	0.00
+FARM	Farmer Bros Co	0.00
+DAIO	Data I/O Corp	0.00
+FLNT	Fluent Inc	0.00
+GEG	Great Elm Group Inc	0.00
+HBIO	Harvard Bioscience Inc	0.00
+LIVE	Live Ventures Inc	0.00
+LGL	LGL Group Inc	0.00
+NCSM	NCS Multistage Holdings Inc	0.00
+MHH	Mastech Digital Inc	0.00
+MYO	Myomo Inc	0.00
+NTIP	Network-1 Technologies Inc	0.00
+RDI	Reading International Inc Class A	0.00
+QVCGA	QVC Group Inc Ordinary Shares - Series A	0.00
+PED	PEDEVCO Corp	0.00
+OESX	Orion Energy Systems Inc	0.00
+QRHC	Quest Resource Holding Corp	0.00
+SIEB	Siebert Financial Corp	0.00
+UG	United-Guardian Inc	0.00
+VTGN	Vistagen Therapeutics Inc	0.00
+UPLD	Upland Software Inc	0.00
+NTIC	Northern Technologies International Corp	0.00
+STIM	Neuronetics Inc	0.00
+NODK	NI Holdings Inc	0.00
+SSBI	Summit State Bank	0.00
+VRA	Vera Bradley Inc	0.00
+FLNA	Filana Therapeutics Inc	0.00
+ARMP	Armata Pharmaceuticals Inc	0.00
+SWKH	SWK Holdings Corp	0.00
+CLST	Catalyst Bancorp Inc Ordinary Shares	0.00
+KLC	KinderCare Learning Companies Inc	0.00
+PEPG	PepGen Inc	0.00
+MAIA	MAIA Biotechnology Inc	0.00
+COYA	Coya Therapeutics Inc	0.00
+SI	Shoulder Innovations Inc	0.00
+AIRO	AIRO Group Holdings Inc	0.00
+CAMP	Camp4 Therapeutics Corp	0.00
+SEG	Seaport Entertainment Group Inc	0.00
+ECBK	ECB Bancorp Inc	0.00
+XPOF	Xponential Fitness Inc Ordinary Shares - Class A	0.00
+BSET	Bassett Furniture Industries Inc	0.00
+VENU	Venu Holding Corp	0.00
+SNWV	SANUWAVE Health Inc	0.00
+SRBK	SR Bancorp Inc	0.00
+XRX	Xerox Holdings Corp	0.00
+EVI	EVI Industries Inc	0.00
+IDN	Intellicheck Inc	0.00
+INGN	Inogen Inc	0.00
+KRO	Kronos Worldwide Inc	0.00
+EAF	GrafTech International Ltd	0.00
+GCBC	Greene County Bancorp Inc	0.00
+ATLN	Atlantic International Corp	0.00
+PSQH	PSQ Holdings Inc Ordinary Shares - Class A	0.00
+MOBX	Mobix Labs Inc Ordinary Shares - Class A	0.00
+BOLD	Boundless Bio Inc	0.00
+SKYE	Skye Bioscience Inc Ordinary Shares	0.00
+MIRA	Mira Pharmaceuticals Inc	0.00
+JFB	JFB Construction Holdings Class A Ordinary Shares	0.00
+ACFN	Acorn Energy Inc	0.00
+CSAI	Cloudastructure Inc Class A	0.00
+NOMA	Nomadar Corp Ordinary Shares - Class A	0.00
+OSTX	OS Therapies Inc	0.00
+CTOR	Citius Oncology Inc	0.00
+NEUP	Neuphoria Therapeutics Inc Ordinary Shares	0.00
+TTRX	Turn Therapeutics Inc	0.00
+BTGO	BitGo Holdings Inc Ordinary Shares - Class A	0.00
+GOAI	Eva Live Inc	0.00
+NOTV	Inotiv Inc	0.00
+ARKR	Ark Restaurants Corp	0.00
+BRID	Bridgford Foods Corp	0.00
+DXR	Daxor Corp	0.00
+DARE	Dare Bioscience Inc	0.00
+CUE	Cue Biopharma Inc Ordinary Shares	0.00
+BDL	Flanigan'S Enterprises Inc	0.00
+FUSB	First US Bancshares Inc	0.00
+HHS	Harte-Hanks Inc	0.00
+GTIM	Good Times Restaurants Inc	0.00
+HFBL	Home Federal Bancorp Inc of louisiana	0.00
+MRKR	Marker Therapeutics Inc	0.00
+JRSH	Jerash Holdings (US) Inc	0.00
+KOSS	Koss Corp	0.00
+TBHC	The Brand House Collective Inc	0.00
+IRIX	IRIDEX Corp	0.00
+MLSS	Milestone Scientific Inc	0.00
+MXC	Mexco Energy Corp	0.00
+NAII	Natural Alternatives International Inc	0.00
+NNVC	Nanoviricides Inc	0.00
+PPSI	Pioneer Power Solutions Inc	0.00
+UONEK	Urban One Inc Registered Shs -D- Non Vtg	0.00
+TCI	Transcontinental Realty Investors Inc	0.00
+BCG	Binah Capital Group Inc	0.00
+QTI	QT Imaging Holdings Inc	0.00
+AXIL	AXIL Brands Inc	0.00
+MGRX	Mangoceuticals Inc	0.00
+GIFT	Giftify Inc Ordinary Shares	0.00
+SDST	Stardust Power Inc Ordinary Shares	0.00
+VEEA	Veea Inc	0.00
+SLND	Southland Holdings Inc	0.00
+UHG	United Homes Group Inc Ordinary Shares - Class A	0.00
+ARAV	Aravive Inc	0.00
+NYC	American Strategic Investment Co Ordinary Shares - Class A	0.00
+BIVI	BioVie Inc Ordinary Shares - Class A	0.00
+RVPH	Reviva Pharmaceuticals Holdings Inc Ordinary Shares	0.00
+IPW	iPower Inc	0.00
+DTST	Data Storage Corp	0.00
+HYZN	Hyzon Motors Inc Ordinary Shares - Class A	0.00
+NXPL	NextPlat Corp Ordinary Shares	0.00
+WKSP	Worksport Ltd	0.00
+JVA	Coffee Holding Co Inc	0.00
+CKX	CKX Lands Inc	0.00
+IMNN	Imunon Inc	0.00
+KFFB	Kentucky First Federal Bancorp	0.00
+INTG	The Intergroup Corp	0.00
+SNES	SenesTech Inc	0.00
+SBT	Sterling Bancorp Inc	0.00
+UONE	Urban One Inc Class A	0.00
+PULM	Pulmatrix Inc	0.00
+ELSE	Electro-Sensors Inc	0.00
+XCUR	Exicure Inc	0.00
+AGAE	Allied Gaming & Entertainment Inc Ordinary Shares	0.00
+BCDA	BioCardia Inc	0.00
+ANY	Sphere 3D Corp	0.00
+RDIB	Reading International Inc Class B	0.00
+CALC	CalciMedica Inc Ordinary Shares	0.00
+MTEX	Mannatech Inc	0.00
+NSYS	Nortech Systems Inc	0.00
+RVP	Retractable Technologies Inc	0.00
+RAVE	Rave Restaurant Group Inc	0.00
+REFR	Research Frontiers Inc	0.00
+SGRP	SPAR Group Inc	0.00
+TLF	Tandy Leather Factory Inc	0.00
+VRCA	Verrica Pharmaceuticals Inc	0.00
+SER	Serina Therapeutics Inc	0.00
+TPST	Tempest Therapeutics Inc	0.00
+LNAI	Lunai Bioworks Inc	0.00
+OTLK	Outlook Therapeutics Inc	0.00
+PRPO	Precipio Inc	0.00
+GOCO	GoHealth Inc Ordinary Shares - Class A	0.00
+FTHM	Fathom Holdings Inc Ordinary Shares	0.00
+LSF	Laird Superfood Inc Ordinary Shares	0.00
+LESL	Leslies Inc Ordinary Shares	0.00
+TOMZ	TOMI Environmental Solutions Inc	0.00
+BNKK	Bonk Inc	0.00
+SKLZ	Skillz Inc Ordinary Shares - Class A	0.00
+BCAB	BioAtla Inc Ordinary Shares	0.00
+VVOS	Vivos Therapeutics Inc Ordinary Shares	0.00
+RYM	Rythm Inc Ordinary Shares	0.00
+GGRP	The Glimpse Group Inc	0.00
+FEMY	Femasys Inc	0.00
+ORGN	Origin Materials Inc Shs	0.00
+IPM	Intelligent Protection Management Corp	0.00
+XOS	Xos Inc Ordinary Shares	0.00
+AIRS	AirSculpt Technologies Inc	0.00
+SWAG	Stran & Co Inc	0.00
+LOCL	Local Bounti Corp	0.00
+CISO	CISO Global Inc Ordinary Shares	0.00
+MODD	Modular Medical Inc	0.00
+FEAM	5E Advanced Materials Inc	0.00
+ALMU	Aeluma Inc	0.00
+ACTG	Acacia Research Corp	0.00
+CMT	Core Molding Technologies Inc	0.00
+FC	Franklin Covey Co	0.00
+MGNX	Macrogenics Inc	0.00
+LTRX	Lantronix Inc	0.00
+SMHI	Seacor Marine Holdings Inc	0.00
+TAYD	Taylor Devices Inc	0.00
+ACH	Accendra Health Inc	0.00
+FCAP	First Capital Inc	0.00
+EVC	Entravision Communications Corp Class A	0.00
+BNED	Barnes & Noble Education Inc	0.00
+BLZE	Backblaze Inc Class A	0.00
+CTEV	Claritev Corp Ordinary Shares - Class A	0.00
+POWW	Outdoor Holding Co	0.00
+PBFS	Pioneer Bancorp Inc	0.00
+MFIN	Medallion Financial Corp	0.00
+BBCP	Concrete Pumping Holdings Inc	0.00
+VERI	Veritone Inc	0.00
+RGCO	RGC Resources Inc	0.00
+OPBK	OP Bancorp	0.00
+INFU	InfuSystems Holdings Inc	0.00
+JACK	Jack In The Box Inc	0.00
+PNBK	Patriot National Bancorp Inc	0.00
+PDEX	Pro-Dex Inc	0.00
+GORO	Gold Resource Corp	0.00
+HRTX	Heron Therapeutics Inc	0.00
+CDXS	Codexis Inc	0.00
+ACHV	Achieve Life Sciences Inc	0.00
+ACU	Acme United Corp	0.00
+STRZ	Starz Entertainment Corp	0.00
+PAL	Proficient Auto Logistics Inc	0.00
+LDI	loanDepot Inc Class A	0.00
+MASS	908 Devices Inc Ordinary Shares	0.00
+SPCE	Virgin Galactic Holdings Inc Shs A	0.00
+KRMD	KORU Medical Systems Inc	0.00
+RMBI	Richmond Mutual Bancorp Inc Ordinary Shares	0.00
+ORGO	Organogenesis Holdings Inc Class A	0.00
+ULH	Universal Logistics Holdings Inc	0.00
+TBCH	Turtle Beach Corp	0.00
+VUZI	Vuzix Corp	0.00
+SBFG	SB Financial Group Inc	0.00
+KVHI	KVH Industries Inc	0.00
+GENC	Gencor Industries Inc	0.00
+GSIT	GSI Technology Inc	0.00
+FONR	Fonar Corp	0.00
+EGAN	eGain Corp	0.00
+CBFV	CB Financial Services Inc	0.00
+DIBS	1stdibs.com Inc Ordinary Shares	0.00
+BYRN	Byrna Technologies Inc	0.00
+INNV	InnovAge Holding Corp	0.00
+FHTX	Foghorn Therapeutics Inc Ordinary Shares	0.00
+KFS	Kingsway Financial Services Inc	0.00
+TNXP	Tonix Pharmaceuticals Holding Corp	0.00
+SNFCA	Security National Financial Corp Class A	0.00
+MBOT	Microbot Medical Inc	0.00
+JAKK	Jakks Pacific Inc	0.00
+INBK	First Internet Bancorp	0.00
+CRBP	Corbus Pharmaceuticals Holdings Inc	0.00
+GYRE	Gyre Therapeutics Inc	0.00
+ASYS	Amtech Systems Inc	0.00
+BZAI	Blaize HoldingsInc Ordinary Shares	0.00
+BVFL	BV Financial Inc	0.00
+MPTI	M-Tron Industries Inc	0.00
+UBCP	United Bancorp Inc	0.00
+USEG	US Energy Corp	0.00
+TXMD	TherapeuticsMD Inc	0.00
+WVVI	Willamette Valley Vineyards Inc	0.00
+DYAI	Dyadic International Inc	0.00
+BYSI	BeyondSpring Inc	0.00
+NEPH	Nephros Inc	0.00
+LTRN	Lantern Pharma Inc Ordinary Shares	0.00
+SPRB	Spruce Biosciences Inc Ordinary Shares	0.00
+LGVN	Longeveron Inc Ordinary Shares - Class A	0.00
+AFCG	Advanced Flower Capital Inc Ordinary Shares	0.00
+DBGI	Digital Brands Group Inc Ordinary Shares	0.00
+NIXX	Nixxy Inc	0.00
+KPLT	Katapult Holdings Inc Ordinary Shares	0.00
+BRLT	Brilliant Earth Group Inc Class A	0.00
+XLO	Xilio Therapeutics Inc	0.00
+BIRD	Allbirds Inc Class A	0.00
+CCEL	Cryo-Cell International Inc	0.00
+NTRB	Nutriband Inc	0.00
+GWH	ESS Tech Inc Ordinary Shares	0.00
+AUID	AuthID Inc	0.00
+SURG	Surgepays Inc	0.00
+BZFD	BuzzFeed Inc Class A	0.00
+SNTI	Senti Biosciences Inc	0.00
+BRN	Barnwell Industries Inc	0.00
+AMS	American Shared Hospital Services	0.00
+AIRI	Air Industries Group	0.00
+COHN	Cohen & Co Inc	0.00
+COCP	Cocrystal Pharma Inc	0.00
+CLIR	ClearSign Technologies Corp	0.00
+CLRB	Cellectar Biosciences Inc	0.00
+DLPN	Dolphin Entertainment Inc	0.00
+DWSN	Dawson Geophysical Co	0.00
+CRIS	Curis Inc	0.00
+CREX	Creative Realities Inc	0.00
+PDSB	PDS Biotechnology Corp	0.00
+INMB	INmune Bio Inc	0.00
+BEEM	Beam Global	0.00
+IPWR	Ideal Power Inc	0.00
+PASG	Passage Bio Inc Ordinary Shares	0.00
+FLUX	Flux Power Holdings Inc	0.00
+CELU	Celularity Inc Ordinary Shares - Class A	0.00
+NMTC	NeuroOne Medical Technologies Corp	0.00
+TCBS	Texas Community Bancshares Inc	0.00
+SKIL	Skillsoft Corp Ordinary Shares - Class A	0.00
+OPAD	Offerpad Solutions Inc Class A	0.00
+LVLU	Lulus Fashion Lounge Holdings Inc	0.00
+NXXT	NextNRG Inc	0.00
+INKT	MiNK Therapeutics Inc	0.00
+BAFN	BayFirst Financial Corp	0.00
+SCWO	374Water Inc	0.00
+POCI	Precision Optics Corp Inc	0.00
+LNZA	LanzaTech Global Inc Ordinary Shares - Class A	0.00
+TPCS	Techprecision Corp	0.00
+GAME	GameSquare Holdings Inc	0.00
+SLSN	Solesence Inc	0.00
+HIT	Health In Tech Inc Class A Common Stock	0.00
+NTHI	NeOnc Technologies Holdings Inc	0.00
+GLOO	Gloo Holdings Inc Ordinary Shares- Class A	0.00
+AYTU	Aytu BioPharma Inc	0.00
+AUBN	Auburn National Bancorp Inc	0.00
+IMUX	Immunic Inc	0.00
+ZNTL	Zentalis Pharmaceuticals Inc Ordinary Shares	0.00
+LPRO	Open Lending Corp	0.00
+LFMD	LifeMD Inc	0.00
+ZIP	ZipRecruiter Inc Class A	0.00
+SGHT	Sight Sciences Inc	0.00
+UNCY	Unicycive Therapeutics Inc Ordinary Shares	0.00
+FNWD	Finward Bancorp	0.00
+DOUG	Douglas Elliman Inc	0.00
+DERM	Journey Medical Corp	0.00
+BNC	CEA Industries Inc	0.00
+OABI	OmniAb Inc	0.00
+ALTI	AlTi Global Inc Ordinary Shares - Class A	0.00
+TRON	Tron Inc	0.00
+SGMT	Sagimet Biosciences Inc Ordinary Shares - Series A	0.00
+BNAI	Brand Engagement Network Inc	0.00
+LIFE	Ethos Technologies Inc Ordinary Shares- Class A	0.00
+HYNE	Hoyne Bancorp Inc	0.00
+GALT	Galectin Therapeutics Inc	0.00
+JYNT	The Joint Corp	0.00
+LWAY	Lifeway Foods Inc	0.00
+SRI	Stoneridge Inc	0.00
+CCLD	CareCloud Inc	0.00
+EPSN	Epsilon Energy Ltd	0.00
+CURI	CuriosityStream Inc	0.00
+ADV	Advantage Solutions Inc Ordinary Shares - Class A	0.00
+QSI	Quantum-Si Inc Ordinary Shares - Class A	0.00
+NEOV	NeoVolta Inc Ordinary Shares	0.00
+APYX	Apyx Medical Corp	0.00
+WHG	Westwood Holdings Group Inc	0.00
+RELL	Richardson Electronics Ltd	0.00
+LE	Lands' End Inc	0.00
+EPM	Evolution Petroleum Corp	0.00
+CFBK	CF Bankshares Inc	0.00
+BCBP	BCB Bancorp Inc	0.00
+IMSR	Terrestrial Energy Inc	0.00
+GLIBA	GCI Liberty Inc Ordinary Shares - Series A	0.00
+BALY	Ballys Corp Ordinary Shares (Rolling Share)	0.00
+HNVR	Hanover Bancorp Inc	0.00
+FOA	Finance of America Companies Inc Ordinary Shares - Class A	0.00
+ELTX	Elicio Therapeutics Inc	0.00
+SMID	Smith-Midland Corp	0.00
+AOUT	American Outdoor Brands Inc Ordinary Shares	0.00
+ALTG	Alta Equipment Group Inc Class A	0.00
+PRTH	Priority Technology Holdings Inc	0.00
+TONX	TON Strategy Co	0.00
+SND	Smart Sand Inc	0.00
+QUIK	QuickLogic Corp	0.00
+INSG	Inseego Corp	0.00
+HBB	Hamilton Beach Brands Holding Co Class A	0.00
+RILY	BRC Group Holdings Inc	0.00
+FINW	FinWise Bancorp	0.00
+TNYA	Tenaya Therapeutics Inc	0.00
+ALTS	ALT5 Sigma Corp	0.00
+UBFO	United Security Bancshares	0.00
+TCX	Tucows Inc Class A	0.00
+UIS	Unisys Corp	0.00
+SGC	Superior Group Of Companies Inc	0.00
+QTRX	Quanterix Corp	0.00
+NFE	New Fortress Energy Inc Class A	0.00
+ONEW	OneWater Marine Inc Class A	0.00
+RXT	Rackspace Technology Inc Ordinary Shares	0.00
+PLBY	Playboy Inc Ordinary Shares	0.00
+LUCD	Lucid Diagnostics Inc	0.00
+BKKT	Bakkt Inc Ordinary Shares - Class A	0.00
+NVCT	Nuvectis Pharma Inc	0.00
+LGCY	Legacy Education Inc	0.00
+AXR	Amrep Corp	0.00
+CBUS	Cibus Inc Ordinary Shares - Class A	0.00
+EML	The Eastern Co	0.00
+ESP	Espey Manufacturing & Electronics Corp	0.00
+RAIL	FreightCar America Inc	0.00
+FF	FutureFuel Corp	0.00
+JELD	JELD-WEN Holding Inc	0.00
+MED	Medifast Inc	0.00
+OPRX	OptimizeRx Corp	0.00
+PZG	Paramount Gold Nevada Corp	0.00
+TENX	Tenax Therapeutics Inc	0.00
+CXDO	Crexendo Inc	0.00
+PRLD	Prelude Therapeutics Inc Ordinary Shares	0.00
+KLTR	Kaltura Inc	0.00
+HUMA	Humacyte Inc	0.00
+LUCK	Lucky Strike Entertainment Corp	0.00
+WHWK	Whitehawk Therapeutics Inc	0.00
+CRMT	America's Car-Mart Inc	0.00
+ALDX	Aldeyra Therapeutics Inc	0.00
+AP	Ampco-Pittsburgh Corp	0.00
+DTIL	Precision BioSciences Inc	0.00
+CRDF	Cardiff Oncology Inc	0.00
+STEX	Streamex Corp	0.00
+TBI	TrueBlue Inc	0.00
+SFBC	Sound Financial Bancorp Inc	0.00
+RVSB	Riverview Bancorp Inc	0.00
+TTGT	TechTarget Inc	0.00
+OFLX	Omega Flex Inc	0.00
+TRAK	ReposiTrak Inc	0.00
+RMAX	RE/MAX Holdings Inc Class A	0.00
+MLP	Maui Land & Pineapple Co Inc	0.00
+GWRS	Global Water Resources Inc	0.00
+FNKO	Funko Inc Class A	0.00
+CVGI	Commercial Vehicle Group Inc	0.00
+AGEN	Agenus Inc	0.00
+ATOM	Atomera Inc	0.00
+TLSI	TriSalus Life Sciences Inc	0.00
+LIDR	AEye Inc Ordinary Shares - Class A	0.00
+TASK	TaskUs Inc Class A	0.00
+THRY	Thryv Holdings Inc	0.00
+RCEL	AVITA Medical Inc	0.00
+STXS	Stereotaxis Inc	0.00
+ACNT	Ascent Industries Co	0.00
+RGP	Resources Connection Inc	0.00
+INO	Inovio Pharmaceuticals Inc	0.00
+LARK	Landmark Bancorp Inc	0.00
+FRD	Friedman Industries Inc	0.00
+DHX	DHI Group Inc	0.00
+FATE	Fate Therapeutics Inc	0.00
+ASRT	Assertio Holdings Inc	0.00
+NUAI	New Era Energy & Digital Inc	0.00
+SDHC	Smith Douglas Homes Corp Class A	0.00
+CRBU	Caribou Biosciences Inc Ordinary Shares	0.00
+DSP	Viant Technology Inc Ordinary Shares - Class A	0.00
+GLSI	Greenwich LifeSciences Inc Ordinary Shares	0.00
+ELA	Envela Corp	0.00
+OPRT	Oportun Financial Corp	0.00
+PACK	Ranpak Holdings Corp Ordinary Shares - Class A	0.00
+MNSB	MainStreet Bancshares Inc	0.00
+OVBC	Ohio Valley Banc Corporation	0.00
+OSS	One Stop Systems Inc	0.00
+III	Information Services Group Inc	0.00
+IMMR	Immersion Corp	0.00
+KINS	Kingstone Companies Inc	0.00
+GEOS	Geospace Technologies Corp	0.00
+HOFT	Hooker Furnishings Corp	0.00
+MRAM	Everspin Technologies Inc	0.00
+ESCA	Escalade Inc	0.00
+EBMT	Eagle Bancorp Montana Inc	0.00
+BELFA	Bel Fuse Inc Class A	0.00
+CMTV	Community Bancorp Inc	0.00
+OFRM	Once Upon a Farm PBC	0.00
+VIA	Via Transportation Inc Ordinary Shares - Class A	0.00
+ASIC	Ategrity Specialty Insurance Co Holdings	0.00
+NMRA	Neumora Therapeutics Inc	0.00
+EWCZ	European Wax Center Inc Ordinary Shares - Class A	0.00
+CRCT	Cricut Inc Ordinary Shares - Class A	0.00
+HPK	HighPeak Energy Inc Ordinary Shares	0.00
+CMRC	Commerce.com Inc Ordinary Shares Series 1	0.00
+FRX	Fennec Pharmaceuticals Inc	0.00
+DUOT	Duos Technologies Group Inc	0.00
+LEGH	Legacy Housing Corp	0.00
+ALEC	Alector Inc	0.00
+USAU	U.S. Gold Corp	0.00
+CLYM	Climb Bio Inc	0.00
+LAKE	Lakeland Industries Inc	0.00
+BOTJ	Bank of the James Financial Group Inc	0.00
+FLWS	1-800-Flowers.com Inc Class A	0.00
+ULBI	Ultralife Corp	0.00
+GOSS	Gossamer Bio Inc	0.00
+OPTT	Ocean Power Technologies Inc	0.00
+RBKB	Rhinebeck Bancorp Inc Ordinary Shares	0.00
+GPUS	Hyperscale Data Inc Class A	0.00
+PLRX	Pliant Therapeutics Inc Ordinary Shares	0.00
+OM	Outset Medical Inc Ordinary Shares	0.00
+OKUR	OnKure Therapeutics Inc Class A Shares	0.00
+STEM	Stem Inc Class A	0.00
+SKIN	The Beauty Health Co Ordinary Shares - Class A	0.00
+MNTK	Montauk Renewables Inc Ordinary Shares	0.00
+AREN	The Arena Group Holdings Inc	0.00
+SRFM	Surf Air Mobility Inc	0.00
+AIRG	Airgain Inc	0.00
+APT	Alpha Pro Tech Ltd	0.00
+AVD	American Vanguard Corp	0.00
+FORR	Forrester Research Inc	0.00
+FNWB	First Northwest Bancorp	0.00
+FBIO	Fortress Biotech Inc	0.00
+HAIN	The Hain Celestial Group Inc	0.00
+NNBR	NN Inc	0.00
+SSTI	SoundThinking Inc	0.00
+SRTS	Sensus Healthcare Inc	0.00
+SGMO	Sangamo Therapeutics Inc	0.00
+TTEC	TTEC Holdings Inc	0.00
+KSS	Kohl's Corp	0.00
+WINA	Winmark Corp	0.00
+ATRC	AtriCure Inc	0.00
+HLX	Helix Energy Solutions Group Inc	0.00
+TILE	Interface Inc	0.00
+QCRH	QCR Holdings Inc	0.00
+UPWK	Upwork Inc	0.00
+AMLX	Amylyx Pharmaceuticals Inc	0.00
+COHU	Cohu Inc	0.00
+PRLB	Proto Labs Inc	0.00
+AIRJ	AirJoule Technologies Corp Class A Shares	0.00
+FJET	Starfighters Space Inc	0.00
+CITR	CitroTech Inc	0.00
+BGSF	BGSF Inc	0.00
+ALOT	AstroNova Inc	0.00
+FLL	Full House Resorts Inc	0.00
+HFFG	HF Foods Group Inc	0.00
+SBH	Sally Beauty Holdings Inc	0.00
+PAYO	Payoneer Global Inc	0.00
+COLM	Columbia Sportswear Co	0.00
+SEB	Seaboard Corp	0.00
+RCAT	Red Cat Holdings Inc	0.00
+CTS	CTS Corp	0.00
+TFIN	Triumph Financial Inc	0.00
+DCH	Dauch Corp	0.00
+AGM	Federal Agricultural Mortgage Corp Class C	0.00
+NSSC	NAPCO Security Technologies Inc	0.00
+HCSG	Healthcare Services Group Inc	0.00
+WWW	Wolverine World Wide Inc	0.00
+USLM	United States Lime & Minerals Inc	0.00
+TCBK	TriCo Bancshares	0.00
+LCID	Lucid Group Inc Shs	0.00
+ALGT	Allegiant Travel Co	0.00
+CBZ	CBIZ Inc	0.00
+LNN	Lindsay Corp	0.00
+MIAX	Miami International Holdings Inc	0.00
+CMPR	Cimpress PLC	0.00
+OBK	Origin Bancorp Inc	0.00
+REX	REX American Resources Corp	0.00
+FIGS	FIGS Inc Class A	0.00
+HNGE	Hinge Health Inc Ordinary Shares - Class A	0.00
+LEG	Leggett & Platt Inc	0.00
+PRA	ProAssurance Corp	0.00
+PACS	PACS Group Inc	0.00
+GLIBK	GCI Liberty Inc Ordinary Shares - Series C	0.00
+HTFL	HeartFlow Inc	0.00
+UVV	Universal Corp	0.00
+JJSF	J&J Snack Foods Corp	0.00
+TRIP	Tripadvisor Inc	0.00
+TIC	TIC Solutions Inc	0.00
+FLYW	Flywire Corp	0.00
+PRCT	PROCEPT BioRobotics Corp	0.00
+LZB	La-Z-Boy Inc	0.00
+TRS	TriMas Corp	0.00
+NVAX	Novavax Inc	0.00
+PGNY	Progyny Inc	0.00
+WABC	Westamerica Bancorp	0.00
+ENOV	Enovis Corp	0.00
+GRC	Gorman-Rupp Co	0.00
+TNDM	Tandem Diabetes Care Inc	0.00
+ZYME	Zymeworks Inc Registered Shs	0.00
+CNOB	ConnectOne Bancorp Inc	0.00
+IMKTA	Ingles Markets Inc Class A	0.00
+JBLU	JetBlue Airways Corp	0.00
+NBR	Nabors Industries Ltd	0.00
+CRI	Carter's Inc	0.00
+RDW	Redwire Corp	0.00
+SLDE	Slide Insurance Holdings Inc	0.00
+ASTE	Astec Industries Inc	0.00
+TNC	Tennant Co	0.00
+RAMP	LiveRamp Holdings Inc	0.00
+CRVL	CorVel Corp	0.00
+CRK	Comstock Resources Inc	0.00
+GBX	Greenbrier Companies Inc	0.00
+SONO	Sonos Inc	0.00
+BBAI	BigBear.ai Holdings Inc	0.00
+INSP	Inspire Medical Systems Inc	0.00
+MQ	Marqeta Inc Class A	0.00
+NTLA	Intellia Therapeutics Inc	0.00
+PBI	Pitney Bowes Inc	0.00
+INTA	Intapp Inc	0.00
+ASGN	ASGN Inc	0.00
+ECPG	Encore Capital Group Inc	0.00
+KOD	Kodiak Sciences Inc	0.00
+BFC	Bank First Corp	0.00
+HLF	Herbalife Ltd	0.00
+SNDR	Schneider National Inc	0.00
+WD	Walker & Dunlop Inc	0.00
+ECVT	Ecovyst Inc	0.00
+ANIP	ANI Pharmaceuticals Inc	0.00
+NWL	Newell Brands Inc	0.00
+BKE	Buckle Inc	0.00
+FDP	Fresh Del Monte Produce Inc	0.00
+MLYS	Mineralys Therapeutics Inc	0.00
+AIN	Albany International Corp	0.00
+ICHR	Ichor Holdings Ltd	0.00
+RXRX	Recursion Pharmaceuticals Inc Class A	0.00
+PRGO	Perrigo Co PLC	0.00
+DFDV	DeFi Development Corp	0.00
+WLY	John Wiley & Sons Inc Class A	0.00
+CCS	Century Communities Inc	0.00
+PUMP	ProPetro Holding Corp	0.00
+PAY	Paymentus Holdings Inc Class A	0.00
+SLVM	Sylvamo Corp Ordinary Shares When Issued	0.00
+DCOM	Dime Community Bancshares Inc	0.00
+YELP	Yelp Inc	0.00
+AAMI	Acadian Asset Management Inc	0.00
+LKFN	Lakeland Financial Corp	0.00
+MXL	MaxLinear Inc	0.00
+OMCL	Omnicell Inc	0.00
+PVLA	Palvella Therapeutics Inc	0.00
+UFPT	UFP Technologies Inc	0.00
+NN	NextNav Inc	0.00
+ARLO	Arlo Technologies Inc	0.00
+GABC	German American Bancorp Inc	0.00
+HTH	Hilltop Holdings Inc	0.00
+NVRI	Enviri Corp	0.00
+IE	Ivanhoe Electric Inc	0.00
+BSRR	Sierra Bancorp	0.00
+GIC	Global Industrial Co	0.00
+COFS	ChoiceOne Financial Services Inc	0.00
+CABO	Cable One Inc	0.00
+CVLG	Covenant Logistics Group Inc Class A	0.00
+KRNY	Kearny Financial Corp	0.00
+ORN	Orion Group Holdings Inc	0.00
+SSTK	Shutterstock Inc	0.00
+LXEO	Lexeo Therapeutics Inc	0.00
+UPB	Upstream Bio Inc	0.00
+CLNE	Clean Energy Fuels Corp	0.00
+CWH	Camping World Holdings Inc Class A	0.00
+FBIZ	First Business Financial Services Inc	0.00
+HBCP	Home Bancorp Inc	0.00
+CBIO	Crescent Biopharma Inc	0.00
+PLSE	Pulse Biosciences Inc	0.00
+TRC	Tejon Ranch Co	0.00
+VSTM	Verastem Inc	0.00
+WLFC	Willis Lease Finance Corp	0.00
+AVIR	Atea Pharmaceuticals Inc Ordinary Shares	0.00
+ABSI	Absci Corp	0.00
+NTSK	Netskope Inc Ordinary Shares - Class A	0.00
+BLMN	Bloomin Brands Inc	0.00
+ALT	Altimmune Inc	0.00
+FWRD	Forward Air Corp	0.00
+MYGN	Myriad Genetics Inc	0.00
+DFH	Dream Finders Homes Inc Ordinary Shares - Class A	0.00
+CWBC	Community West Bancshares	0.00
+CMCO	Columbus McKinnon Corp	0.00
+CYRX	CryoPort Inc	0.00
+MCS	Marcus Corp	0.00
+MTW	Manitowoc Co Inc	0.00
+BWMN	Bowman Consulting Group Ltd	0.00
+NRGV	Energy Vault Holdings Inc	0.00
+BBNX	Beta Bionics Inc	0.00
+MH	McGraw Hill Inc	0.00
+KOPN	Kopin Corp	0.00
+RDVT	Red Violet Inc Ordinary Shares	0.00
+VNDA	Vanda Pharmaceuticals Inc	0.00
+BCML	BayCom Corp	0.00
+ALLO	Allogene Therapeutics Inc	0.00
+ISTR	Investar Holding Corp	0.00
+OSPN	OneSpan Inc	0.00
+RGNX	Regenxbio Inc	0.00
+WTBA	West Bancorp Inc	0.00
+TIPT	Tiptree Inc	0.00
+TRDA	Entrada Therapeutics Inc	0.00
+BATRA	Atlanta Braves Holdings Inc Class A	0.00
+CTNM	Contineum Therapeutics Inc Class A Common Stock	0.00
+ICFI	ICF International Inc	0.00
+MCRI	Monarch Casino & Resort Inc	0.00
+GLUE	Monte Rosa Therapeutics Inc	0.00
+WGS	GeneDx Holdings Corp Ordinary Shares - Class A	0.00
+ATEC	Alphatec Holdings Inc	0.00
+SMPL	The Simply Good Foods Co	0.00
+TRVI	Trevi Therapeutics Inc	0.00
+CASH	Pathward Financial Inc	0.00
+HRMY	Harmony Biosciences Holdings Inc Ordinary Shares	0.00
+DV	DoubleVerify Holdings Inc	0.00
+QUBT	Quantum Computing Inc	0.00
+IOVA	Iovance Biotherapeutics Inc	0.00
+GTM	ZoomInfo Technologies Inc	0.00
+HOPE	Hope Bancorp Inc	0.00
+BOW	Bowhead Specialty Holdings Inc	0.00
+AQST	Aquestive Therapeutics Inc	0.00
+EVER	EverQuote Inc Class A	0.00
+IMXI	International Money Express Inc	0.00
+OFIX	Orthofix Medical Inc	0.00
+SFST	Southern First Bancshares Inc	0.00
+RRBI	Red River Bancshares Inc	0.00
+BCAL	California BanCorp	0.00
+NPB	Northpointe Bancshares Inc	0.00
+ACT	Enact Holdings Inc	0.00
+SRCE	1st Source Corp	0.00
+ROCK	Gibraltar Industries Inc	0.00
+DFIN	Donnelley Financial Solutions Inc	0.00
+AHCO	AdaptHealth Corp Ordinary Shares	0.00
+NUVB	Nuvation Bio Inc Ordinary Shares - Class A	0.00
+FIGR	Figure Technology Solutions Inc Ordinary Shares-Class A	0.00
+INOD	Innodata Inc	0.00
+NVCR	NovoCure Ltd	0.00
+TROX	Tronox Holdings PLC Shs Class A	0.00
+WS	Worthington Steel Inc	0.00
+VTOL	Bristow Group Inc Ordinary Shares	0.00
+OLMA	Olema Pharmaceuticals inc Ordinary Shares	0.00
+DLX	Deluxe Corp	0.00
+QDEL	QuidelOrtho Corp	0.00
+USPH	US Physical Therapy Inc	0.00
+ENR	Energizer Holdings Inc	0.00
+BF.A	Brown-Forman Corp Class A	0.00
+LOB	Live Oak Bancshares Inc	0.00
+KW	Kennedy-Wilson Holdings Inc	0.00
+VIR	Vir Biotechnology Inc	0.00
+AI	C3.ai Inc Ordinary Shares - Class A	0.00
+OUST	Ouster Inc Ordinary Shares - Class A	0.00
+NUTX	Nutex Health Inc	0.00
+LBRX	LB Pharmaceuticals Inc	0.00
+CPS	Cooper-Standard Holdings Inc	0.00
+HIFS	Hingham Institution for Savings	0.00
+TREE	LendingTree Inc	0.00
+MLAB	Mesa Laboratories Inc	0.00
+RIGL	Rigel Pharmaceuticals Inc	0.00
+EBS	Emergent BioSolutions Inc	0.00
+STRO	Sutro Biopharma Inc	0.00
+XOMA	XOMA Royalty Corp	0.00
+KRUS	Kura Sushi USA Inc Ordinary Shares - Class A	0.00
+ATEX	Anterix Inc	0.00
+CCSI	Consensus Cloud Solutions Inc Ordinary Shares	0.00
+GRNT	Granite Ridge Resources Inc Ordinary Shares - Class A	0.00
+YSS	York Space Systems Inc	0.00
+SATL	Satellogic Inc Ordinary Shares - Class A	0.00
+NAVN	Navan Inc Ordinary Shares - Class A	0.00
+CARS	Cars.com Inc	0.00
+DHIL	Diamond Hill Investment Group Inc Class A	0.00
+MNRO	Monro Inc	0.00
+MSBI	Midland States Bancorp Inc	0.00
+YORW	The York Water Co	0.00
+RPC	Ridgepost Capital Inc Class A	0.00
+NP	Neptune Insurance Holdings Inc Ordinary Shares- Class A	0.00
+ACNB	ACNB Corp	0.00
+NGS	Natural Gas Services Group Inc	0.00
+REPL	Replimune Group Inc	0.00
+UDMY	Udemy Inc	0.00
+CDNL	Cardinal Infrastructure Group Inc Ordinary Shares- Class A	0.00
+CIVB	Civista Bancshares Inc	0.00
+CBAN	Colony Bankcorp Inc	0.00
+PSNL	Personalis Inc	0.00
+SPRY	ARS Pharmaceuticals Inc	0.00
+CAPR	Capricor Therapeutics Inc	0.00
+ARDX	Ardelyx Inc	0.00
+EZPW	EZCORP Inc Registered Shs -A- Non Vtg	0.00
+CNXC	Concentrix Corp Ordinary Shares	0.00
+MAN	ManpowerGroup Inc	0.00
+ANGO	AngioDynamics Inc	0.00
+BXC	BlueLinx Holdings Inc	0.00
+CVGW	Calavo Growers Inc	0.00
+VREX	Varex Imaging Corp	0.00
+RUM	Rumble Inc Ordinary Shares - Class A	0.00
+DJCO	Daily Journal Corp	0.00
+FFWM	First Foundation Inc	0.00
+CATX	Perspective Therapeutics Inc	0.00
+HCI	HCI Group Inc	0.00
+BWIN	The Baldwin Insurance Group Inc Class A	0.00
+ALG	Alamo Group Inc	0.00
+FCF	First Commonwealth Financial Corp	0.00
+WTTR	Select Water Solutions Inc Class A	0.00
+NVTS	Navitas Semiconductor Corp Class A	0.00
+PTON	Peloton Interactive Inc	0.00
+DCO	Ducommun Inc	0.00
+SYBT	Stock Yards Bancorp Inc	0.00
+STEL	Stellar Bancorp Inc	0.00
+EOSE	Eos Energy Enterprises Inc Ordinary Shares Class A	0.00
+SAM	Boston Beer Co Inc Class A	0.00
+DGII	Digi International Inc	0.00
+WERN	Werner Enterprises Inc	0.00
+DBD	Diebold Nixdorf Inc Ordinary Shares- New	0.00
+DDS	Dillard's Inc Class A	0.00
+CWEN.A	Clearway Energy Inc Class A	0.00
+ADUS	Addus HomeCare Corp	0.00
+DAWN	Day One Biopharmaceuticals Inc	0.00
+HLMN	Hillman Solutions Corp Shs	0.00
+AORT	Artivion Inc	0.00
+SPB	Spectrum Brands Holdings Inc	0.00
+CENTA	Central Garden & Pet Co Class A	0.00
+OI	O-I Glass Inc	0.00
+SLNO	Soleno Therapeutics Inc	0.00
+ATEN	A10 Networks Inc	0.00
+INVA	Innoviva Inc	0.00
+VCEL	Vericel Corp	0.00
+NNI	Nelnet Inc Class A	0.00
+FUN	Six Flags Entertainment Corp	0.00
+MGNI	Magnite Inc	0.00
+HYMC	Hycroft Mining Holding Corp Ordinary Shares Class A	0.00
+CHCO	City Holding Co	0.00
+SKWD	Skyward Specialty Insurance Group Inc	0.00
+NBHC	National Bank Holdings Corp Class A	0.00
+TPB	Turning Point Brands Inc	0.00
+IPAR	Interparfums Inc	0.00
+NCNO	Ncino Inc Ordinary Shares	0.00
+DJT	Trump Media & Technology Group Corp	0.00
+LC	LendingClub Corp	0.00
+NRIX	Nurix Therapeutics Inc Ordinary Shares	0.00
+WOR	Worthington Enterprises Inc	0.00
+ZD	Ziff Davis Inc	0.00
+STBA	S&T Bancorp Inc	0.00
+THR	Thermon Group Holdings Inc	0.00
+OGN	Organon & Co Ordinary Shares	0.00
+AMSC	American Superconductor Corp	0.00
+BW	Babcock & Wilcox Enterprises Inc	0.00
+AVPT	AvePoint Inc Ordinary Shares - Class A	0.00
+FLO	Flowers Foods Inc	0.00
