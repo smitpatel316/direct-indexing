@@ -130,6 +130,40 @@ def create_parser() -> argparse.ArgumentParser:
         help="Output CSV file for results"
     )
 
+    # paper-trade command
+    paper_parser = subparsers.add_parser(
+        "paper-trade",
+        help="Submit paper trades to Alpaca to replicate an index"
+    )
+    paper_parser.add_argument(
+        "--index", "-i",
+        type=str,
+        default="sp500",
+        choices=["sp500", "qqq", "all_us"],
+        help="Index to replicate: sp500 (S&P 500), qqq (Nasdaq-100), all_us (all US stocks). Default: sp500"
+    )
+    paper_parser.add_argument(
+        "--cancel-existing", "-c",
+        action="store_true",
+        help="Cancel all existing open orders before submitting new ones"
+    )
+    paper_parser.add_argument(
+        "--dry-run", "-n",
+        action="store_true",
+        help="Show what would be traded without submitting orders"
+    )
+    paper_parser.add_argument(
+        "--limit-buffer", "-b",
+        type=float,
+        default=0.001,
+        help="Limit order buffer (0.001 = 0.1%%). Default: 0.001"
+    )
+    paper_parser.add_argument(
+        "--fractional", "-f",
+        action="store_true",
+        help="Allow fractional share purchases (Alpaca supports this)"
+    )
+
     # pure-direct run command
     pure_run_parser = subparsers.add_parser(
         "run-pure",
@@ -667,6 +701,267 @@ def cmd_rebalance_pure(args, config: AppConfig) -> int:
     return 0
 
 
+def cmd_paper_trade(args, config: AppConfig) -> int:
+    """Submit paper trades to replicate an index using Alpaca.
+
+    This command:
+    1. Fetches live market cap weights for the chosen index
+    2. Gets current Alpaca account equity
+    3. Cancels existing open orders (if --cancel-existing)
+    4. Submits limit buy orders for each constituent to match target weights
+    """
+    from .alpaca_client import AlpacaClient
+    from .sp500 import SP500Data
+    from pathlib import Path
+
+    index = args.index.upper() if args.index != "all_us" else "ALL_US"
+
+    print(f"\n{'='*60}")
+    print(f"PAPER TRADE: {index} Cap-Weighted Replication")
+    print(f"{'='*60}")
+
+    # --- Alpaca Client ---
+    client = AlpacaClient(
+        api_key=config.alpaca.api_key,
+        secret_key=config.alpaca.api_secret,
+        paper=True,
+    )
+
+    # --- Market Status ---
+    try:
+        mkt = client.get_market_status()
+        print(f"Market status: {'OPEN' if mkt['is_open'] else 'CLOSED'}")
+        print(f"Next open: {mkt['next_open']}")
+        print(f"Next close: {mkt['next_close']}")
+    except Exception as e:
+        print(f"Warning: Could not get market status: {e}")
+
+    # --- Account ---
+    account = client.get_account()
+    portfolio_value = float(account.equity)
+    cash = float(account.cash)
+    print(f"\nAccount equity: ${portfolio_value:,.2f}")
+    print(f"Cash: ${cash:,.2f}")
+
+    if portfolio_value <= 0:
+        print("ERROR: No portfolio value. Cannot trade.")
+        return 1
+
+    # --- Get Index Weights ---
+    print(f"\nFetching {index} index weights...")
+
+    if args.index == "sp500":
+        # Use existing S&P 500 data with live market cap weights
+        sp = SP500Data(cache_dir=Path("data/sp500"))
+        sp.load(force_refresh=False)
+        weights = sp.get_weights()
+        # Filter to top holdings to avoid Alpaca ticker limits
+        # Alpaca allows up to 500 positions
+        sorted_weights = sorted(weights.items(), key=lambda x: x[1], reverse=True)
+        top_n = min(250, len(sorted_weights))  # Cap at 250 to leave room for other positions
+        weights = dict(sorted_weights[:top_n])
+        total_w = sum(weights.values())
+        weights = {t: w / total_w for t, w in weights.items()}  # Re-normalize
+        print(f"  Loaded {len(weights)} S&P 500 holdings (top {top_n} by weight)")
+
+    elif args.index == "qqq":
+        # QQQ (Nasdaq-100) - use yfinance to fetch constituent weights
+        # We'll approximate by fetching top Nasdaq stocks by market cap
+        weights = _fetch_nasdaq100_weights()
+        print(f"  Loaded {len(weights)} QQQ holdings")
+
+    elif args.index == "all_us":
+        # All US stocks - top ~250 by market cap
+        sp = SP500Data(cache_dir=Path("data/sp500"))
+        sp.load(force_refresh=False)
+        weights = sp.get_weights()
+        sorted_weights = sorted(weights.items(), key=lambda x: x[1], reverse=True)
+        top_n = min(250, len(sorted_weights))
+        weights = dict(sorted_weights[:top_n])
+        total_w = sum(weights.values())
+        weights = {t: w / total_w for t, w in weights.items()}
+        print(f"  Loaded {len(weights)} US stock holdings (top {top_n} by market cap)")
+
+    print(f"  Total weight covered: {sum(weights.values())*100:.1f}%")
+
+    # --- Cancel existing orders if requested (do this before dry run check) ---
+    if args.cancel_existing:
+        open_orders = client.get_orders(status="open")
+        if open_orders:
+            print(f"\nCanceling {len(open_orders)} open orders...")
+            client.cancel_all_orders()
+            print("All open orders cancelled.")
+        else:
+            print("\nNo open orders to cancel.")
+
+    # --- Dry Run ---
+    if args.dry_run:
+        print(f"\n[DRY RUN] Would submit {len(weights)} orders:")
+        for ticker, weight in sorted(weights.items(), key=lambda x: x[1], reverse=True)[:20]:
+            dollar_amount = portfolio_value * weight
+            print(f"  BUY {ticker}: ${dollar_amount:,.2f} ({weight*100:.2f}% of portfolio)")
+        if len(weights) > 20:
+            print(f"  ... and {len(weights)-20} more tickers")
+        return 0
+
+    # --- Submit Orders ---
+    print(f"\nSubmitting {len(weights)} orders with limit buffer {args.limit_buffer*100:.2f}%...")
+
+    slippage_buffer = 1 + args.limit_buffer  # e.g., 1.001 for 0.1% above market
+    import time as time_module
+
+    order_count = 0
+    rate_limited_count = 0
+    failed_tickers: list[tuple[str, str]] = []
+
+    for ticker, weight in weights.items():
+        # Get latest price first
+        try:
+            price = client.get_latest_price(ticker)
+            if price is None or price <= 0:
+                print(f"  SKIP {ticker}: no price data")
+                failed_tickers.append((ticker, "no price"))
+                continue
+
+            # Calculate position size
+            target_value = portfolio_value * weight
+            qty = target_value / price
+
+            # Round to whole shares (or fractional if enabled)
+            if args.fractional:
+                qty = round(qty, 4)  # Round to 4 decimal places for fractional
+            else:
+                qty = float(int(qty))  # Round down to whole shares
+
+            if qty <= 0:
+                continue
+
+            # Submit limit order with buffer above current price
+            limit_price = round(price * slippage_buffer, 2)
+
+            # Submit with retry logic for rate limits
+            submitted = False
+            for attempt in range(3):
+                try:
+                    client.submit_order(
+                        symbol=ticker,
+                        side="buy",
+                        order_type="limit",
+                        qty=qty,
+                        limit_price=limit_price,
+                    )
+                    submitted = True
+                    break
+                except Exception as e:
+                    err_msg = str(e)
+                    if "429" in err_msg or "rate limit" in err_msg.lower() or "too many" in err_msg.lower():
+                        wait = (attempt + 1) * 2.0  # 2s, 4s, 6s
+                        print(f"  RATE LIMIT: {ticker}, waiting {wait}s...")
+                        time_module.sleep(wait)
+                        continue
+                    raise  # Other errors
+
+            if submitted:
+                order_count += 1
+                if order_count % 25 == 0:
+                    print(f"  Submitted {order_count} orders...")
+            else:
+                failed_tickers.append((ticker, "rate limited after retries"))
+
+        except Exception as e:
+            err_msg = str(e)
+            # Skip tickers not found on Alpaca
+            if "not found" in err_msg.lower() or "invalid symbol" in err_msg.lower() or "symbol not found" in err_msg.lower():
+                print(f"  SKIP {ticker}: not tradable on Alpaca")
+            elif "429" in err_msg or "rate limit" in err_msg.lower():
+                print(f"  SKIP {ticker}: rate limited")
+                rate_limited_count += 1
+            else:
+                print(f"  ERROR {ticker}: {err_msg}")
+            failed_tickers.append((ticker, err_msg))
+
+    print(f"\nOrder submission complete:")
+    print(f"  Orders submitted:  {order_count}")
+    print(f"  Skipped/failed:   {len(failed_tickers)}")
+
+    # --- Summary ---
+    print(f"\n{'='*60}")
+    print(f"PAPER TRADE SUMMARY: {index}")
+    print(f"{'='*60}")
+    print(f"Portfolio equity: ${portfolio_value:,.2f}")
+    print(f"Index:             {index}")
+    print(f"Weight coverage:   {sum(weights.values())*100:.1f}%")
+    print(f"Target positions:  {len(weights)}")
+    print(f"Orders submitted: {order_count}")
+    print(f"Limit buffer:      {args.limit_buffer*100:.2f}% above market")
+    print(f"\nNote: Orders placed while market is closed will queue")
+    print(f"      and fill when market opens.")
+
+    return 0
+
+
+def _fetch_nasdaq100_weights() -> dict[str, float]:
+    """Fetch approximate QQQ (Nasdaq-100) constituent weights.
+
+    Uses a curated list of the top Nasdaq-100 stocks by market cap,
+    fetched live via yfinance market caps.
+    Returns normalized weights.
+    """
+    import yfinance as yf
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+    import time
+
+    # Top Nasdaq-100 stocks by known market cap (approximate, as of early 2026)
+    # Covers ~98% of QQQ index weight — corrected tickers after various mergers/acquisitions
+    NASDAQ100_TOP: list[str] = [
+        "AAPL", "MSFT", "NVDA", "AMZN", "GOOGL", "GOOG", "META", "TSLA",
+        "AVGO", "ADBE", "CSCO", "PEP", "COST", "AMGN", "QCOM", "TXN",
+        "MU", "NFLX", "AMD", "INTC", "HON", "INTU", "AMAT", "LRCX",
+        "KLAC", "ADP", "MDLZ", "REGN", "VRTX", "BKNG", "GILD", "ADI",
+        "MELI", "PANW", "ORLY", "CDNS", "SNPS", "MRVL", "NXPI", "FTNT",
+        "CTAS", "FAST", "CPRT", "CSGP", "PAYX", "DDOG", "TEAM", "SIRI",
+        "ZM", "ROST", "KDP", "EXC", "PCAR", "KHC", "BIIB", "MNST",
+        "IDXX", "MRNA", "VRSK", "SWKS", "ON", "HPQ", "KEYS", "TTWO",
+        "CDW", "NTAP", "VRSN", "WDAY", "OKTA", "CRWD", "NET", "ZI",
+        "FANG", "LBTYK", "LULU", "DOCU", "SMAR", "EPAM", "FSLR", "HAS",
+        "XEL", "WYNN", "JBHT", "EXPE", "TTD", "GEN", "GEHC", "VTRS",
+        "DASH", "WBD", "MTCH", "MCHP", "TSCO", "GFS", "DLTR", "WRO",
+        "BKR", "NXGN", "PTC", "SNOW", "DT", "ZS", "CRWD", "NET",
+    ]
+
+    print("  Fetching Nasdaq-100 market caps from yfinance...")
+    market_caps: dict[str, float] = {}
+
+    def fetch_mc(ticker: str) -> tuple[str, float | None]:
+        try:
+            info = yf.Ticker(ticker).info
+            mc = info.get("marketCap")
+            if mc and mc > 0:
+                return (ticker, float(mc))
+            return (ticker, None)
+        except Exception:
+            return (ticker, None)
+
+    batch_size = 20
+    for i in range(0, len(NASDAQ100_TOP), batch_size):
+        batch = NASDAQ100_TOP[i:i + batch_size]
+        with ThreadPoolExecutor(max_workers=10) as executor:
+            futures = {executor.submit(fetch_mc, t): t for t in batch}
+            for future in as_completed(futures):
+                ticker, mc = future.result()
+                if mc:
+                    market_caps[ticker] = mc
+        time.sleep(0.3)
+
+    if not market_caps:
+        # Fallback: use equal weights
+        return {t: 1.0 / len(NASDAQ100_TOP) for t in NASDAQ100_TOP}
+
+    total_mc = sum(market_caps.values())
+    weights = {t: mc / total_mc for t, mc in market_caps.items()}
+    return weights
+
+
 def main() -> int:
     """Main entry point."""
     parser = create_parser()
@@ -706,6 +1001,8 @@ def main() -> int:
             return cmd_status_pure(args, config)
         elif args.command == "rebalance-pure":
             return cmd_rebalance_pure(args, config)
+        elif args.command == "paper-trade":
+            return cmd_paper_trade(args, config)
         else:
             parser.print_help()
             return 0

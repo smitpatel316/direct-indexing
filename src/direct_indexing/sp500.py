@@ -17,12 +17,16 @@ from __future__ import annotations
 
 import csv
 import json
+import time
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass, field
 from datetime import date, datetime
 from io import StringIO
 from pathlib import Path
 from typing import Optional
+
+import yfinance as yf
 
 # ---------------------------------------------------------------------------
 # Data structures
@@ -155,7 +159,7 @@ class SP500Data:
         """Load S&P 500 data from cache or GitHub."""
         self._load_sectors(force_refresh)
         self._load_composition(force_refresh)
-        self._load_weights()
+        self._load_weights(force_refresh)
 
     def _load_sectors(self, force_refresh: bool = False) -> None:
         """Load GICS sector/sub-industry mapping."""
@@ -238,13 +242,104 @@ class SP500Data:
         except Exception as e:
             print(f"Warning: failed to fetch composition: {e}")
 
-    def _load_weights(self) -> None:
-        """Load cap weights from our static top-50 + fill rest with equal weight."""
-        # Use top-50 weights
+    def _load_weights(self, force_refresh: bool = False) -> None:
+        """Load cap weights by fetching live market cap data from yfinance.
+
+        Uses a cache (weights.json) that refreshes automatically if stale.
+        Falls back to top-50 static weights if network fetch fails.
+        """
+        weights_cache = self.cache_dir / "weights.json"
+        stale_hours = 1
+
+        # Check cache
+        if not force_refresh and weights_cache.exists():
+            try:
+                age_hours = (datetime.now() - datetime.fromtimestamp(weights_cache.stat().st_mtime)).total_seconds() / 3600
+                if age_hours < stale_hours:
+                    with open(weights_cache) as f:
+                        raw = json.load(f)
+                    if raw.get("weights") and raw.get("total_market_cap", 0) > 0:
+                        self._weights = raw["weights"]
+                        print(f"Loaded {len(self._weights)} cap weights from cache (age: {age_hours:.1f}h)")
+                        return
+            except Exception:
+                pass
+
+        print("Fetching live S&P 500 market cap data from yfinance...")
+        all_tickers = list(self._sectors.keys())
+        if not all_tickers:
+            print("Warning: no tickers loaded, using fallback static weights")
+            self._fallback_weights()
+            return
+
+        # Fetch market caps in batches using ThreadPoolExecutor
+        market_caps: dict[str, float] = {}
+        batch_size = 50
+        failed: list[str] = []
+
+        def fetch_ticker_market_cap(ticker: str) -> tuple[str, float | None]:
+            try:
+                ticker_obj = yf.Ticker(ticker)
+                info = ticker_obj.info
+                mc = info.get("marketCap")
+                if mc and mc > 0:
+                    return (ticker, float(mc))
+                # Fallback: shares * price
+                shares = info.get("sharesOutstanding") or info.get("floatShares")
+                hist = ticker_obj.history(period="5d", auto_adjust=True)
+                if shares and not hist.empty:
+                    price = hist["Close"].iloc[-1]
+                    return (ticker, float(shares) * float(price))
+                return (ticker, None)
+            except Exception:
+                return (ticker, None)
+
+        for i in range(0, len(all_tickers), batch_size):
+            batch = all_tickers[i:i + batch_size]
+            with ThreadPoolExecutor(max_workers=10) as executor:
+                futures = {executor.submit(fetch_ticker_market_cap, t): t for t in batch}
+                for future in as_completed(futures):
+                    ticker, mc = future.result()
+                    if mc and mc > 0:
+                        market_caps[ticker] = mc
+                    else:
+                        failed.append(ticker)
+            time.sleep(0.5)  # Rate limit protection
+
+        if failed:
+            print(f"  Warning: {len(failed)} tickers without market cap data")
+
+        total_mc = sum(market_caps.values())
+        if total_mc == 0:
+            print("Warning: failed to fetch market caps, using fallback static weights")
+            self._fallback_weights()
+            return
+
+        # Compute weights
+        self._weights = {t: mc / total_mc for t, mc in market_caps.items()}
+
+        # Cache
+        try:
+            weights_cache.parent.mkdir(parents=True, exist_ok=True)
+            with open(weights_cache, "w") as f:
+                json.dump({
+                    "weights": self._weights,
+                    "total_market_cap": total_mc,
+                    "fetched_at": datetime.now().isoformat(),
+                }, f)
+        except Exception:
+            pass
+
+        total_weight = sum(self._weights.values())
+        print(f"Loaded {len(self._weights)} cap weights (total: {total_weight:.4f})")
+        top10 = sorted(self._weights.items(), key=lambda x: x[1], reverse=True)[:10]
+        for t, w in top10:
+            print(f"  {t}: {w*100:.2f}%")
+
+    def _fallback_weights(self) -> None:
+        """Use static top-50 weights as fallback when network unavailable."""
         for ticker, info in CURRENT_TOP_CONSTITUENTS.items():
             self._weights[ticker] = info["weight"]
-
-        # Remaining constituents get equal weight (we don't have their individual weights)
         all_tickers = set(self._sectors.keys()) | set(CURRENT_TOP_CONSTITUENTS.keys())
         known_weight = sum(self._weights.values())
         num_unknown = len(all_tickers) - len(self._weights)

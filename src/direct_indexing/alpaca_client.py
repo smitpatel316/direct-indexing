@@ -27,7 +27,7 @@ from alpaca.trading.models import Clock as AlpacaClock
 from alpaca.trading.models import Order as AlpacaOrder
 from alpaca.trading.models import Position as AlpacaPosition
 from alpaca.trading.models import TradeAccount as AlpacaAccount
-from alpaca.trading.requests import GetOrdersRequest, MarketOrderRequest
+from alpaca.trading.requests import GetOrdersRequest, LimitOrderRequest, MarketOrderRequest
 
 
 class OrderSide(Enum):
@@ -232,19 +232,35 @@ class AlpacaClient:
         stop_price: float | None = None,
         extended_hours: bool = False,
     ) -> Order:
-        """Submit a trading order."""
+        """Submit a trading order (market or limit)."""
         side_str = side.value if isinstance(side, OrderSide) else side
+        order_type_str = order_type.value if isinstance(order_type, OrderType) else order_type
 
-        if qty is not None:
-            order_data: Any = MarketOrderRequest(
+        if qty is None:
+            raise ValueError("qty is required")
+
+        side_enum = AlpacaOrderSide.BUY if side_str == "buy" else AlpacaOrderSide.SELL
+
+        if order_type_str == "limit" and limit_price is not None:
+            order_data = LimitOrderRequest(
                 symbol=symbol,
                 qty=qty,
-                side=AlpacaOrderSide.BUY if side_str == "buy" else AlpacaOrderSide.SELL,
+                side=side_enum,
+                limit_price=limit_price,
                 time_in_force=AlpacaTimeInForce.DAY,
                 extended_hours=extended_hours,
             )
+        elif order_type_str == "limit" and limit_price is None:
+            raise ValueError("limit_price is required for limit orders")
         else:
-            raise ValueError("qty is required for market orders")
+            # Default to market order
+            order_data = MarketOrderRequest(
+                symbol=symbol,
+                qty=qty,
+                side=side_enum,
+                time_in_force=AlpacaTimeInForce.DAY,
+                extended_hours=extended_hours,
+            )
 
         raw: AlpacaOrder = self._trading.submit_order(order_data=order_data)
         return self._map_order(raw)
@@ -336,10 +352,20 @@ class AlpacaClient:
 
     def get_latest_price(self, symbol: str) -> float | None:
         """Get the latest trade price for a symbol."""
-        bars = self.get_bars(symbol, timeframe="1Min", limit=1)
+        normalized = self._normalize_symbol(symbol)
+        bars = self.get_bars(normalized, timeframe="1Min", limit=1)
         if not bars:
             return None
         return float(bars[0]["close"])
+
+    def _normalize_symbol(self, symbol: str) -> str:
+        """Normalize ticker format: Alpaca uses dots, data files may use dashes.
+
+        E.g. BRK-B -> BRK.B, BF-B -> BF.B
+        """
+        # Common class B/share ticker suffix normalizations
+        dash_to_dot = {"BRK-B": "BRK.B", "BF-B": "BF.B", "BRK.A": "BRK.A", "BF.A": "BF.A"}
+        return dash_to_dot.get(symbol, symbol)
 
     def is_market_open(self) -> bool:
         """Check if market is currently open."""

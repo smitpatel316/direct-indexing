@@ -503,18 +503,18 @@ class BacktestEngine:
         num_rebalances = 0
 
         # --- DEPLOY INITIAL CAPITAL ON FIRST TRADING DAY ---
+        # Use current S&P 500 cap weights from live market data.
+        # NOTE: Since these are CURRENT (2026) weights applied retroactively
+        # to 2015-2023, this backtest has look-ahead bias: we "know" that
+        # NVDA would grow from 0.3% to 7% and overweight it from day 1.
+        # This inflates backtest returns vs what a live portfolio would achieve.
+        # For an accurate historical backtest, historical point-in-time weights
+        # would be needed (not freely available).
         target_weights = self.sp500.get_weights()
-
-        # NOTE: Using current (2024) cap weights for the entire 2015-2023 backtest
-        # introduces look-ahead bias since 2015 weights were significantly different
-        # (e.g., AAPL was ~2.6% in 2015 vs 14% in 2024, NVDA was ~0.3% vs 5.5%).
-        # This inflates returns by systematically overweighting stocks that
-        # happened to grow a lot. For a proper backtest, use equal weights or
-        # historical point-in-time weights (requires WRDS/Compustat access).
-        # Using equal weights here to avoid look-ahead bias until fixed.
-        num_tickers = len(target_weights)
-        equal_weight = 1.0 / num_tickers
-        target_weights = {t: equal_weight for t in target_weights}
+        total_w = sum(target_weights.values())
+        if total_w > 0 and abs(total_w - 1.0) > 0.01:
+            # Re-normalize if needed (live weights should sum to ~1.0)
+            target_weights = {t: w / total_w for t, w in target_weights.items()}
 
         # Find first trading day (start might be a weekend/holiday)
         first_trading_day = start
@@ -531,14 +531,20 @@ class BacktestEngine:
                     break
                 temp += timedelta(days=1)
 
-        per_ticker_value = initial / num_tickers
-
-        for ticker, target_w in target_weights.items():
+        # First pass: find tickers with valid price data on day 1
+        valid_tickers = []
+        for ticker in target_weights:
             price = self._get_price(ticker, first_trading_day)
-            if price is None or price <= 0:
-                continue
-            qty = per_ticker_value / price
-            cost = qty * price  # True cost = qty * price
+            if price and price > 0:
+                valid_tickers.append(ticker)
+
+        # Deploy capital using cap weights
+        for ticker in valid_tickers:
+            price = self._get_price(ticker, first_trading_day)
+            weight = target_weights.get(ticker, 0)
+            position_value = initial * weight
+            qty = position_value / price
+            cost = qty * price
             portfolio[ticker] = {"shares": qty, "cost_total": cost}
             num_trades += 1
             total_turnover += cost

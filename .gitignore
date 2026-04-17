@@ -35,6 +35,8 @@ Thumbs.db
 *.log
 logs/
 
-# Data files (backtest cache — can be rebuilt)
-data/
-!data/.gitkeep
+# Backtest price cache (rebuildable with `di backtest`)
+data/backtest/
+
+# Live trading state (SQLite databases written by manage_portfolio.py)
+state/
