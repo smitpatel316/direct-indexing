@@ -55,9 +55,9 @@ class TestTLHConfig:
         assert cfg.wash_sale_window_days == 31  # 31 days for direct indexing
         assert cfg.wash_sale_enabled is True
 
-    def test_no_swap_etfs(self):
+    def test_swap_etfs_default(self):
         cfg = TLHConfig()
-        assert not hasattr(cfg, 'swap_etfs')  # No ETF wrapper pattern
+        assert cfg.swap_etfs is None  # No ETF wrapper by default
 
     def test_optimizer_settings(self):
         cfg = TLHConfig()
