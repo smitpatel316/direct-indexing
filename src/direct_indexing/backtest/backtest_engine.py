@@ -655,8 +655,10 @@ class BacktestEngine:
                 proceeds = (price - slippage) * qty
                 total_cash += proceeds
                 portfolio[ticker]["shares"] -= qty
-                # Adjust cost basis proportionally
-                portfolio[ticker]["cost_total"] -= qty * (price - slippage)
+                # Reduce cost basis by the proportional share of original cost
+                # (slippage is a transaction cost, not part of cost basis)
+                avg_cost = portfolio[ticker]["cost_total"] / (portfolio[ticker]["shares"] + qty)
+                portfolio[ticker]["cost_total"] -= qty * avg_cost
                 num_trades += 1
                 turnover += abs(proceeds)
                 sells_executed.append(ticker)
